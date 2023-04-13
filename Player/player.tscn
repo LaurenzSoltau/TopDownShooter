@@ -87,9 +87,9 @@ position = Vector2(15, -136)
 sprite_frames = SubResource("SpriteFrames_e7gas")
 animation = &"idle"
 
+[node name="Weapon" parent="." instance=ExtResource("16_yl0ut")]
+position = Vector2(-260, -104)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 280)
 shape = SubResource("CapsuleShape2D_331yy")
-
-[node name="Weapon" parent="." instance=ExtResource("16_yl0ut")]
-position = Vector2(-260, -104)

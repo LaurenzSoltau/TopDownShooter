@@ -23,8 +23,9 @@ func _process(delta):
 		velocity = velocity.normalized() * speed
 		
 	position += velocity * delta
-	position.x = clamp(position.x, 0, screen_size.x)
-	position.y = clamp(position.y, 0, screen_size.y)
+	position.x = clamp(position.x, -0.5*screen_size.x, 0.5*screen_size.x)
+	position.y = clamp(position.y, -0.5*screen_size.x, 0.5*screen_size.x)
+	
 	
 	if velocity.x != 0 or velocity.y != 0:
 		$AnimatedSprite2D.animation = "walk"

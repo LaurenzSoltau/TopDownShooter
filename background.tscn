@@ -1,11 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://bq6xt5lm5855a"]
 
 [ext_resource type="Texture2D" uid="uid://chr2pvds03i7n" path="res://Free 2D Animated Vector Game Character Sprites/Environment/ground2_white.png" id="1_um6nl"]
-[ext_resource type="PackedScene" uid="uid://bivisd77ga1de" path="res://camera.tscn" id="2_4auw5"]
+[ext_resource type="PackedScene" uid="uid://bfoox0sajxm5t" path="res://Player/player.tscn" id="2_nosc4"]
 
 [node name="Map" type="Sprite2D"]
-position = Vector2(957, 541)
+position = Vector2(1403, 857)
 scale = Vector2(1.37738, 0.841103)
 texture = ExtResource("1_um6nl")
 
-[node name="Camera" parent="." instance=ExtResource("2_4auw5")]
+[node name="Player" parent="." instance=ExtResource("2_nosc4")]
+position = Vector2(0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-0.000244141, 71.3347)

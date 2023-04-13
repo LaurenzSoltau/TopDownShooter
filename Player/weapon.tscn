@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://dj7tlvhg2nkmn"]
+
+[ext_resource type="Texture2D" uid="uid://cacywlf8m2nap" path="res://Free 2D Animated Vector Game Character Sprites/Weapons/weaponR2.png" id="1_hh6uv"]
+[ext_resource type="Script" path="res://Player/weapon.gd" id="2_1mfnj"]
+[ext_resource type="Texture2D" uid="uid://dgqiybd0txcto" path="res://Free 2D Animated Vector Game Character Sprites/Extras/muzzle.png" id="3_tmphi"]
+
+[sub_resource type="Animation" id="Animation_b6x46"]
+resource_name = "muzzle_flash"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MuzzleFlash:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MuzzleFlash:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.3, 0.3), Vector2(0.45, 0.25)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_du83a"]
+_data = {
+"muzzle_flash": SubResource("Animation_b6x46")
+}
+
+[node name="Weapon" type="Sprite2D"]
+position = Vector2(314, 124)
+rotation = 1.5708
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_hh6uv")
+offset = Vector2(-60, -440)
+script = ExtResource("2_1mfnj")
+
+[node name="GunPoint" type="Node2D" parent="."]
+position = Vector2(460, -33.3333)
+
+[node name="MuzzleFlash" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(722.5, -50.0027)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_tmphi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_du83a")
+}

@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1hv2p7bhuxn7"]
+
+[ext_resource type="Script" path="res://Player/bullet.gd" id="1_2j16j"]
+[ext_resource type="Texture2D" uid="uid://btcc7y47k1rw4" path="res://Free 2D Animated Vector Game Character Sprites/Extras/bullet.png" id="1_6kdtg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m1n0o"]
+radius = 25.02
+
+[node name="Bullet" type="RigidBody2D"]
+gravity_scale = 2.66454e-15
+max_contacts_reported = 1
+contact_monitor = true
+script = ExtResource("1_2j16j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_6kdtg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_m1n0o")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

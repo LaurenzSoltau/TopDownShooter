@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq6xt5lm5855a"]
+
+[ext_resource type="Texture2D" uid="uid://chr2pvds03i7n" path="res://Free 2D Animated Vector Game Character Sprites/Environment/ground2_white.png" id="1_um6nl"]
+[ext_resource type="PackedScene" uid="uid://bivisd77ga1de" path="res://camera.tscn" id="2_4auw5"]
+
+[node name="Map" type="Sprite2D"]
+position = Vector2(957, 541)
+scale = Vector2(1.37738, 0.841103)
+texture = ExtResource("1_um6nl")
+
+[node name="Camera" parent="." instance=ExtResource("2_4auw5")]

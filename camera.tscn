@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://bivisd77ga1de"]
+
+[ext_resource type="PackedScene" uid="uid://bfoox0sajxm5t" path="res://Player/player.tscn" id="1_dumm3"]
+
+[node name="Camera" type="Node"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(963, 538)
+scale = Vector2(0.25, 0.252558)
+limit_left = -200
+limit_top = -200
+limit_right = 200
+limit_bottom = 200
+editor_draw_limits = true
+
+[node name="Player" parent="." instance=ExtResource("1_dumm3")]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")

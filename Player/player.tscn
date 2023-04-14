@@ -1,6 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://bfoox0sajxm5t"]
+[gd_scene load_steps=19 format=3 uid="uid://dnjwmq220s2xy"]
 
-[ext_resource type="Script" path="res://Area2D.gd" id="1_x23ll"]
+[ext_resource type="Script" path="res://Player/player.gd" id="1_yg7la"]
 [ext_resource type="Texture2D" uid="uid://dtk1f0itkc3vx" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_0.png" id="2_v608w"]
 [ext_resource type="Texture2D" uid="uid://caft23ycpljix" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_1.png" id="3_1dgq0"]
 [ext_resource type="Texture2D" uid="uid://bkku55o06yenc" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_2.png" id="4_d182y"]
@@ -76,20 +76,22 @@ animations = [{
 radius = 226.0
 height = 664.0
 
-[node name="Player" type="Area2D"]
+[node name="Player" type="CharacterBody2D"]
 position = Vector2(963, 538)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.1, 0.1)
+collision_layer = 2
 collision_mask = 0
-script = ExtResource("1_x23ll")
+script = ExtResource("1_yg7la")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(15, -136)
 sprite_frames = SubResource("SpriteFrames_e7gas")
 animation = &"idle"
 
+[node name="Weapon" parent="." instance=ExtResource("16_yl0ut")]
+position = Vector2(-260, -104)
+scale = Vector2(0.55, 0.55)
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 280)
 shape = SubResource("CapsuleShape2D_331yy")
-
-[node name="Weapon" parent="." instance=ExtResource("16_yl0ut")]
-position = Vector2(-260, -104)

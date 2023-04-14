@@ -18,9 +18,9 @@ func _process(delta):
 	var angle = global_position.angle_to_point(get_global_mouse_position())
 	# flip the gun when necessery 
 	if abs(angle) > PI / 2:
-		scale.y = -0.4
+		scale.y = -0.55
 	else:
-		scale.y = 0.4
+		scale.y = 0.55
 	
 	if Input.is_action_pressed("fire") and can_fire:
 		var bullet_instance = bullet.instantiate()

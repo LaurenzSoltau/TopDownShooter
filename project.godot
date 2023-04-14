@@ -11,15 +11,14 @@ config_version=5
 [application]
 
 config/name="Top Down Shooter"
-run/main_scene="res://Player/player.tscn"
+run/main_scene="res://background.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-window/size/mode=3
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 
 [dotnet]

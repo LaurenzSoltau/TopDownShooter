@@ -39,19 +39,19 @@ _data = {
 }
 
 [node name="Weapon" type="Sprite2D"]
-position = Vector2(314, 124)
-rotation = 1.5708
+position = Vector2(1.57788, 28.6699)
+rotation = 0.0226893
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_hh6uv")
-offset = Vector2(-60, -440)
+offset = Vector2(-71.6746, -436.055)
 script = ExtResource("2_1mfnj")
 
 [node name="GunPoint" type="Node2D" parent="."]
-position = Vector2(460, -33.3333)
+position = Vector2(503.325, -31.0571)
 
 [node name="MuzzleFlash" type="Sprite2D" parent="."]
 visible = false
-position = Vector2(722.5, -50.0027)
+position = Vector2(750, -60.0027)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_tmphi")
 
@@ -59,3 +59,8 @@ texture = ExtResource("3_tmphi")
 libraries = {
 "": SubResource("AnimationLibrary_du83a")
 }
+
+[node name="ShootTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

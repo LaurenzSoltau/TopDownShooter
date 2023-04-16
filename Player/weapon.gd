@@ -1,35 +1,51 @@
 extends Sprite2D
 
-var bullet_speed = 800
+var bullet_speed = 2500
 var fire_rate = 0.5
 
 var can_fire = true
+var angle = rotation
 
 var bullet = preload("res://Player/bullet.tscn")
 @onready var muzzleFlashAnim = $AnimationPlayer
+var nearest_enemy
+@onready var shooTimer = $ShootTimer
 
 
 func _process(delta):
 	# gun points at cursor
-	look_at(get_global_mouse_position())
-	
+	if find_nearest_enemy():
+		var enemy_position= find_nearest_enemy()
+		look_at(enemy_position)
+		angle = global_position.angle_to_point(enemy_position)
+
 	# calculate the angle in which the gun is aiming at the cursor
-	rotation = fmod(rotation, 2*PI)
-	var angle = global_position.angle_to_point(get_global_mouse_position())
 	# flip the gun when necessery 
-	if abs(angle) > PI / 2:
+	if abs(angle) > PI  / 2:
 		scale.y = -0.55
 	else:
 		scale.y = 0.55
-	
-	if Input.is_action_pressed("fire") and can_fire:
-		var bullet_instance = bullet.instantiate()
-		bullet_instance.position = $GunPoint.global_position
-		bullet_instance.rotation = rotation
+
+
+func find_nearest_enemy():
+	var enemies = get_tree().get_nodes_in_group("enemy")
+	if enemies.size() < 1:
+		return
+	nearest_enemy = enemies[0]
+	if enemies:
+		for enemy in enemies:
+			var current_distance = global_position.distance_to(nearest_enemy.global_position)
+			var tmp_distance = global_position.distance_to(enemy.global_position)
+			if tmp_distance < current_distance:
+				nearest_enemy = enemy
+	return nearest_enemy.global_position
+
+
+func _on_shoot_timer_timeout():
+	var bullet_instance = bullet.instantiate()
+	bullet_instance.position = $GunPoint.global_position
+	bullet_instance.rotation = $GunPoint.global_rotation
 		
-		bullet_instance.apply_impulse(Vector2(bullet_speed, 0).rotated(rotation))
-		muzzleFlashAnim.play("muzzle_flash")
-		get_tree().get_root().add_child(bullet_instance)
-		can_fire = false
-		await get_tree().create_timer(fire_rate).timeout
-		can_fire = true
+	bullet_instance.apply_impulse(Vector2(bullet_speed, 0).rotated($GunPoint.global_rotation))
+	muzzleFlashAnim.play("muzzle_flash")
+	get_tree().get_root().add_child(bullet_instance)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bivisd77ga1de"]
 
-[ext_resource type="PackedScene" uid="uid://bfoox0sajxm5t" path="res://Player/player.tscn" id="1_dumm3"]
+[ext_resource type="PackedScene" uid="uid://dnjwmq220s2xy" path="res://Player/player.tscn" id="1_dumm3"]
 
 [node name="Camera" type="Node"]
 

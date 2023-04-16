@@ -28,6 +28,8 @@ func _process(delta):
 
 
 func find_nearest_enemy():
+	if get_tree().get_nodes_in_group("enemy").size() <= 0:
+		return
 	var enemies = get_tree().get_nodes_in_group("enemy")
 	if enemies.size() < 1:
 		return
@@ -42,10 +44,11 @@ func find_nearest_enemy():
 
 
 func _on_shoot_timer_timeout():
-	var bullet_instance = bullet.instantiate()
-	bullet_instance.position = $GunPoint.global_position
-	bullet_instance.rotation = $GunPoint.global_rotation
-		
-	bullet_instance.apply_impulse(Vector2(bullet_speed, 0).rotated($GunPoint.global_rotation))
-	muzzleFlashAnim.play("muzzle_flash")
-	get_tree().get_root().add_child(bullet_instance)
+	if get_tree().get_nodes_in_group("enemy").size() > 0:	
+		var bullet_instance = bullet.instantiate()
+		bullet_instance.position = $GunPoint.global_position
+		bullet_instance.rotation = $GunPoint.global_rotation
+		bullet_instance.add_to_group("bullet")
+		bullet_instance.apply_impulse(Vector2(bullet_speed, 0).rotated($GunPoint.global_rotation))
+		muzzleFlashAnim.play("muzzle_flash")
+		get_tree().get_root().add_child(bullet_instance)

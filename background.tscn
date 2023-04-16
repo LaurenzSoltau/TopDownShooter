@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bq6xt5lm5855a"]
+[gd_scene load_steps=8 format=3 uid="uid://bq6xt5lm5855a"]
 
 [ext_resource type="Texture2D" uid="uid://chr2pvds03i7n" path="res://Free 2D Animated Vector Game Character Sprites/Environment/ground2_white.png" id="1_um6nl"]
 [ext_resource type="PackedScene" uid="uid://dnjwmq220s2xy" path="res://Player/player.tscn" id="2_nosc4"]
 [ext_resource type="Script" path="res://background.gd" id="2_uxgvh"]
 [ext_resource type="PackedScene" uid="uid://bedban4nft2xg" path="res://Enemy.tscn" id="3_vdeai"]
+[ext_resource type="PackedScene" uid="uid://bsjvy0e3o7yhr" path="res://hud.tscn" id="4_ah631"]
+[ext_resource type="PackedScene" uid="uid://dho6eh0moo77u" path="res://wave_spawner.tscn" id="5_40bj7"]
 
 [sub_resource type="Curve2D" id="Curve2D_tnm5r"]
 _data = {
@@ -18,8 +20,13 @@ texture = ExtResource("1_um6nl")
 script = ExtResource("2_uxgvh")
 mob_scene = ExtResource("3_vdeai")
 
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="HUD" parent="." instance=ExtResource("4_ah631")]
+
 [node name="Player" parent="." instance=ExtResource("2_nosc4")]
-position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(0.15, 0.15)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -32,7 +39,8 @@ curve = SubResource("Curve2D_tnm5r")
 position = Vector2(-1022.96, -1015.33)
 rotation = 0.00116129
 
-[node name="MobTimer" type="Timer" parent="."]
-autostart = true
+[node name="WaveSpawner" parent="." instance=ExtResource("5_40bj7")]
+enemy = ExtResource("3_vdeai")
 
-[connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="start_game" from="HUD" to="." method="new_game"]

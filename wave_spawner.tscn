@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dho6eh0moo77u"]
+
+[ext_resource type="Script" path="res://wave_spawner.gd" id="1_ttcvc"]
+[ext_resource type="Script" path="res://Wave.gd" id="2_ls0lh"]
+
+[node name="WaveSpawner" type="Node2D"]
+script = ExtResource("1_ttcvc")
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="Waves" type="Node" parent="."]
+
+[node name="Wave" type="Node" parent="Waves"]
+script = ExtResource("2_ls0lh")
+second_between_spawns = 2.0
+
+[node name="Wave2" type="Node" parent="Waves"]
+script = ExtResource("2_ls0lh")
+num_enemies = 5
+
+[node name="Wave3" type="Node" parent="Waves"]
+script = ExtResource("2_ls0lh")
+num_enemies = 10
+second_between_spawns = 1.0
+
+[node name="Wave4" type="Node" parent="Waves"]
+script = ExtResource("2_ls0lh")
+num_enemies = 15
+second_between_spawns = 0.8
+
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

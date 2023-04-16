@@ -2,27 +2,30 @@ extends Sprite2D
 
 
 @export var mob_scene: PackedScene
+var starting_position = Vector2.ZERO
 
+var score = 0
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_mob_timer_timeout():
-	var mob = mob_scene.instantiate()
-
-	# Choose a random location on Path2D.
-	var mob_spawn_location = get_node("MobPath/MobSpawnLocation")
-	mob_spawn_location.progress_ratio = randf()
+func game_over():
+	for enemy in get_tree().get_nodes_in_group("enemy"):
+		enemy.queue_free()
+	$WaveSpawner.isSpawning = false
+	$HUD.show_game_over()
 	
-	# Set the mob's direction perpendicular to the path direction.
-	var direction = mob_spawn_location.rotation + PI / 2
-
-	# Set the mob's position to a random location.
-	mob.position = mob_spawn_location.position
-
-	# Spawn the mob by adding it to the Main scene.
-	add_child(mob)
+func new_game():
+	score = 0
+	$HUD.update_score(score)
+	$HUD.show_message("Get Ready")
+	$StartTimer.start()
+	await get_tree().create_timer(2).timeout
+	$Player.start()
 	
+
+
+func _on_start_timer_timeout():
+	$WaveSpawner.isSpawning = true
+	$WaveSpawner.start_next_wave()
+	
+func increase_score(_score):
+	score += _score
+	$HUD.update_score(score)

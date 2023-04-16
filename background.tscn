@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bq6xt5lm5855a"]
+[gd_scene load_steps=3 format=3 uid="uid://bq6xt5lm5855a"]
 
 [ext_resource type="Texture2D" uid="uid://chr2pvds03i7n" path="res://Free 2D Animated Vector Game Character Sprites/Environment/ground2_white.png" id="1_um6nl"]
 [ext_resource type="PackedScene" uid="uid://dnjwmq220s2xy" path="res://Player/player.tscn" id="2_nosc4"]
-[ext_resource type="PackedScene" uid="uid://bedban4nft2xg" path="res://Enemy.tscn" id="3_vdeai"]
 
 [node name="Map" type="Sprite2D"]
 position = Vector2(1403, 857)
@@ -15,6 +14,3 @@ scale = Vector2(0.15, 0.15)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-0.000244141, 71.3347)
-
-[node name="Enemy" parent="." node_paths=PackedStringArray("p") instance=ExtResource("3_vdeai")]
-p = NodePath("../Player")

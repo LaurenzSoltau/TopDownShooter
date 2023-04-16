@@ -77,20 +77,21 @@ radius = 226.0
 height = 664.0
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(963, 538)
+position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(0.1, 0.1)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_yg7la")
 
+[node name="Weapon" parent="." instance=ExtResource("16_yl0ut")]
+position = Vector2(-340, -250)
+scale = Vector2(0.55, 0.55)
+offset = Vector2(-27.7019, -434.175)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(15, -136)
 sprite_frames = SubResource("SpriteFrames_e7gas")
 animation = &"idle"
-
-[node name="Weapon" parent="." instance=ExtResource("16_yl0ut")]
-position = Vector2(-260, -104)
-scale = Vector2(0.55, 0.55)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 280)

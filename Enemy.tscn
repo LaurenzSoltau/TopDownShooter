@@ -48,14 +48,20 @@ height = 615.0
 
 [node name="Enemy" type="CharacterBody2D"]
 scale = Vector2(0.15, 0.15)
+collision_layer = 4
 script = ExtResource("1_sqncy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 345)
+position = Vector2(-2.66663, -124.333)
 sprite_frames = SubResource("SpriteFrames_1poad")
 animation = &"walk"
 offset = Vector2(0, -345)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-7.5, 402.5)
+position = Vector2(-3.5, -1.83325)
 shape = SubResource("CapsuleShape2D_q0t71")
+
+[node name="TargetChange" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="TargetChange" to="." method="_on_target_change_timeout"]

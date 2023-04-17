@@ -22,9 +22,9 @@ func _process(delta):
 	# calculate the angle in which the gun is aiming at the cursor
 	# flip the gun when necessery 
 	if abs(angle) > PI  / 2:
-		scale.y = -0.55
+		scale.y = -0.45
 	else:
-		scale.y = 0.55
+		scale.y = 0.45
 
 
 func find_nearest_enemy():

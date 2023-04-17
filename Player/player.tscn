@@ -78,14 +78,14 @@ height = 664.0
 
 [node name="Player" type="Area2D" groups=["player"]]
 position = Vector2(2.08165e-12, 2.08165e-12)
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.05, 0.05)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_yg7la")
 
 [node name="Weapon" parent="." instance=ExtResource("16_yl0ut")]
 position = Vector2(-340, -250)
-scale = Vector2(0.55, 0.55)
+scale = Vector2(0.45, 0.45)
 offset = Vector2(-27.7019, -434.175)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -96,5 +96,9 @@ animation = &"idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 280)
 shape = SubResource("CapsuleShape2D_331yy")
+
+[node name="Weapon2" parent="." instance=ExtResource("16_yl0ut")]
+position = Vector2(60, -260)
+scale = Vector2(0.45, 0.45)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

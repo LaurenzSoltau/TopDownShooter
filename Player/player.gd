@@ -35,6 +35,8 @@ func _process(delta):
 	direction = direction.normalized()
 	velocity = direction * stats["movement_speed"]
 	position += velocity * delta
+	position.x = clamp(position.x, -990, 990)
+	position.y = clamp(position.y, -990, 920)
 	
 	if velocity.x != 0 or velocity.y != 0:
 		$AnimatedSprite2D.animation = "walk"

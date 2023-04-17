@@ -7,6 +7,7 @@ var current_target
 var enemies
 var damage = 3
 var velocity = Vector2.ZERO
+var is_stunned = false
 
 
 @export var p: Area2D
@@ -23,6 +24,8 @@ func _process(delta):
 		
 	velocity = position.direction_to(current_target) * speed
 	position += velocity * delta
+	position.x = clamp(position.x, -990, 990)
+	position.y = clamp(position.y, -990, 920)
 	
 
 	if velocity.x != 0 or velocity.y != 0:
@@ -38,16 +41,19 @@ func _process(delta):
 	if health <= 0:
 		die()
 
-func got_hit(damage):
-	health -= damage
-	$AnimatedSprite2D.modulate = Color(1, 0, 0)
-	$AnimatedSprite2D.stop()
-	var tmp_speed = speed
-	speed = 0
-	await get_tree().create_timer(0.2).timeout
-	speed = tmp_speed
-	$AnimatedSprite2D.modulate = Color(1, 1, 1)
-	$AnimatedSprite2D.play()
+func got_hit(hit_damage):
+	health -= hit_damage
+	if !is_stunned:
+		is_stunned = true
+		$AnimatedSprite2D.modulate = Color(1, 0, 0)
+		$AnimatedSprite2D.stop()
+		var tmp_speed = speed
+		speed = 0
+		await get_tree().create_timer(0.2).timeout
+		speed = tmp_speed
+		$AnimatedSprite2D.modulate = Color(1, 1, 1)
+		$AnimatedSprite2D.play()
+		is_stunned = false
 	
 func get_target():
 	var i

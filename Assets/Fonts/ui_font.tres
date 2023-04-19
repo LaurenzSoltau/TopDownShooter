@@ -1,0 +1,5 @@
+[gd_resource type="SystemFont" format=3 uid="uid://cvvwox6frpuwc"]
+
+[resource]
+font_names = PackedStringArray("Courier New")
+font_weight = 700

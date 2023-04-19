@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnvin7ql1ttw4"]
+
+[ext_resource type="Script" path="res://UserInterface/retry_button.gd" id="1_aafur"]
+
+[node name="RetryButton" type="Button"]
+size_flags_vertical = 3
+text = "Retry
+"
+script = ExtResource("1_aafur")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

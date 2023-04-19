@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://cdvk0e7c0pkan"]
+
+[ext_resource type="Texture2D" uid="uid://cnuvfwslppf4m" path="res://Assets/background.jpg" id="1_e7j8b"]
+[ext_resource type="Theme" uid="uid://5rw5qeyv36vc" path="res://Assets/ui_theme.tres" id="1_xtl1v"]
+[ext_resource type="PackedScene" uid="uid://bx8wl7pt3hf5n" path="res://UserInterface/change_scene_button.tscn" id="2_4jgn6"]
+[ext_resource type="Script" path="res://Screens/end_screen.gd" id="2_8kobh"]
+[ext_resource type="PackedScene" uid="uid://gmv61iu5sxqd" path="res://UserInterface/quit_button.tscn" id="3_eaxne"]
+[ext_resource type="PackedScene" uid="uid://c3j6mcry46fx4" path="res://UserInterface/title.tscn" id="5_youpg"]
+
+[node name="EndScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xtl1v")
+script = ExtResource("2_8kobh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_e7j8b")
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.5
+offset_top = 14.0
+offset_right = 172.5
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" parent="Menu" instance=ExtResource("2_4jgn6")]
+layout_mode = 2
+text = "Menu
+"
+next_scene_path = "res://Screens/main_menu_screen.tscn"
+
+[node name="QuitButton" parent="Menu" instance=ExtResource("3_eaxne")]
+layout_mode = 2
+
+[node name="Title" parent="." instance=ExtResource("5_youpg")]
+layout_mode = 1
+anchors_preset = 8
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -390.0
+offset_top = -240.0
+offset_right = 390.0
+offset_bottom = -139.0
+grow_vertical = 2
+text = "Congratulations"
+
+[node name="ScoreLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -319.0
+offset_top = -124.0
+offset_right = 319.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 42
+text = "Your final score is %s
+"
+horizontal_alignment = 1
+vertical_alignment = 1

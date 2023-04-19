@@ -1,42 +1,41 @@
-[gd_scene load_steps=19 format=3 uid="uid://dnjwmq220s2xy"]
+[gd_scene load_steps=18 format=3 uid="uid://1j8us5vs6fyp"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_yg7la"]
-[ext_resource type="Texture2D" uid="uid://dtk1f0itkc3vx" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_0.png" id="2_v608w"]
-[ext_resource type="Texture2D" uid="uid://caft23ycpljix" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_1.png" id="3_1dgq0"]
-[ext_resource type="Texture2D" uid="uid://bkku55o06yenc" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_2.png" id="4_d182y"]
-[ext_resource type="Texture2D" uid="uid://bpvgu1i5be2ad" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_3.png" id="5_45d2a"]
-[ext_resource type="Texture2D" uid="uid://cywxk7cqggnr3" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_4.png" id="6_6qnva"]
-[ext_resource type="Texture2D" uid="uid://3420wywxk2h3" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_5.png" id="7_yhuam"]
-[ext_resource type="Texture2D" uid="uid://dblgxiy0unys0" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_0.png" id="8_3w4ed"]
-[ext_resource type="Texture2D" uid="uid://dwtgkyrck6fnu" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_1.png" id="9_gpd6x"]
-[ext_resource type="Texture2D" uid="uid://byo2xukjt81nt" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_2.png" id="10_osl4g"]
-[ext_resource type="Texture2D" uid="uid://cu78gr5b8na02" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_3.png" id="11_2s60h"]
-[ext_resource type="Texture2D" uid="uid://u0jagst3h70f" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_4.png" id="12_8xn70"]
-[ext_resource type="Texture2D" uid="uid://15re6jliodk7" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_5.png" id="13_u32g4"]
-[ext_resource type="Texture2D" uid="uid://fdchpvbam6uv" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_6.png" id="14_x5xl3"]
-[ext_resource type="Texture2D" uid="uid://dvutk8uitbkah" path="res://Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_7.png" id="15_my4jp"]
-[ext_resource type="PackedScene" uid="uid://dj7tlvhg2nkmn" path="res://Player/weapon.tscn" id="16_yl0ut"]
+[ext_resource type="Texture2D" uid="uid://dtk1f0itkc3vx" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_0.png" id="2_4x80c"]
+[ext_resource type="Texture2D" uid="uid://caft23ycpljix" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_1.png" id="3_a5wj6"]
+[ext_resource type="Texture2D" uid="uid://bkku55o06yenc" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_2.png" id="4_sgs8r"]
+[ext_resource type="Texture2D" uid="uid://bpvgu1i5be2ad" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_3.png" id="5_ha6sk"]
+[ext_resource type="Texture2D" uid="uid://cywxk7cqggnr3" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_4.png" id="6_u12dw"]
+[ext_resource type="Texture2D" uid="uid://3420wywxk2h3" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_5.png" id="7_r2tpv"]
+[ext_resource type="Texture2D" uid="uid://dblgxiy0unys0" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_0.png" id="8_ka2ic"]
+[ext_resource type="Texture2D" uid="uid://dwtgkyrck6fnu" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_1.png" id="9_x7u2p"]
+[ext_resource type="Texture2D" uid="uid://byo2xukjt81nt" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_2.png" id="10_mjfst"]
+[ext_resource type="Texture2D" uid="uid://cu78gr5b8na02" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_3.png" id="11_3sjd3"]
+[ext_resource type="Texture2D" uid="uid://u0jagst3h70f" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_4.png" id="12_l2sow"]
+[ext_resource type="Texture2D" uid="uid://15re6jliodk7" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_5.png" id="13_k3cgt"]
+[ext_resource type="Texture2D" uid="uid://fdchpvbam6uv" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_6.png" id="14_r4kh1"]
+[ext_resource type="Texture2D" uid="uid://dvutk8uitbkah" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_7.png" id="15_73stq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e7gas"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_v608w")
+"texture": ExtResource("2_4x80c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_1dgq0")
+"texture": ExtResource("3_a5wj6")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_d182y")
+"texture": ExtResource("4_sgs8r")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_45d2a")
+"texture": ExtResource("5_ha6sk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_6qnva")
+"texture": ExtResource("6_u12dw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_yhuam")
+"texture": ExtResource("7_r2tpv")
 }],
 "loop": true,
 "name": &"idle",
@@ -44,28 +43,28 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_3w4ed")
+"texture": ExtResource("8_ka2ic")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_gpd6x")
+"texture": ExtResource("9_x7u2p")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_osl4g")
+"texture": ExtResource("10_mjfst")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_2s60h")
+"texture": ExtResource("11_3sjd3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_8xn70")
+"texture": ExtResource("12_l2sow")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_u32g4")
+"texture": ExtResource("13_k3cgt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_x5xl3")
+"texture": ExtResource("14_r4kh1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_my4jp")
+"texture": ExtResource("15_73stq")
 }],
 "loop": true,
 "name": &"walk",
@@ -83,11 +82,6 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_yg7la")
 
-[node name="Weapon" parent="." instance=ExtResource("16_yl0ut")]
-position = Vector2(-340, -250)
-scale = Vector2(0.45, 0.45)
-offset = Vector2(-27.7019, -434.175)
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(15, -136)
 sprite_frames = SubResource("SpriteFrames_e7gas")
@@ -97,8 +91,15 @@ animation = &"idle"
 position = Vector2(8, 280)
 shape = SubResource("CapsuleShape2D_331yy")
 
-[node name="Weapon2" parent="." instance=ExtResource("16_yl0ut")]
-position = Vector2(60, -260)
-scale = Vector2(0.45, 0.45)
+[node name="weapons" type="Node2D" parent="."]
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[node name="GunPositions" type="Node" parent="weapons"]
+
+[node name="0" type="Node2D" parent="weapons/GunPositions"]
+position = Vector2(-18, -4)
+
+[node name="1" type="Node2D" parent="weapons/GunPositions"]
+position = Vector2(0, -10)
+
+[node name="2" type="Node2D" parent="weapons/GunPositions"]
+position = Vector2(20, -4)

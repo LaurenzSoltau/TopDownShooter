@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://gmv61iu5sxqd"]
+
+[ext_resource type="Script" path="res://UserInterface/quit_button.gd" id="1_vycxu"]
+
+[node name="QuitButton" type="Button"]
+size_flags_vertical = 3
+text = "Quit Game
+"
+script = ExtResource("1_vycxu")
+
+[connection signal="button_up" from="." to="." method="_on_button_up"]

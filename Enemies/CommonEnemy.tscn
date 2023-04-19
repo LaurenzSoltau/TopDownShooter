@@ -1,0 +1,73 @@
+[gd_scene load_steps=12 format=3 uid="uid://clhuoalnfnlni"]
+
+[ext_resource type="Script" path="res://Enemies/CommonEnemy.gd" id="1_aitjy"]
+[ext_resource type="Texture2D" uid="uid://da1c6bjxksh80" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 1/walk_0.png" id="2_lf4he"]
+[ext_resource type="Texture2D" uid="uid://dg5ok7ykv5uxc" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 1/walk_1.png" id="3_qlm2x"]
+[ext_resource type="Texture2D" uid="uid://c3dvyvxo25ylf" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 1/walk_2.png" id="4_0m7xb"]
+[ext_resource type="Texture2D" uid="uid://bx2adgou0bcub" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 1/walk_3.png" id="5_odubj"]
+[ext_resource type="Texture2D" uid="uid://da6l8863p60bw" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 1/walk_4.png" id="6_qft7i"]
+[ext_resource type="Texture2D" uid="uid://b1pb0gufpw3jl" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 1/walk_5.png" id="7_6m7qh"]
+[ext_resource type="Texture2D" uid="uid://ct7mk6xb32ev6" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 1/walk_6.png" id="8_b2k7j"]
+[ext_resource type="Texture2D" uid="uid://ca2vr2kgt32d7" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 1/walk_7.png" id="9_gi4i1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1poad"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_lf4he")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qlm2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0m7xb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_odubj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qft7i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6m7qh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_b2k7j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_gi4i1")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q0t71"]
+radius = 197.5
+height = 615.0
+
+[node name="CommonEnemy" type="Area2D"]
+scale = Vector2(0.12, 0.12)
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_aitjy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.66663, -124.333)
+sprite_frames = SubResource("SpriteFrames_1poad")
+animation = &"walk"
+offset = Vector2(0, -345)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.5, -1.83325)
+shape = SubResource("CapsuleShape2D_q0t71")
+
+[node name="TargetChange" type="Timer" parent="."]
+autostart = true
+
+[node name="AttackCooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered" flags=18]
+[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]
+[connection signal="timeout" from="TargetChange" to="." method="_on_target_change_timeout" flags=18]

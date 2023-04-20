@@ -16,3 +16,6 @@ visible = false
 
 [node name="ShootTimer" parent="." index="3"]
 wait_time = 0.75
+
+[node name="gunShot" parent="." index="4"]
+volume_db = -25.0

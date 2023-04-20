@@ -36,7 +36,7 @@ func _process(delta):
 
 func stat_changed(stats):
 	if stats["xp"] >= stats["xp_needed"]:
-		var xp_after_level_up = stats["xp"] % stats["xp_needed"]
+		var xp_after_level_up = int(stats["xp"]) % int(stats["xp_needed"])
 		var xp_needed_after_level_up = stats["xp_needed"] * 1.1
 		player_stats.add_stat("level", 1, false)
 		player_stats.set_stat("xp", xp_after_level_up, false)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg3n7b74jw52k"]
+[gd_scene load_steps=6 format=3 uid="uid://chqfw46njk2hp"]
 
-[ext_resource type="PackedScene" uid="uid://crch3mi2i8742" path="res://Waffen/base_range_weapon.tscn" id="1_mqtl8"]
+[ext_resource type="PackedScene" uid="uid://biwluetnyihce" path="res://Waffen/base_range_weapon.tscn" id="1_mqtl8"]
 [ext_resource type="Script" path="res://Waffen/machine_gun_1.gd" id="2_0dw53"]
 [ext_resource type="Texture2D" uid="uid://b1p6iuoqp22fl" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Weapons/weaponR1.png" id="2_u77iu"]
 [ext_resource type="PackedScene" uid="uid://dsty7iw4xtkr" path="res://Waffen/Bullets/bullet.tscn" id="3_jnw3q"]
+[ext_resource type="AudioStream" uid="uid://doao3w5nscune" path="res://Assets/Sound/fireSound/machineGun_sound.wav" id="5_qyh1n"]
 
 [node name="MachineGun1" instance=ExtResource("1_mqtl8")]
 texture = ExtResource("2_u77iu")
@@ -22,3 +23,7 @@ speed_scale = 1.5
 
 [node name="ShootTimer" parent="." index="3"]
 wait_time = 0.2
+
+[node name="gunShot" parent="." index="4"]
+stream = ExtResource("5_qyh1n")
+volume_db = -25.0

@@ -35,15 +35,17 @@ func _process(delta):
 
 
 func stat_changed(stats):
-	print_debug(stats["xp"])
-	if player_stats["xp"] >= player_stats["xp_needed"]:
-		# level up logic
-		pass
+	if stats["xp"] >= stats["xp_needed"]:
+		var xp_after_level_up = stats["xp"] % stats["xp_needed"]
+		var xp_needed_after_level_up = stats["xp_needed"] * 1.1
+		player_stats.add_stat("level", 1, false)
+		player_stats.set_stat("xp", xp_after_level_up, false)
+		player_stats.set_stat("xp_needed", xp_needed_after_level_up, true)
 	
 	
 	
 func got_hit(damage):
-	player_stats.add_stat("health", -damage)
+	player_stats.add_stat("health", -damage, true)
 	$AnimatedSprite2D.modulate = Color(1, 0, 0)
 	await get_tree().create_timer(0.2).timeout
 	$AnimatedSprite2D.modulate = Color(1, 1, 1)

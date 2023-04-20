@@ -3,8 +3,10 @@ extends Control
 @onready var scene_tree: = get_tree()
 @onready var pause_overlay: ColorRect = get_node("PauseOverlay")
 @onready var score_label: Label = get_node("money")
-@onready var hp_label: Label = get_node("hp")
+@onready var hp_label: Label = get_node("hp_bar/hp")
 @onready var hp_bar: ProgressBar = get_node("hp_bar")
+@onready var xp_label: Label = get_node("xp_bar/level")
+@onready var xp_bar: ProgressBar = get_node("xp_bar")
 
 var player_stats: Resource
 
@@ -20,10 +22,16 @@ func _ready():
 
 
 func update_interface(stats):
+	# update money
 	score_label.text = "Money: %s" % stats["money"]
+	# update hp bar
 	hp_label.text = "%s/%s" % [stats["health"], stats["max_health"]]
 	hp_bar.max_value = stats["max_health"]
-	hp_bar.value = stats["health"]
+	update_progress_bar(hp_bar, stats["health"], 0.05)
+	# update xp
+	xp_label.text = "Level %s" % stats["level"]
+	xp_bar.max_value = stats["xp_needed"]
+	update_progress_bar(xp_bar, stats["xp"], 0.5)
 
 
 func _unhandled_input(event):
@@ -36,6 +44,8 @@ func on_pause_mode_change(value):
 	pause_overlay.visible = value
 	return value
 
-
-
+# this functions smoothly changes the value of a progress bar
+func update_progress_bar(progressbar, end, duration):
+	var tween = get_tree().create_tween()
+	tween.tween_property(progressbar, "value", end, duration)
 

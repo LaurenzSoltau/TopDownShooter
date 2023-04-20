@@ -15,6 +15,7 @@ var player_stats:Resource
 func _ready():
 	player_stats = null
 	player_stats = load("res://Assets/Resources/player_stats.tres")
+	player_stats.connect("stat_changed", stat_changed)
 	screen_size = get_viewport_rect().size
 	start()
 	
@@ -33,6 +34,14 @@ func _process(delta):
 		
 
 
+func stat_changed(stats):
+	print_debug(stats["xp"])
+	if player_stats["xp"] >= player_stats["xp_needed"]:
+		# level up logic
+		pass
+	
+	
+	
 func got_hit(damage):
 	player_stats.add_stat("health", -damage)
 	$AnimatedSprite2D.modulate = Color(1, 0, 0)

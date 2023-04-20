@@ -17,7 +17,7 @@ class_name CommonEnemy
 #exp related stats
 @export var level: = 1
 @export var money_worth: = 10
-
+@export var exp_worth: = 10
 
 var is_stunned: = false
 var current_target
@@ -87,6 +87,7 @@ func move_towards_target(_delta):
 
 # handles the freeing, but animation and similar must be implemented for each enemy
 func die():
-	player_stats.add_stat("money", money_worth)
+	player_stats.add_stat("money", money_worth, true)
+	player_stats.add_stat("xp", exp_worth, true)
 	get_node("../WaveSpawner").check_if_enemies_are_in_root_scene()
 	queue_free()

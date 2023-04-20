@@ -35,15 +35,16 @@ func _init():
 
 # sets a stat and excpect the stat name and the new value of the stat
 # also emits signal with dictionary with all stats passed
-func add_stat(stat_name: String, addition):
+func add_stat(stat_name: String, addition, emit_signal: bool):
 	stats[stat_name] += addition
-	print_debug(stats[stat_name])
-	emit_signal("stat_changed", stats)
+	if emit_signal:
+		emit_signal("stat_changed", stats)
 	
 
-func set_stat(stat_name: String, new_value):
+func set_stat(stat_name: String, new_value, emit_signal: bool):
 	stats[stat_name] = new_value
-	emit_signal("stat_changed", stats)
+	if emit_signal:
+		emit_signal("stat_changed", stats)
 
 
 

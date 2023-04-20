@@ -4,14 +4,26 @@ extends Sprite2D
 class_name base_range_weapon
 
 
+
+
+@export var fire_rate: float
+@export var bullet_damage: float
+@export var bullet_speed: int
+
+
+
+
 @export var bullet: PackedScene
 @onready var shootTimer = $ShootTimer
 @onready var muzzleFlashAnim = $AnimationPlayer
-var nearest_enemy
 
+
+var nearest_enemy
 var can_fire = true
 var angle = rotation
 
+func _ready():
+	shootTimer.wait_time = fire_rate
 # This function should shoot the gun and must be implemented in the inhereted classes
 func fire():
 	pass

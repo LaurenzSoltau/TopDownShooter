@@ -20,7 +20,6 @@ func _ready():
 
 
 func update_interface(stats):
-	print_debug(stats["health"])
 	score_label.text = "Money: %s" % stats["money"]
 	hp_label.text = "%s/%s" % [stats["health"], stats["max_health"]]
 	hp_bar.max_value = stats["max_health"]

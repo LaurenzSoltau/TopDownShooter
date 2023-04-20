@@ -1,8 +1,6 @@
 extends Sprite2D
 
 
-@export var mob_scene: PackedScene
-var starting_position = Vector2.ZERO
 
 
 func _ready():

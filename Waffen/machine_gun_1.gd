@@ -23,4 +23,3 @@ func fire():
 	muzzleFlashAnim.play("muzzle_flash")
 	# add it to the scene tree
 	get_tree().get_root().add_child(bullet_instance)
-	

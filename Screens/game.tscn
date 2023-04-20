@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://chr2pvds03i7n" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Environment/ground2_white.png" id="1_ertmt"]
 [ext_resource type="Script" path="res://Screens/game.gd" id="2_84ier"]
-[ext_resource type="PackedScene" uid="uid://b33twxhxieuyx" path="res://Enemies/Enemy.tscn" id="3_mkwpg"]
 [ext_resource type="PackedScene" uid="uid://l2wgi0o3gaua" path="res://UserInterface/user_interface.tscn" id="4_dj5ru"]
 [ext_resource type="PackedScene" uid="uid://1j8us5vs6fyp" path="res://Player/player.tscn" id="5_84qer"]
-[ext_resource type="PackedScene" path="res://WaveSystem/wave_spawner.tscn" id="6_vblev"]
+[ext_resource type="PackedScene" uid="uid://cp1loy2brc2h0" path="res://WaveSystem/wave_spawner.tscn" id="6_vblev"]
+[ext_resource type="PackedScene" uid="uid://dpat4q3pua4rg" path="res://Enemies/melee_enemy_1.tscn" id="7_eyw0y"]
 
 [sub_resource type="Curve2D" id="Curve2D_tnm5r"]
 _data = {
@@ -18,7 +18,6 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 scale = Vector2(1.37738, 0.841103)
 texture = ExtResource("1_ertmt")
 script = ExtResource("2_84ier")
-mob_scene = ExtResource("3_mkwpg")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 100
@@ -44,4 +43,4 @@ position = Vector2(-1022.96, -1015.33)
 rotation = 0.00116129
 
 [node name="WaveSpawner" parent="." instance=ExtResource("6_vblev")]
-enemy = ExtResource("3_mkwpg")
+enemy = ExtResource("7_eyw0y")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dg3n7b74jw52k"]
+
+[ext_resource type="PackedScene" uid="uid://crch3mi2i8742" path="res://Waffen/base_range_weapon.tscn" id="1_mqtl8"]
+[ext_resource type="Script" path="res://Waffen/machine_gun_1.gd" id="2_0dw53"]
+[ext_resource type="Texture2D" uid="uid://b1p6iuoqp22fl" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Weapons/weaponR1.png" id="2_u77iu"]
+[ext_resource type="PackedScene" uid="uid://dsty7iw4xtkr" path="res://Waffen/Bullets/bullet.tscn" id="3_jnw3q"]
+
+[node name="MachineGun1" instance=ExtResource("1_mqtl8")]
+texture = ExtResource("2_u77iu")
+script = ExtResource("2_0dw53")
+fire_rate = 0.2
+bullet_damage = 0.5
+bullet_speed = 2800
+bullet = ExtResource("3_jnw3q")
+
+[node name="MuzzleFlash" parent="." index="1"]
+visible = false
+position = Vector2(926.667, -53.3334)
+
+[node name="AnimationPlayer" parent="." index="2"]
+speed_scale = 1.5
+
+[node name="ShootTimer" parent="." index="3"]
+wait_time = 0.2

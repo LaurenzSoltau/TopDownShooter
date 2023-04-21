@@ -7,8 +7,10 @@ extends Control
 @onready var hp_bar: ProgressBar = get_node("hp_bar")
 @onready var xp_label: Label = get_node("xp_bar/level")
 @onready var xp_bar: ProgressBar = get_node("xp_bar")
-
+@onready var upgrade_overlay: ColorRect = get_node("Upgrade_Overlay")
+var handle_input = true
 var player_stats: Resource
+
 
 var paused: = false:
 	set(value):
@@ -35,7 +37,7 @@ func update_interface(stats):
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("pause"):
+	if event.is_action_pressed("pause") and handle_input:
 		self.paused = not paused
 		get_viewport().set_input_as_handled()
 
@@ -49,3 +51,15 @@ func update_progress_bar(progressbar, end, duration):
 	var tween = get_tree().create_tween()
 	tween.tween_property(progressbar, "value", end, duration)
 
+
+func _on_player_level_up():
+	handle_input = false
+	upgrade_overlay.new_shop()
+	upgrade_overlay.visible = true
+	scene_tree.paused = true
+
+func upgraded(node: Button):
+	
+	handle_input = true
+	upgrade_overlay.visible = false
+	scene_tree.paused = false

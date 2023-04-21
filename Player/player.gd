@@ -9,6 +9,7 @@ var weapons = []
 
 var player_stats:Resource
 
+signal level_up
 
 
 # Called when the node enters the scene tree for the first time.
@@ -41,6 +42,7 @@ func stat_changed(stats):
 		player_stats.add_stat("level", 1, false)
 		player_stats.set_stat("xp", xp_after_level_up, false)
 		player_stats.set_stat("xp_needed", xp_needed_after_level_up, true)
+		level_up.emit()
 	
 	
 	

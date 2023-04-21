@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://l2wgi0o3gaua"]
+[gd_scene load_steps=13 format=3 uid="uid://l2wgi0o3gaua"]
 
 [ext_resource type="Theme" uid="uid://5rw5qeyv36vc" path="res://Assets/ui_theme.tres" id="1_o3knu"]
 [ext_resource type="Script" path="res://UserInterface/user_interface.gd" id="2_7km0m"]
@@ -7,6 +7,8 @@
 [ext_resource type="SystemFont" uid="uid://cvvwox6frpuwc" path="res://Assets/Fonts/ui_font.tres" id="3_7bm77"]
 [ext_resource type="PackedScene" uid="uid://gmv61iu5sxqd" path="res://UserInterface/quit_button.tscn" id="4_ynyl6"]
 [ext_resource type="PackedScene" uid="uid://cnvin7ql1ttw4" path="res://UserInterface/retry_button.tscn" id="5_vai8e"]
+[ext_resource type="Script" path="res://UserInterface/Upgrade_Overlay.gd" id="8_ixapa"]
+[ext_resource type="PackedScene" uid="uid://ddc16kiryqqj1" path="res://UserInterface/upgrade_button.tscn" id="9_xbo1v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6t34"]
 bg_color = Color(0, 0, 0, 0.478431)
@@ -173,3 +175,198 @@ layout_mode = 2
 
 [node name="RetryButton" parent="PauseOverlay/VBoxContainer" instance=ExtResource("5_vai8e")]
 layout_mode = 2
+
+[node name="Upgrade_Overlay" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.419608)
+script = ExtResource("8_ixapa")
+
+[node name="Upgrade" parent="Upgrade_Overlay" instance=ExtResource("2_buxa4")]
+layout_mode = 1
+offset_left = -238.0
+offset_top = 51.0
+offset_right = 235.0
+offset_bottom = 278.0
+text = "Level Upgrade
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Upgrade_Overlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -468.0
+offset_top = -91.0
+offset_right = 468.0
+offset_bottom = 177.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Upgrade1" type="Panel" parent="Upgrade_Overlay/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UpgradeName" type="Label" parent="Upgrade_Overlay/HBoxContainer/Upgrade1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -112.0
+offset_right = 58.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Test
+"
+
+[node name="desc" type="Label" parent="Upgrade_Overlay/HBoxContainer/Upgrade1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -50.0
+offset_right = 95.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "adds %s to 
+your %s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buy" parent="Upgrade_Overlay/HBoxContainer/Upgrade1" instance=ExtResource("9_xbo1v")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 158.0
+offset_bottom = 63.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Upgrade2" type="Panel" parent="Upgrade_Overlay/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UpgradeName" type="Label" parent="Upgrade_Overlay/HBoxContainer/Upgrade2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -112.0
+offset_right = 58.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Test
+"
+
+[node name="desc" type="Label" parent="Upgrade_Overlay/HBoxContainer/Upgrade2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -50.0
+offset_right = 95.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "adds %s to 
+your %s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buy" parent="Upgrade_Overlay/HBoxContainer/Upgrade2" instance=ExtResource("9_xbo1v")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 158.0
+offset_bottom = 63.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Upgrade3" type="Panel" parent="Upgrade_Overlay/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UpgradeName" type="Label" parent="Upgrade_Overlay/HBoxContainer/Upgrade3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -112.0
+offset_right = 58.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Test
+"
+
+[node name="desc" type="Label" parent="Upgrade_Overlay/HBoxContainer/Upgrade3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -50.0
+offset_right = 95.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+text = "adds %s to 
+your %s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="buy" parent="Upgrade_Overlay/HBoxContainer/Upgrade3" instance=ExtResource("9_xbo1v")]
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 158.0
+offset_bottom = 63.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[connection signal="upgrade_bought" from="Upgrade_Overlay/HBoxContainer/Upgrade1/buy" to="." method="upgraded"]
+[connection signal="upgrade_bought" from="Upgrade_Overlay/HBoxContainer/Upgrade2/buy" to="." method="upgraded"]
+[connection signal="upgrade_bought" from="Upgrade_Overlay/HBoxContainer/Upgrade3/buy" to="." method="upgraded"]

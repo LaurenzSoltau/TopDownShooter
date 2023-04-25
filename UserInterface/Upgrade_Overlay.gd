@@ -10,8 +10,6 @@ func new_shop():
 	assign_upgrades(upgrades)
 
 
-# function, that is getting the amount of upgrades randomly from all upgrades defined
-# in the resource level upgrade
 func get_upgrades(amount: int):
 	var created_upgrades = []
 	for i in amount:
@@ -25,15 +23,12 @@ func get_upgrades(amount: int):
 	return created_upgrades
 
 
-# function that assigns the array of upgrades to the upgrade panels
-# one upgrade each
 func assign_upgrades(upgrades: Array):
 	var counter = 0
 	for container in upgrade_containers:
 		container.get_child(0).text = upgrades[counter]["name"]
-		var description = "adds %s to %s" % [upgrades[counter]["tier_multiplier"], upgrades[counter]["stat"]]
+		var description = container.get_child(1).text % [upgrades[counter]["tier_multiplier"], upgrades[counter]["stat"]]
 		container.get_child(1).text = description
-		container.get_child(2).upgrade_number = counter
 		counter += 1
 
 

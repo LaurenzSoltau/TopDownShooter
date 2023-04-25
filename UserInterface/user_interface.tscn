@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://l2wgi0o3gaua"]
+[gd_scene load_steps=11 format=3 uid="uid://l2wgi0o3gaua"]
 
 [ext_resource type="Theme" uid="uid://5rw5qeyv36vc" path="res://Assets/ui_theme.tres" id="1_o3knu"]
 [ext_resource type="Script" path="res://UserInterface/user_interface.gd" id="2_7km0m"]
@@ -7,6 +7,7 @@
 [ext_resource type="SystemFont" uid="uid://cvvwox6frpuwc" path="res://Assets/Fonts/ui_font.tres" id="3_7bm77"]
 [ext_resource type="PackedScene" uid="uid://gmv61iu5sxqd" path="res://UserInterface/quit_button.tscn" id="4_ynyl6"]
 [ext_resource type="PackedScene" uid="uid://cnvin7ql1ttw4" path="res://UserInterface/retry_button.tscn" id="5_vai8e"]
+[ext_resource type="PackedScene" uid="uid://7rdij6ssvwph" path="res://UserInterface/upgrade_overlay.tscn" id="8_1jo5t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6t34"]
 bg_color = Color(0, 0, 0, 0.478431)
@@ -121,3 +122,11 @@ layout_mode = 2
 
 [node name="RetryButton" parent="PauseOverlay/VBoxContainer" instance=ExtResource("5_vai8e")]
 layout_mode = 2
+
+[node name="Upgrade Overlay" parent="." instance=ExtResource("8_1jo5t")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1

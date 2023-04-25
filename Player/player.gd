@@ -42,6 +42,11 @@ func stat_changed(stats):
 		player_stats.add_stat("level", 1, false)
 		player_stats.set_stat("xp", xp_after_level_up, false)
 		player_stats.set_stat("xp_needed", xp_needed_after_level_up, true)
+		#muss noch geändert werden
+		print_debug("Muss noch verbessert werden nur vorläufiger Code")
+		await get_tree().create_timer(0.5).timeout
+		get_node("../HUD/UserInterface/UpgradeOverlay").new_shop()
+		get_tree().paused = true
 	
 	
 	

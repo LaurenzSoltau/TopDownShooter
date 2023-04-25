@@ -8,7 +8,6 @@ extends Control
 @onready var xp_label: Label = get_node("xp_bar/level")
 @onready var xp_bar: ProgressBar = get_node("xp_bar")
 @onready var level_upgrades = load("res://Assets/Resources/level_upgrades.tres")
-var handle_input = true
 var player_stats: Resource
 
 
@@ -37,7 +36,7 @@ func update_interface(stats):
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("pause") and handle_input:
+	if event.is_action_pressed("pause") and not $UpgradeOverlay.visible:
 		self.paused = not paused
 		get_viewport().set_input_as_handled()
 

@@ -102,6 +102,7 @@ scale = Vector2(0.12, 0.12)
 collision_layer = 4
 collision_mask = 3
 script = ExtResource("1_aitjy")
+exp_worth = 100
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2.66663, -124.333)

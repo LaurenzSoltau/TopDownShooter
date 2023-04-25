@@ -1,8 +1,6 @@
 extends Sprite2D
 
 
-
-
 func _ready():
 	new_game()
 

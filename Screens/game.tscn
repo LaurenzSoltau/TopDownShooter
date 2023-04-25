@@ -23,6 +23,9 @@ script = ExtResource("2_84ier")
 layer = 100
 
 [node name="UserInterface" parent="HUD" instance=ExtResource("4_dj5ru")]
+offset_top = 0.0
+offset_bottom = 0.0
+size_flags_horizontal = 0
 
 [node name="Player" parent="." instance=ExtResource("5_84qer")]
 scale = Vector2(0.12, 0.12)

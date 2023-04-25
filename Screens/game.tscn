@@ -44,5 +44,3 @@ rotation = 0.00116129
 
 [node name="WaveSpawner" parent="." instance=ExtResource("6_vblev")]
 enemy = ExtResource("7_eyw0y")
-
-[connection signal="level_up" from="Player" to="HUD/UserInterface" method="_on_player_level_up"]

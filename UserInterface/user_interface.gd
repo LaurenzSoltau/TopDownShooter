@@ -7,7 +7,7 @@ extends Control
 @onready var hp_bar: ProgressBar = get_node("hp_bar")
 @onready var xp_label: Label = get_node("xp_bar/level")
 @onready var xp_bar: ProgressBar = get_node("xp_bar")
-@onready var upgrade_overlay: ColorRect = get_node("Upgrade_Overlay")
+@onready var level_upgrades = load("res://Assets/Resources/level_upgrades.tres")
 var handle_input = true
 var player_stats: Resource
 
@@ -51,15 +51,3 @@ func update_progress_bar(progressbar, end, duration):
 	var tween = get_tree().create_tween()
 	tween.tween_property(progressbar, "value", end, duration)
 
-
-func _on_player_level_up():
-	handle_input = false
-	upgrade_overlay.new_shop()
-	upgrade_overlay.visible = true
-	scene_tree.paused = true
-
-func upgraded(node: Button):
-	
-	handle_input = true
-	upgrade_overlay.visible = false
-	scene_tree.paused = false

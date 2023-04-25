@@ -10,7 +10,7 @@ func got_hit(pDamage):
 		animated_sprite.modulate = Color(1, 0, 0)
 		animated_sprite.stop()
 		var tmp_speed = movement_speed
-		movement_speed = movement_speed / 2
+		movement_speed = movement_speed / 2.0
 		await get_tree().create_timer(0.1).timeout
 		movement_speed = tmp_speed
 		animated_sprite.modulate = Color(1, 1, 1)

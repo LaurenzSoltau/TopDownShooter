@@ -17,10 +17,12 @@ func fire():
 	bullet_instance.init(bullet_damage)
 	bullet_instance.position = $GunPoint.global_position
 	bullet_instance.rotation = $GunPoint.global_rotation
+	bullet_instance.point_of_origin = bullet_instance.position
 	bullet_instance.add_to_group("bullet")
 	# apply force to it and play the muzzle flash anim
 	bullet_instance.apply_impulse(Vector2(bullet_speed, 0).rotated($GunPoint.global_rotation))
 	muzzleFlashAnim.play("muzzle_flash")
 	# add it to the scene tree
 	get_tree().get_root().add_child(bullet_instance)
+	super.fire()
 	

@@ -2,6 +2,7 @@ extends RigidBody2D
 
 var base_damage: float
 var damage
+var point_of_origin
 
 func init(pBase_damage):
 	base_damage = pBase_damage

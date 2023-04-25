@@ -23,8 +23,12 @@ var is_stunned: = false
 var current_target
 var player_stats
 var player_node
+var last_bullet_vector
+var is_dying
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_cooldown: Timer = get_node("AttackCooldown")
+@onready var deathSound: AudioStreamPlayer2D = get_node("deathSound")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready():
 	player_stats = null
@@ -38,6 +42,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if is_dying:
+		if position.distance_to(current_target) > 5:
+			move_towards_target(delta)
+		return
 	# make sure enemy always has an target
 	if position.distance_to(current_target) < 5:
 		current_target = get_target()
@@ -56,11 +64,13 @@ func _on_area_entered(area):
 func _on_body_entered(body):
 	if body.is_in_group("bullet"):
 		got_hit(body.damage)
+		last_bullet_vector = body.point_of_origin.direction_to(global_position)
 		body.queue_free()
 
 # must be implemented for each enemy
 func got_hit(_pDamage):
 	pass
+	
 
 
 func attack(player):
@@ -87,7 +97,13 @@ func move_towards_target(_delta):
 
 # handles the freeing, but animation and similar must be implemented for each enemy
 func die():
+	current_target = position + last_bullet_vector.normalized() * 70
+	movement_speed = 750
+	is_dying = true
+	deathSound.play()
 	player_stats.add_stat("money", money_worth, true)
 	player_stats.add_stat("xp", exp_worth, true)
 	get_node("../WaveSpawner").check_if_enemies_are_in_root_scene()
-	queue_free()
+	
+	animation_player.assigned_animation = "death"
+	animation_player.play()

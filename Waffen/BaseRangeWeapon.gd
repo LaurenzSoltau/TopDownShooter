@@ -16,7 +16,7 @@ class_name base_range_weapon
 @export var bullet: PackedScene
 @onready var shootTimer = $ShootTimer
 @onready var muzzleFlashAnim = $AnimationPlayer
-
+@onready var gunShotSound = $gunShot
 
 var nearest_enemy
 var can_fire = true
@@ -26,7 +26,7 @@ func _ready():
 	shootTimer.wait_time = fire_rate
 # This function should shoot the gun and must be implemented in the inhereted classes
 func fire():
-	pass
+	gunShotSound.play()
 
 # this function finds the nearest enemy to the weapon and retuns the enemy as an object
 func find_nearest_enemy():

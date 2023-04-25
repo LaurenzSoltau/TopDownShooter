@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://crch3mi2i8742"]
+[gd_scene load_steps=7 format=3 uid="uid://biwluetnyihce"]
 
 [ext_resource type="Texture2D" uid="uid://cacywlf8m2nap" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Weapons/weaponR2.png" id="1_sux81"]
 [ext_resource type="Script" path="res://Waffen/BaseRangeWeapon.gd" id="2_7dul5"]
 [ext_resource type="Texture2D" uid="uid://dgqiybd0txcto" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Extras/muzzle.png" id="3_tjvpj"]
+[ext_resource type="AudioStream" uid="uid://dq0cd121elks0" path="res://Assets/Sound/fireSound/basic_bullet_sound.wav" id="4_ewi1p"]
 
 [sub_resource type="Animation" id="Animation_b6x46"]
 resource_name = "muzzle_flash"
@@ -59,5 +60,9 @@ libraries = {
 
 [node name="ShootTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="gunShot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ewi1p")
+volume_db = -10.0
 
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout" flags=18]

@@ -17,12 +17,16 @@ class_name base_range_weapon
 @onready var shootTimer = $ShootTimer
 @onready var muzzleFlashAnim = $AnimationPlayer
 @onready var gunShotSound = $gunShot
+var player_stats
+
 
 var nearest_enemy
 var can_fire = true
 var angle = rotation
 
 func _ready():
+	player_stats = null
+	player_stats = load("res://Assets/Resources/player_stats.tres")
 	shootTimer.wait_time = fire_rate
 # This function should shoot the gun and must be implemented in the inhereted classes
 func fire():
@@ -56,7 +60,8 @@ func rotate_weapon(enemy):
 		scale.y = -0.45
 	else:
 		scale.y = 0.45
-		
-	
 
-	
+func calculate_damage():
+	# calculating damage by adding bullet damage to range damage and add damage percent
+	var total_damage = (bullet_damage + player_stats.stats["range_damage"]) * 1 +(player_stats.stats["damage_percent"] / 100)
+	return total_damage

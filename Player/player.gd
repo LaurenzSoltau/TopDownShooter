@@ -29,7 +29,6 @@ func _process(delta):
 	
 	handle_movement(delta)
 	# check if player is dead
-	
 	if player_stats.stats["health"] <= 0:
 		die()
 		
@@ -132,3 +131,8 @@ func die():
 	get_tree().change_scene_to_file("res://Screens/end_screen.tscn")
 	stop()
 	get_parent().game_over()
+
+
+func _on_health_timer_timeout():
+	if player_stats.stats["health"] < player_stats.stats["max_health"]:
+		player_stats.add_stat("health", player_stats.stats["health_regen"] / 10, true)

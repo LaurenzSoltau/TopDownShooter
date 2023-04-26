@@ -5,8 +5,8 @@ signal stat_changed
 
 # health related stats
 @export var max_health: int = 10
-@export var health: int = 10
-@export var health_regen: int = 0
+@export var health: float = 10
+@export var health_regen: float = 0
 
 # utility related stats
 @export var attack_range: int = 300

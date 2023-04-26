@@ -37,6 +37,9 @@ func assign_upgrades(upgrades: Array):
 
 func upgrade_bought(index):
 	print(index)
+	var stat = upgrades[index]["stat"]
+	var stat_amount = upgrades[index]["tier"] * upgrades[index]["tier_multiplier"]
+	player_stats.add_stat(upgrades[index]["stat"], stat_amount, true)
 	$AnimationPlayer.current_animation = "SlideOut"
 	$AnimationPlayer.play()
 	get_tree().paused = false

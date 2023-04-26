@@ -14,7 +14,7 @@ func fire():
 		return
 	# instantiate a new Bullet and set its position and rotation.
 	var bullet_instance = bullet.instantiate()
-	bullet_instance.init(bullet_damage)
+	bullet_instance.init(calculate_damage())
 	bullet_instance.position = $GunPoint.global_position
 	bullet_instance.rotation = $GunPoint.global_rotation
 	bullet_instance.point_of_origin = bullet_instance.position

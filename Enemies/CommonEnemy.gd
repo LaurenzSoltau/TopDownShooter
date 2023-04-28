@@ -7,6 +7,8 @@ class_name CommonEnemy
 @export var max_health: int = 10
 @export var health: int = 10
 
+var damage_indicator: PackedScene = preload("res://UserInterface/damage_indicator.tscn")
+
 # utility related stats
 @export var attack_range: int = 300
 @export var movement_speed: int = 250
@@ -68,8 +70,8 @@ func _on_body_entered(body):
 		body.queue_free()
 
 # must be implemented for each enemy
-func got_hit(_pDamage):
-	pass
+func got_hit(pDamage):
+	spawn_damage_indicator(pDamage)
 	
 
 
@@ -102,8 +104,14 @@ func die():
 	is_dying = true
 	deathSound.play()
 	player_stats.add_stat("money", money_worth, true)
-	player_stats.add_stat("xp", exp_worth, true)
 	get_node("../WaveSpawner").check_if_enemies_are_in_root_scene()
 	
 	animation_player.assigned_animation = "death"
 	animation_player.play()
+
+func spawn_damage_indicator(pDamage):
+	var indicator = damage_indicator.instantiate()
+	if indicator:
+		get_tree().current_scene.add_child(indicator)
+		indicator.label.text = str(pDamage)
+		indicator.global_position = global_position

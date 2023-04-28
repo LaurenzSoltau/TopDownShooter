@@ -9,6 +9,7 @@ class_name base_range_weapon
 @export var fire_rate: float
 @export var bullet_damage: float
 @export var bullet_speed: int
+@export var weapon_range: int
 
 
 
@@ -30,6 +31,7 @@ func _ready():
 	shootTimer.wait_time = fire_rate
 # This function should shoot the gun and must be implemented in the inhereted classes
 func fire():
+	#only shoot wehen enemy is in distance
 	gunShotSound.play()
 
 # this function finds the nearest enemy to the weapon and retuns the enemy as an object
@@ -63,5 +65,9 @@ func rotate_weapon(enemy):
 
 func calculate_damage():
 	# calculating damage by adding bullet damage to range damage and add damage percent
-	var total_damage = (bullet_damage + player_stats.stats["range_damage"]) * 1 +(player_stats.stats["damage_percent"] / 100)
+	var total_damage: float = round((bullet_damage + player_stats.stats["range_damage"]) * (1 + player_stats.stats["damage_percent"] / 100.0))
 	return total_damage
+
+func enemy_is_in_range():
+	return global_position.distance_to(nearest_enemy.global_position) <= weapon_range + player_stats.stats["attack_range"]
+		

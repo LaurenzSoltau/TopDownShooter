@@ -1,5 +1,6 @@
 extends CommonEnemy
 
+@export var xp_drop: PackedScene
 
 func got_hit(pDamage):
 	health -= pDamage
@@ -16,6 +17,7 @@ func got_hit(pDamage):
 		animated_sprite.modulate = Color(1, 1, 1)
 		animated_sprite.play()
 		is_stunned = false
+	super.got_hit(pDamage)
 
 
 func move_towards_target(delta):
@@ -46,3 +48,10 @@ func get_target():
 		var screen_size = get_viewport_rect().size
 		target = Vector2(randi_range(50, screen_size.x), randi_range(50, screen_size.y))
 	return target
+
+func die():
+	var xp_instance = xp_drop.instantiate()
+	xp_instance.global_position = position
+	get_tree().current_scene.add_child(xp_instance)
+	super.die()
+	

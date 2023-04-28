@@ -9,7 +9,7 @@ signal stat_changed
 @export var health_regen: float = 0
 
 # utility related stats
-@export var attack_range: int = 300
+@export var attack_range: int = 0
 @export var movement_speed: int = 400
 
 
@@ -20,7 +20,7 @@ signal stat_changed
 
 #exp related stats
 @export var level: int = 1
-@export var xp_needed: float = 100
+@export var xp_needed: float = 20
 @export var xp: float = 0
 
 

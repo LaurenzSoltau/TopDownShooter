@@ -27,5 +27,11 @@ var upgrades = {
 		"tier_multiplier": 2,
 		"tier": 1
 	},
+	4: {
+		"name": "attack range",
+		"stat": "attack_range",
+		"tier_multiplier": 75,
+		"tier": 1
+	}
 	
 }

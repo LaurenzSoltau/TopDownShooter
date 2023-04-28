@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_v5l40")
 max_health = 10
-health = 10
-health_regen = 0
+health = 10.0
+health_regen = 0.0
 attack_range = 300
 movement_speed = 400
 damage_percent = 0

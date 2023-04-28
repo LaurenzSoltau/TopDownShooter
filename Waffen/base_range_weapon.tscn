@@ -44,6 +44,10 @@ scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_sux81")
 offset = Vector2(-71.6746, -436.055)
 script = ExtResource("2_7dul5")
+fire_rate = 0.75
+bullet_damage = 2.0
+bullet_speed = null
+weapon_range = 350
 
 [node name="GunPoint" type="Node2D" parent="."]
 position = Vector2(437.951, -31.6188)

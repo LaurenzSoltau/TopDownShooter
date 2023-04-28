@@ -26,20 +26,19 @@ func get_upgrades(amount: int):
 	return created_upgrades
 
 
-func assign_upgrades(upgrades: Array):
+func assign_upgrades(pUpgrades: Array):
 	var counter = 0
 	for container in upgrade_containers:
 		var vContainer = container.get_child(0).get_child(0)
-		vContainer.get_child(0).text = upgrades[counter]["name"]
-		var description = "Fügt %s zu %s hinzu." % [upgrades[counter]["tier_multiplier"], upgrades[counter]["stat"]]
+		vContainer.get_child(0).text = pUpgrades[counter]["name"]
+		var description = "Fügt %s zu %s hinzu." % [pUpgrades[counter]["tier_multiplier"], pUpgrades[counter]["stat"]]
 		vContainer.get_child(1).text = description
 		counter += 1
 
 func upgrade_bought(index):
-	print(index)
 	var stat = upgrades[index]["stat"]
 	var stat_amount = upgrades[index]["tier"] * upgrades[index]["tier_multiplier"]
-	player_stats.add_stat(upgrades[index]["stat"], stat_amount, true)
+	player_stats.add_stat(stat, stat_amount, true)
 	$AnimationPlayer.current_animation = "SlideOut"
 	$AnimationPlayer.play()
 	get_tree().paused = false

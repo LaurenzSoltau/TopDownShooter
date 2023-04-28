@@ -32,6 +32,8 @@ offset_left = -286.0
 offset_top = 164.0
 offset_right = 286.0
 offset_bottom = 265.0
+text = "Oppermann Unleashed
+"
 
 [node name="Menu" type="VBoxContainer" parent="."]
 layout_mode = 1

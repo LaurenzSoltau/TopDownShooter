@@ -132,13 +132,11 @@ _data = {
 }
 
 [node name="UpgradeOverlay" type="ColorRect"]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 723.0
-offset_right = 1280.0
-offset_bottom = 1443.0
+offset_bottom = 722.998
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_6rm1k")

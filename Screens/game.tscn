@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dlo28434t7djg"]
+[gd_scene load_steps=9 format=3 uid="uid://dlo28434t7djg"]
 
 [ext_resource type="Texture2D" uid="uid://chr2pvds03i7n" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Environment/ground2_white.png" id="1_ertmt"]
 [ext_resource type="Script" path="res://Screens/game.gd" id="2_84ier"]
@@ -14,15 +14,8 @@ _data = {
 }
 point_count = 6
 
-[sub_resource type="Gradient" id="Gradient_01a68"]
-colors = PackedColorArray(0.0839199, 0, 0.00729946, 1, 0.407272, 0, 0.0672017, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_5qaji"]
-gradient = SubResource("Gradient_01a68")
-
 [node name="game" type="Sprite2D"]
 position = Vector2(2.08165e-12, 2.08165e-12)
-scale = Vector2(1.37738, 0.841103)
 texture = ExtResource("1_ertmt")
 script = ExtResource("2_84ier")
 
@@ -44,10 +37,10 @@ scale = Vector2(0.12, 0.12)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-0.000244141, 71.3347)
-limit_left = -1500
-limit_top = -1000
-limit_right = 1500
-limit_bottom = 1000
+limit_left = -1020
+limit_top = -1020
+limit_right = 1020
+limit_bottom = 1020
 
 [node name="MobPath" type="Path2D" parent="."]
 position = Vector2(2.17805, -2.4749e-12)
@@ -59,16 +52,3 @@ rotation = 0.00116129
 
 [node name="WaveSpawner" parent="." instance=ExtResource("6_vblev")]
 enemy = ExtResource("7_eyw0y")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-z_index = -10
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1402.0
-offset_top = -1478.0
-offset_right = -646.0
-offset_bottom = -570.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("GradientTexture1D_5qaji")

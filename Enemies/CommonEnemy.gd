@@ -71,6 +71,7 @@ func _on_body_entered(body):
 
 # must be implemented for each enemy
 func got_hit(pDamage):
+	print_debug("test")
 	spawn_damage_indicator(pDamage)
 	
 

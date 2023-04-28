@@ -11,7 +11,6 @@ func _ready():
 
 
 func change_value(new_value):
-	print(new_value)
 	if stat_key == "damage_percent":
 		$StatValue.text = "%s" % str(new_value)
 	$StatValue.text = str(new_value)

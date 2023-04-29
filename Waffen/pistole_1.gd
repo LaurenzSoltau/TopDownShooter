@@ -7,12 +7,12 @@ func _process(_delta):
 		rotate_weapon(nearest_enemy)
 
 func fire():
-	if !nearest_enemy:
+	if not nearest_enemy:
 		return
-	if !enemy_is_in_range():
+	if not enemy_is_in_range():
 		return
 	# if can_fire is off or there are no enemies left dont shoot
-	if !can_fire:
+	if not can_fire:
 		return
 	if get_tree().get_nodes_in_group("enemy").size() <= 0:
 		return

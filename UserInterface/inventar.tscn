@@ -1,0 +1,302 @@
+[gd_scene load_steps=15 format=3 uid="uid://do6oew8f70ca3"]
+
+[ext_resource type="Script" path="res://UserInterface/inventar.gd" id="1_68ruw"]
+[ext_resource type="Texture2D" uid="uid://dtk1f0itkc3vx" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_0.png" id="1_mpdyi"]
+[ext_resource type="Texture2D" uid="uid://caft23ycpljix" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_1.png" id="2_3gmkj"]
+[ext_resource type="Texture2D" uid="uid://bkku55o06yenc" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_2.png" id="3_4v27p"]
+[ext_resource type="Texture2D" uid="uid://bpvgu1i5be2ad" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_3.png" id="4_jaq7g"]
+[ext_resource type="Texture2D" uid="uid://cywxk7cqggnr3" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_4.png" id="5_u8okh"]
+[ext_resource type="Texture2D" uid="uid://3420wywxk2h3" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_5.png" id="6_ice8g"]
+[ext_resource type="Theme" uid="uid://5rw5qeyv36vc" path="res://Assets/ui_theme.tres" id="7_884kb"]
+[ext_resource type="PackedScene" uid="uid://dn07hfh50rqcw" path="res://UserInterface/stat_element.tscn" id="8_m72iv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vdyat"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mpdyi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3gmkj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4v27p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jaq7g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u8okh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ice8g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 11.0
+}]
+
+[sub_resource type="Animation" id="Animation_8k1dj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 723)]
+}
+
+[sub_resource type="Animation" id="Animation_1bgra"]
+resource_name = "SlideIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 723), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.431373)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1280, 719.998), Vector2(1280, 719.998)]
+}
+
+[sub_resource type="Animation" id="Animation_nffxf"]
+resource_name = "SlideOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 720)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.431373), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1280, 719.998), Vector2(1280, 719.998)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2qx00"]
+_data = {
+"RESET": SubResource("Animation_8k1dj"),
+"SlideIn": SubResource("Animation_1bgra"),
+"SlideOut": SubResource("Animation_nffxf")
+}
+
+[node name="InvOverlay" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 723.0
+offset_right = 1280.0
+offset_bottom = 1443.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("1_68ruw")
+
+[node name="char" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = 369.0
+offset_bottom = 369.0
+scale = Vector2(1, 0.919999)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="char"]
+position = Vector2(168, 69.5653)
+scale = Vector2(0.314209, 0.341532)
+sprite_frames = SubResource("SpriteFrames_vdyat")
+autoplay = "default"
+frame_progress = 0.0119777
+
+[node name="Label" type="Label" parent="char"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.5
+offset_right = 130.5
+offset_bottom = 58.0
+grow_horizontal = 2
+theme = ExtResource("7_884kb")
+text = "Oppermann"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="stats" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 25.0
+offset_right = 1212.0
+offset_bottom = 342.0
+
+[node name="StatsHeader" type="Label" parent="stats"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -130.5
+offset_top = 3.0
+offset_right = 130.5
+offset_bottom = 61.0
+grow_horizontal = 2
+theme = ExtResource("7_884kb")
+text = "Stats
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="stats"]
+layout_mode = 2
+offset_left = 17.0
+offset_top = 54.0
+offset_right = 280.0
+offset_bottom = 282.0
+alignment = 1
+
+[node name="StatElement" parent="stats/VBoxContainer" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_key = "max_health"
+stat_name = "Max Health"
+
+[node name="StatElement2" parent="stats/VBoxContainer" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_key = "health_regen"
+stat_name = "Health Regen"
+
+[node name="StatElement3" parent="stats/VBoxContainer" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_key = "attack_range"
+stat_name = "Range"
+
+[node name="StatElement4" parent="stats/VBoxContainer" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_key = "movement_speed"
+stat_name = "Movementspeed"
+
+[node name="StatElement5" parent="stats/VBoxContainer" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_key = "damage_percent"
+stat_name = "Damage"
+
+[node name="StatElement6" parent="stats/VBoxContainer" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_key = "range_ramage"
+stat_name = "Range Damage"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="stats"]
+layout_mode = 2
+offset_left = 475.0
+offset_top = 54.0
+offset_right = 738.0
+offset_bottom = 282.0
+alignment = 1
+
+[node name="StatElement" parent="stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_name = "WIP"
+
+[node name="StatElement2" parent="stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_name = "WIP"
+
+[node name="StatElement3" parent="stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_name = "WIP"
+
+[node name="StatElement4" parent="stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_name = "WIP"
+
+[node name="StatElement5" parent="stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_name = "WIP"
+
+[node name="StatElement6" parent="stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_name = "WIP"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2qx00")
+}

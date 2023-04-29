@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://x17m6j1dtxnr"]
+
+[ext_resource type="Texture2D" uid="uid://djnxn1dft6h3s" path="res://Assets/Sprites/spr_coin_strip4.png" id="1_um1kt"]
+[ext_resource type="Script" path="res://Assets/xp5.gd" id="2_gtq0m"]
+[ext_resource type="AudioStream" uid="uid://dsjxseadkvp63" path="res://Assets/Sound/xpSound.wav" id="3_4ryho"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5cm8"]
+atlas = ExtResource("1_um1kt")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ivf8x"]
+radius = 5.0
+height = 16.0
+
+[node name="Xp5" type="Sprite2D"]
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_k5cm8")
+script = ExtResource("2_gtq0m")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CapsuleShape2D_ivf8x")
+
+[node name="CollectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_4ryho")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

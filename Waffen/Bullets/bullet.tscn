@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsty7iw4xtkr"]
+
+[ext_resource type="Script" path="res://Waffen/Bullets/bullet.gd" id="1_52kh7"]
+[ext_resource type="Texture2D" uid="uid://c2t6mjwri0061" path="res://Assets/Bullets/basicBullet.png" id="2_8dsud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wyt7b"]
+size = Vector2(27, 8)
+
+[node name="Bullet" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_52kh7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("2_8dsud")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_wyt7b")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.499999, 2.38419e-07)
+scale = Vector2(1.35, 0.4)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

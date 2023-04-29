@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmyavm6jnge6b"]
+
+[ext_resource type="Theme" uid="uid://5rw5qeyv36vc" path="res://Assets/ui_theme.tres" id="1_nnfcn"]
+[ext_resource type="Texture2D" uid="uid://cnuvfwslppf4m" path="res://Assets/background.jpg" id="1_sqny5"]
+[ext_resource type="Script" path="res://Screens/main_menu_screen.gd" id="2_2oa0n"]
+[ext_resource type="PackedScene" uid="uid://c3j6mcry46fx4" path="res://UserInterface/title.tscn" id="2_8g21r"]
+[ext_resource type="PackedScene" uid="uid://gmv61iu5sxqd" path="res://UserInterface/quit_button.tscn" id="4_3q77j"]
+[ext_resource type="PackedScene" uid="uid://bx8wl7pt3hf5n" path="res://UserInterface/change_scene_button.tscn" id="4_07uxe"]
+
+[node name="MainMenuScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nnfcn")
+script = ExtResource("2_2oa0n")
+
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_sqny5")
+
+[node name="Title" parent="." instance=ExtResource("2_8g21r")]
+layout_mode = 1
+offset_left = -286.0
+offset_top = 164.0
+offset_right = 286.0
+offset_bottom = 265.0
+text = "Oppermann Unleashed
+"
+
+[node name="Menu" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -172.0
+offset_top = -42.0
+offset_right = 173.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" parent="Menu" instance=ExtResource("4_07uxe")]
+layout_mode = 2
+next_scene_path = "res://Screens/game.tscn"
+
+[node name="QuitButton" parent="Menu" instance=ExtResource("4_3q77j")]
+layout_mode = 2

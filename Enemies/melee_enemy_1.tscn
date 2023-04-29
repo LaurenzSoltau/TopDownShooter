@@ -1,0 +1,11 @@
+[gd_scene load_steps=5 format=3 uid="uid://dpat4q3pua4rg"]
+
+[ext_resource type="PackedScene" uid="uid://clhuoalnfnlni" path="res://Enemies/CommonEnemy.tscn" id="1_6hr5c"]
+[ext_resource type="Script" path="res://Enemies/MeleeEnemy1.gd" id="2_2pffb"]
+[ext_resource type="PackedScene" uid="uid://x17m6j1dtxnr" path="res://Assets/xp5.tscn" id="3_yyex1"]
+[ext_resource type="PackedScene" uid="uid://bqj5lvmbq8mqd" path="res://Enemies/money.tscn" id="4_5gjrn"]
+
+[node name="MeleeEnemy1" instance=ExtResource("1_6hr5c")]
+script = ExtResource("2_2pffb")
+xp_drop = ExtResource("3_yyex1")
+money_drop = ExtResource("4_5gjrn")

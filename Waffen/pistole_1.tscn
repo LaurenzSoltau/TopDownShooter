@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dl0jhndme4hnh"]
+
+[ext_resource type="PackedScene" uid="uid://biwluetnyihce" path="res://Waffen/base_range_weapon.tscn" id="1_dq3l3"]
+[ext_resource type="Script" path="res://Waffen/pistole_1.gd" id="2_ceptb"]
+[ext_resource type="PackedScene" uid="uid://dsty7iw4xtkr" path="res://Waffen/Bullets/bullet.tscn" id="3_nqnhp"]
+
+[node name="Pistole1" instance=ExtResource("1_dq3l3")]
+script = ExtResource("2_ceptb")
+bullet_damage = 3.0
+bullet_speed = 2000
+price = 20
+bullet = ExtResource("3_nqnhp")
+
+[node name="MuzzleFlash" parent="." index="1"]
+visible = false
+
+[node name="ShootTimer" parent="." index="3"]
+wait_time = 0.75
+
+[node name="gunShot" parent="." index="4"]
+volume_db = -25.0

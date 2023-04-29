@@ -1,0 +1,289 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfm3xg5f837pj"]
+
+[ext_resource type="Script" path="res://UserInterface/weapon_shop.gd" id="1_ax2l8"]
+[ext_resource type="PackedScene" uid="uid://patcxcmwuuew" path="res://UserInterface/buy_weapon.tscn" id="1_u73d7"]
+[ext_resource type="PackedScene" uid="uid://c3j6mcry46fx4" path="res://UserInterface/title.tscn" id="3_86kul"]
+
+[sub_resource type="Animation" id="Animation_8k1dj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 723)]
+}
+
+[sub_resource type="Animation" id="Animation_1bgra"]
+resource_name = "SlideIn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 723), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.431373)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1280, 719.998), Vector2(1280, 719.998)]
+}
+
+[sub_resource type="Animation" id="Animation_nffxf"]
+resource_name = "SlideOut"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 720)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.431373), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1280, 719.998), Vector2(1280, 719.998)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2qx00"]
+_data = {
+"RESET": SubResource("Animation_8k1dj"),
+"SlideIn": SubResource("Animation_1bgra"),
+"SlideOut": SubResource("Animation_nffxf")
+}
+
+[node name="WeaponShop" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 723.0
+offset_right = 3840.0
+offset_bottom = 2883.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+script = ExtResource("1_ax2l8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -549.0
+offset_top = -142.0
+offset_right = 549.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Panel" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="UpgradeName" type="Label" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Weapon
+"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 230)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Description of the Gun"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BuyWeapon" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer" instance=ExtResource("1_u73d7")]
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Panel2/MarginContainer"]
+layout_mode = 2
+
+[node name="UpgradeName" type="Label" parent="HBoxContainer/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Weapon
+"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="HBoxContainer/Panel2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 230)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Description of the Gun"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BuyWeapon" parent="HBoxContainer/Panel2/MarginContainer/VBoxContainer" instance=ExtResource("1_u73d7")]
+layout_mode = 2
+weapon_index = 1
+
+[node name="Panel3" type="Panel" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/Panel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Panel3/MarginContainer"]
+layout_mode = 2
+
+[node name="UpgradeName" type="Label" parent="HBoxContainer/Panel3/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Weapon"
+horizontal_alignment = 1
+
+[node name="Desc" type="Label" parent="HBoxContainer/Panel3/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 230)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Description of the Gun"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BuyWeapon" parent="HBoxContainer/Panel3/MarginContainer/VBoxContainer" instance=ExtResource("1_u73d7")]
+layout_mode = 2
+weapon_index = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2qx00")
+}
+
+[node name="shopCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="Title" parent="." instance=ExtResource("3_86kul")]
+layout_mode = 1
+offset_top = 89.0
+offset_bottom = 190.0
+text = "Vendor
+"
+
+[connection signal="weapon_bought" from="HBoxContainer/Panel/MarginContainer/VBoxContainer/BuyWeapon" to="." method="weapon_bought"]
+[connection signal="weapon_bought" from="HBoxContainer/Panel2/MarginContainer/VBoxContainer/BuyWeapon" to="." method="weapon_bought"]
+[connection signal="weapon_bought" from="HBoxContainer/Panel3/MarginContainer/VBoxContainer/BuyWeapon" to="." method="weapon_bought"]

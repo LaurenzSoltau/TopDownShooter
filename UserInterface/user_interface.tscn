@@ -1,0 +1,205 @@
+[gd_scene load_steps=14 format=3 uid="uid://l2wgi0o3gaua"]
+
+[ext_resource type="Theme" uid="uid://5rw5qeyv36vc" path="res://Assets/ui_theme.tres" id="1_o3knu"]
+[ext_resource type="Script" path="res://UserInterface/user_interface.gd" id="2_7km0m"]
+[ext_resource type="PackedScene" uid="uid://c3j6mcry46fx4" path="res://UserInterface/title.tscn" id="2_buxa4"]
+[ext_resource type="PackedScene" uid="uid://bx8wl7pt3hf5n" path="res://UserInterface/change_scene_button.tscn" id="3_2wgfr"]
+[ext_resource type="SystemFont" uid="uid://cvvwox6frpuwc" path="res://Assets/Fonts/ui_font.tres" id="3_7bm77"]
+[ext_resource type="PackedScene" uid="uid://gmv61iu5sxqd" path="res://UserInterface/quit_button.tscn" id="4_ynyl6"]
+[ext_resource type="PackedScene" uid="uid://cnvin7ql1ttw4" path="res://UserInterface/retry_button.tscn" id="5_vai8e"]
+[ext_resource type="PackedScene" uid="uid://7rdij6ssvwph" path="res://UserInterface/upgrade_overlay.tscn" id="8_lc610"]
+[ext_resource type="PackedScene" uid="uid://do6oew8f70ca3" path="res://UserInterface/inventar.tscn" id="9_tja23"]
+[ext_resource type="PackedScene" uid="uid://dfm3xg5f837pj" path="res://UserInterface/weapon_shop.tscn" id="10_cjgwa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6t34"]
+bg_color = Color(0, 0, 0, 0.478431)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0ixk"]
+bg_color = Color(1, 0, 0.0313726, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cjx1t"]
+bg_color = Color(0.219608, 0.415686, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8, 0.8, 0.8, 0)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[node name="UserInterface" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_o3knu")
+script = ExtResource("2_7km0m")
+
+[node name="hp_bar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 18.0
+offset_right = 290.0
+offset_bottom = 55.0
+theme_override_styles/background = SubResource("StyleBoxFlat_g6t34")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d0ixk")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="hp" type="Label" parent="hp_bar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.5
+offset_top = -29.0
+offset_right = 43.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_7bm77")
+theme_override_font_sizes/font_size = 26
+text = "%s/%s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="xp_bar" type="ProgressBar" parent="."]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 64.0
+offset_right = 290.0
+offset_bottom = 101.0
+theme_override_styles/background = SubResource("StyleBoxFlat_g6t34")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cjx1t")
+step = 1.0
+value = 50.0
+show_percentage = false
+
+[node name="level" type="Label" parent="xp_bar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -29.0
+offset_right = 64.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_7bm77")
+theme_override_font_sizes/font_size = 26
+text = "Level %s
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="money" type="Label" parent="."]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 100.0
+offset_right = 285.0
+offset_bottom = 158.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 19
+theme_override_font_sizes/font_size = 42
+text = "Money: %s"
+vertical_alignment = 1
+
+[node name="PauseOverlay" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.419608)
+
+[node name="Pause" parent="PauseOverlay" instance=ExtResource("2_buxa4")]
+layout_mode = 1
+offset_left = -238.0
+offset_top = 51.0
+offset_right = 235.0
+offset_bottom = 278.0
+text = "Pause"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseOverlay"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.0
+offset_top = -64.0
+offset_right = 237.0
+offset_bottom = 174.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Main Menu" parent="PauseOverlay/VBoxContainer" instance=ExtResource("3_2wgfr")]
+layout_mode = 2
+text = "Main Screen
+"
+next_scene_path = "res://Screens/main_menu_screen.tscn"
+
+[node name="QuitButton" parent="PauseOverlay/VBoxContainer" instance=ExtResource("4_ynyl6")]
+layout_mode = 2
+
+[node name="RetryButton" parent="PauseOverlay/VBoxContainer" instance=ExtResource("5_vai8e")]
+layout_mode = 2
+
+[node name="UpgradeOverlay" parent="." instance=ExtResource("8_lc610")]
+visible = false
+layout_mode = 1
+offset_right = 30720.0
+offset_bottom = 18003.0
+
+[node name="InvOverlay" parent="." instance=ExtResource("9_tja23")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="WeaponShop" parent="." instance=ExtResource("10_cjgwa")]
+visible = false
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_bottom = 1446.0
+grow_horizontal = 1
+grow_vertical = 1

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3 uid="uid://ce5fmhmbbr48h"]
+
+[ext_resource type="Script" path="res://Assets/Resources/player_stats.gd" id="1_v5l40"]
+
+[resource]
+script = ExtResource("1_v5l40")
+max_health = 10
+health = 10.0
+health_regen = 0.0
+attack_range = 300
+movement_speed = 400
+damage_percent = 0
+range_damage = 0
+level = 1
+xp_needed = 100.0
+xp = 0.0
+money = 0

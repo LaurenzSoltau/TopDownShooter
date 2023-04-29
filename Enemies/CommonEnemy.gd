@@ -2,6 +2,7 @@ extends Area2D
 
 class_name CommonEnemy
 
+@export var money_drop: PackedScene
 
 # health related stats
 @export var max_health: int = 10
@@ -71,7 +72,6 @@ func _on_body_entered(body):
 
 # must be implemented for each enemy
 func got_hit(pDamage):
-	print_debug("test")
 	spawn_damage_indicator(pDamage)
 	
 
@@ -104,8 +104,8 @@ func die():
 	movement_speed = 750
 	is_dying = true
 	deathSound.play()
-	player_stats.add_stat("money", money_worth, true)
 	get_node("../WaveSpawner").check_if_enemies_are_in_root_scene()
+	spawn_money_drop()
 	
 	animation_player.assigned_animation = "death"
 	animation_player.play()
@@ -116,3 +116,11 @@ func spawn_damage_indicator(pDamage):
 		get_tree().current_scene.add_child(indicator)
 		indicator.label.text = str(pDamage)
 		indicator.global_position = global_position
+
+func spawn_money_drop():
+	if randi() % 2 == 1:
+		var money_instance = money_drop.instantiate()
+		money_instance.global_position = position - Vector2(20, 0)
+		money_instance.money_value = money_worth
+		get_tree().current_scene.add_child(money_instance)
+		

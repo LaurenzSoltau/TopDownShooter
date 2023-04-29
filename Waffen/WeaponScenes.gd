@@ -2,6 +2,12 @@ extends Node
 
 var weapons = {
 	# range weapons
-	"pistole_1": preload("res://Waffen/pistole_1.tscn"),
-	"machinegun_1": preload("res://Waffen/machine_gun_1.tscn"),
+	0: {
+			"name": "pistole",
+			"scene": preload("res://Waffen/pistole_1.tscn")
+		},
+	1: {
+			"name": "machinegun",
+			"scene": preload("res://Waffen/machine_gun_1.tscn")
+		}
 }

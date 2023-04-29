@@ -64,10 +64,8 @@ func stop():
 	stop_all_weapons(weapons)
 	
 func start():
-	var pistole = WeaponScenes.weapons["pistole_1"].instantiate()
-	var machine_gun = WeaponScenes.weapons["machinegun_1"].instantiate()
+	var pistole = WeaponScenes.weapons[0]["scene"].instantiate()
 	add_weapon(pistole)
-	add_weapon(machine_gun)
 	$AnimatedSprite2D.play()
 	game_running = true
 	start_all_weapons(weapons)

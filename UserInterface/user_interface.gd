@@ -10,7 +10,7 @@ extends Control
 @onready var level_upgrades = load("res://Assets/Resources/level_upgrades.tres")
 @onready var inv_overlay = get_node("InvOverlay")
 var player_stats: Resource
-
+var vendor: Node
 
 var paused: = false:
 	set(value):
@@ -21,6 +21,8 @@ func _ready():
 	player_stats = load("res://Assets/Resources/player_stats.tres")
 	player_stats.connect("stat_changed", update_interface)
 	update_interface(player_stats.stats)
+	vendor = get_node("/root/game/Vendor")
+	vendor.connect("shop_opened", shop_opened)
 
 
 func update_interface(stats):
@@ -40,11 +42,14 @@ func _unhandled_input(event):
 	if event.is_action_pressed("pause") and not $UpgradeOverlay.visible:
 		self.paused = not paused
 		get_viewport().set_input_as_handled()
-	if event.is_action_pressed("stats") and not $UpgradeOverlay.visible and not paused:
+	if event.is_action_pressed("stats") and not $UpgradeOverlay.visible and not get_tree().paused:
 		if inv_overlay.visible:
 			inv_overlay.deload()
 		else:
 			inv_overlay.load()
+	if event.is_action_pressed("interact") and $WeaponShop.visible:
+		$WeaponShop.close_shop()
+
 
 func on_pause_mode_change(value):
 	scene_tree.paused = value
@@ -56,3 +61,6 @@ func update_progress_bar(progressbar, end, duration):
 	var tween = get_tree().create_tween()
 	tween.tween_property(progressbar, "value", end, duration)
 
+func shop_opened():
+	if not $UpgradeOverlay.visible and not get_tree().paused:
+		$WeaponShop.new_shop()

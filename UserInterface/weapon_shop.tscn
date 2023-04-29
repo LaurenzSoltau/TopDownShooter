@@ -1,9 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://7rdij6ssvwph"]
+[gd_scene load_steps=8 format=3 uid="uid://dfm3xg5f837pj"]
 
-[ext_resource type="Theme" uid="uid://5rw5qeyv36vc" path="res://Assets/ui_theme.tres" id="1_6rm1k"]
-[ext_resource type="Script" path="res://UserInterface/upgrade_overlay.gd" id="2_jwjwv"]
-[ext_resource type="PackedScene" uid="uid://c3j6mcry46fx4" path="res://UserInterface/title.tscn" id="2_qugoh"]
-[ext_resource type="PackedScene" uid="uid://b1vbgb43eoyaj" path="res://UserInterface/buy_upgrade_button.tscn" id="4_8o81u"]
+[ext_resource type="Script" path="res://UserInterface/weapon_shop.gd" id="1_ax2l8"]
+[ext_resource type="PackedScene" uid="uid://patcxcmwuuew" path="res://UserInterface/buy_weapon.tscn" id="1_u73d7"]
+[ext_resource type="PackedScene" uid="uid://c3j6mcry46fx4" path="res://UserInterface/title.tscn" id="3_86kul"]
 
 [sub_resource type="Animation" id="Animation_8k1dj"]
 length = 0.001
@@ -131,25 +130,17 @@ _data = {
 "SlideOut": SubResource("Animation_nffxf")
 }
 
-[node name="UpgradeOverlay" type="ColorRect"]
+[node name="WeaponShop" type="ColorRect"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 723.0
-offset_right = 1280.0
-offset_bottom = 1443.0
+offset_right = 2560.0
+offset_bottom = 2163.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_6rm1k")
 color = Color(0, 0, 0, 0)
-script = ExtResource("2_jwjwv")
-
-[node name="Title" parent="." instance=ExtResource("2_qugoh")]
-layout_mode = 1
-offset_top = 89.0
-offset_bottom = 190.0
-text = "Level Upgrade
-"
+script = ExtResource("1_ax2l8")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -188,23 +179,20 @@ layout_mode = 2
 
 [node name="UpgradeName" type="Label" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Upgrade"
+text = "Weapon
+"
 horizontal_alignment = 1
 
 [node name="Desc" type="Label" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 230)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Description of the Upgrade"
+text = "Description of the Gun"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="BuyButton" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer" instance=ExtResource("4_8o81u")]
+[node name="BuyWeapon" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer" instance=ExtResource("1_u73d7")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Kaufen
-"
 
 [node name="Panel2" type="Panel" parent="HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
@@ -228,24 +216,21 @@ layout_mode = 2
 
 [node name="UpgradeName" type="Label" parent="HBoxContainer/Panel2/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Upgrade"
+text = "Weapon
+"
 horizontal_alignment = 1
 
 [node name="Desc" type="Label" parent="HBoxContainer/Panel2/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 230)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Description of the Upgrade"
+text = "Description of the Gun"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="BuyButton" parent="HBoxContainer/Panel2/MarginContainer/VBoxContainer" instance=ExtResource("4_8o81u")]
+[node name="BuyWeapon" parent="HBoxContainer/Panel2/MarginContainer/VBoxContainer" instance=ExtResource("1_u73d7")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Kaufen
-"
-upgrade_index = 1
+weapon_index = 1
 
 [node name="Panel3" type="Panel" parent="HBoxContainer"]
 custom_minimum_size = Vector2(300, 0)
@@ -269,33 +254,36 @@ layout_mode = 2
 
 [node name="UpgradeName" type="Label" parent="HBoxContainer/Panel3/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Upgrade"
+text = "Weapon"
 horizontal_alignment = 1
 
 [node name="Desc" type="Label" parent="HBoxContainer/Panel3/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 230)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Description of the Upgrade"
+text = "Description of the Gun"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="BuyButton" parent="HBoxContainer/Panel3/MarginContainer/VBoxContainer" instance=ExtResource("4_8o81u")]
+[node name="BuyWeapon" parent="HBoxContainer/Panel3/MarginContainer/VBoxContainer" instance=ExtResource("1_u73d7")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Kaufen
-"
-upgrade_index = 2
+weapon_index = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_2qx00")
 }
 
-[connection signal="pressed" from="HBoxContainer/Panel/MarginContainer/VBoxContainer/BuyButton" to="HBoxContainer/Panel/MarginContainer/VBoxContainer/BuyButton" method="_on_pressed"]
-[connection signal="upgrade_bought" from="HBoxContainer/Panel/MarginContainer/VBoxContainer/BuyButton" to="." method="upgrade_bought"]
-[connection signal="pressed" from="HBoxContainer/Panel2/MarginContainer/VBoxContainer/BuyButton" to="HBoxContainer/Panel2/MarginContainer/VBoxContainer/BuyButton" method="_on_pressed"]
-[connection signal="upgrade_bought" from="HBoxContainer/Panel2/MarginContainer/VBoxContainer/BuyButton" to="." method="upgrade_bought"]
-[connection signal="pressed" from="HBoxContainer/Panel3/MarginContainer/VBoxContainer/BuyButton" to="HBoxContainer/Panel3/MarginContainer/VBoxContainer/BuyButton" method="_on_pressed"]
-[connection signal="upgrade_bought" from="HBoxContainer/Panel3/MarginContainer/VBoxContainer/BuyButton" to="." method="upgrade_bought"]
+[node name="shopCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="Title" parent="." instance=ExtResource("3_86kul")]
+layout_mode = 1
+offset_top = 89.0
+offset_bottom = 190.0
+text = "Vendor
+"
+
+[connection signal="weapon_bought" from="HBoxContainer/Panel/MarginContainer/VBoxContainer/BuyWeapon" to="." method="weapon_bought"]
+[connection signal="weapon_bought" from="HBoxContainer/Panel2/MarginContainer/VBoxContainer/BuyWeapon" to="." method="weapon_bought"]
+[connection signal="weapon_bought" from="HBoxContainer/Panel3/MarginContainer/VBoxContainer/BuyWeapon" to="." method="weapon_bought"]

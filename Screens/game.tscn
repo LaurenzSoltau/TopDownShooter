@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlo28434t7djg"]
+[gd_scene load_steps=10 format=3 uid="uid://dlo28434t7djg"]
 
 [ext_resource type="Texture2D" uid="uid://chr2pvds03i7n" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Environment/ground2_white.png" id="1_ertmt"]
 [ext_resource type="Script" path="res://Screens/game.gd" id="2_84ier"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://1j8us5vs6fyp" path="res://Player/player.tscn" id="5_84qer"]
 [ext_resource type="PackedScene" uid="uid://cp1loy2brc2h0" path="res://WaveSystem/wave_spawner.tscn" id="6_vblev"]
 [ext_resource type="PackedScene" uid="uid://dpat4q3pua4rg" path="res://Enemies/melee_enemy_1.tscn" id="7_eyw0y"]
+[ext_resource type="PackedScene" uid="uid://dq388ollgkk55" path="res://Npc/vendor.tscn" id="8_unak3"]
 
 [sub_resource type="Curve2D" id="Curve2D_tnm5r"]
 _data = {
@@ -52,3 +53,6 @@ rotation = 0.00116129
 
 [node name="WaveSpawner" parent="." instance=ExtResource("6_vblev")]
 enemy = ExtResource("7_eyw0y")
+
+[node name="Vendor" parent="." instance=ExtResource("8_unak3")]
+position = Vector2(109, 160)

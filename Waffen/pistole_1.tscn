@@ -6,10 +6,8 @@
 
 [node name="Pistole1" instance=ExtResource("1_dq3l3")]
 script = ExtResource("2_ceptb")
-fire_rate = 0.75
 bullet_damage = 3.0
 bullet_speed = 2000
-range = 400
 bullet = ExtResource("3_nqnhp")
 
 [node name="MuzzleFlash" parent="." index="1"]

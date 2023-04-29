@@ -42,12 +42,12 @@ func assign_shop_items(p_shop_items):
 	for item in p_shop_items:
 		var weapon_instance = item.scene.instantiate()
 		var damage = weapon_instance.bullet_damage
-		var range = weapon_instance.fire_rate
+		var attack_range = weapon_instance.fire_rate
 		var speed = weapon_instance.bullet_speed
 		var fire_rate = weapon_instance.fire_rate
 		var vContainer = item_containers[counter].get_child(0).get_child(0)
 		vContainer.get_child(0).text = item["name"]
-		var desc = "Basedamage: %s\n Range: %s\n Firerate: %s\n Bulletspeed: %s" % [str(damage), str(range), str(fire_rate), str(speed)]
+		var desc = "Basedamage: %s\n Range: %s\n Firerate: %s\n Bulletspeed: %s" % [str(damage), str(attack_range), str(fire_rate), str(speed)]
 		vContainer.get_child(1).text = desc
 		counter += 1
 

@@ -10,6 +10,7 @@ class_name base_range_weapon
 @export var bullet_damage: float
 @export var bullet_speed: int
 @export var weapon_range: int
+@export var price: int
 
 
 

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://qyv0t4fgd58e"]
+
+[ext_resource type="PackedScene" uid="uid://biwluetnyihce" path="res://Waffen/base_range_weapon.tscn" id="1_fr7p8"]
+[ext_resource type="Texture2D" uid="uid://cou65bbn72t8e" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Weapons/weaponR3.png" id="2_6nkbm"]
+[ext_resource type="PackedScene" uid="uid://dsty7iw4xtkr" path="res://Waffen/Bullets/bullet.tscn" id="3_85hyp"]
+[ext_resource type="Script" path="res://Waffen/shotgun_1.gd" id="3_i1q00"]
+
+[node name="Shotgun" instance=ExtResource("1_fr7p8")]
+texture = ExtResource("2_6nkbm")
+script = ExtResource("3_i1q00")
+fire_rate = 1.5
+bullet_damage = 1.0
+bullet_speed = 2000
+weapon_range = 200
+price = 40
+bullet = ExtResource("3_85hyp")
+
+[node name="GunPoint" parent="." index="0"]
+position = Vector2(613.333, -6.66667)
+
+[node name="MuzzleFlash" parent="." index="1"]
+position = Vector2(626.667, -2.22223)

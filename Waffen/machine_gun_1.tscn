@@ -12,6 +12,7 @@ script = ExtResource("2_0dw53")
 fire_rate = 0.2
 bullet_damage = 0.5
 bullet_speed = 2800
+price = 50
 bullet = ExtResource("3_jnw3q")
 
 [node name="MuzzleFlash" parent="." index="1"]

@@ -10,6 +10,8 @@ func fire():
 	# if can_fire is off or there are no enemies left dont shoot
 	if !can_fire:
 		return
+	if !enemy_is_in_range():
+		return
 	if get_tree().get_nodes_in_group("enemy").size() <= 0:
 		return
 	# instantiate a new Bullet and set its position and rotation.

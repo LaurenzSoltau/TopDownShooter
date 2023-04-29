@@ -39,11 +39,12 @@ func update_interface(stats):
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("pause") and not $UpgradeOverlay.visible:
+	if event.is_action_pressed("pause") and not $UpgradeOverlay.visible and not $InvOverlay.visible and not $WeaponShop.visible:
 		self.paused = not paused
 		get_viewport().set_input_as_handled()
-	if event.is_action_pressed("stats") and not $UpgradeOverlay.visible and not get_tree().paused:
+	if event.is_action_pressed("stats") and not $UpgradeOverlay.visible and not pause_overlay.visible and not $WeaponShop.visible:
 		if inv_overlay.visible:
+			print("test")
 			inv_overlay.deload()
 		else:
 			inv_overlay.load()

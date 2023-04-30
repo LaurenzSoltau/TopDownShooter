@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://dft0hjcek575q" path="res://Assets/Sound/death_sound.wav" id="10_v4ovn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1poad"]
+resource_local_to_scene = true
 animations = [{
 "frames": [{
 "duration": 1.0,

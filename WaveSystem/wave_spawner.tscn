@@ -1,14 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp1loy2brc2h0"]
+[gd_scene load_steps=4 format=3 uid="uid://cp1loy2brc2h0"]
 
 [ext_resource type="Script" path="res://WaveSystem/wave_spawner.gd" id="1_ttcvc"]
 [ext_resource type="Script" path="res://WaveSystem/Wave.gd" id="2_ls0lh"]
+[ext_resource type="PackedScene" uid="uid://boquonxmk4frx" path="res://Enemies/range_enemy_1.tscn" id="2_s15tn"]
 
 [node name="WaveSpawner" type="Node2D"]
 script = ExtResource("1_ttcvc")
+enemy = ExtResource("2_s15tn")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 
 [node name="Waves" type="Node" parent="."]
+script = ExtResource("2_ls0lh")
 
 [node name="Wave" type="Node" parent="Waves"]
 script = ExtResource("2_ls0lh")

@@ -1,0 +1,72 @@
+[gd_scene load_steps=15 format=3 uid="uid://boquonxmk4frx"]
+
+[ext_resource type="PackedScene" uid="uid://clhuoalnfnlni" path="res://Enemies/CommonEnemy.tscn" id="1_yojvt"]
+[ext_resource type="Script" path="res://RangeEnemy1.gd" id="2_41oda"]
+[ext_resource type="PackedScene" uid="uid://b822hpdvve030" path="res://Enemies/Bullet.tscn" id="3_3kjvx"]
+[ext_resource type="PackedScene" uid="uid://bqj5lvmbq8mqd" path="res://Enemies/money.tscn" id="3_f3o4i"]
+[ext_resource type="PackedScene" uid="uid://x17m6j1dtxnr" path="res://Assets/xp5.tscn" id="4_vwxwr"]
+[ext_resource type="Texture2D" uid="uid://d3gjh5w0d4miv" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 4/walk_0.png" id="5_115bx"]
+[ext_resource type="Texture2D" uid="uid://crds0box53fah" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 4/walk_1.png" id="6_wptqu"]
+[ext_resource type="Texture2D" uid="uid://cu8qiopl5kedm" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 4/walk_2.png" id="7_88sbo"]
+[ext_resource type="Texture2D" uid="uid://ds60p3ad47jos" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 4/walk_3.png" id="8_vy8dh"]
+[ext_resource type="Texture2D" uid="uid://cha8817hunfjt" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 4/walk_4.png" id="9_mt7qu"]
+[ext_resource type="Texture2D" uid="uid://d35om3nqvutej" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 4/walk_5.png" id="10_c3d2r"]
+[ext_resource type="Texture2D" uid="uid://dgc2u47folhpr" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 4/walk_6.png" id="11_f403o"]
+[ext_resource type="Texture2D" uid="uid://crw25fyrrw6rk" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 4/walk_7.png" id="12_mb8ew"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1e4dj"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_115bx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wptqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_88sbo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vy8dh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mt7qu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_c3d2r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_f403o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_mb8ew")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[node name="RangeEnemy1" instance=ExtResource("1_yojvt")]
+script = ExtResource("2_41oda")
+bullet = ExtResource("3_3kjvx")
+money_drop = ExtResource("3_f3o4i")
+max_health = 8
+health = 8
+attack_range = 800
+movement_speed = 150
+damage = 4
+money_worth = 15
+exp_worth = 15
+xp_drop = ExtResource("4_vwxwr")
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_1e4dj")
+frame = 1
+frame_progress = 0.337301
+
+[node name="ShootTimer" type="Timer" parent="." index="6"]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

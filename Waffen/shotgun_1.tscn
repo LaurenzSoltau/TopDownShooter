@@ -11,7 +11,7 @@ script = ExtResource("3_i1q00")
 fire_rate = 1.5
 bullet_damage = 1.0
 bullet_speed = 2000
-weapon_range = 202
+weapon_range = 200
 price = 40
 bullet = ExtResource("3_85hyp")
 

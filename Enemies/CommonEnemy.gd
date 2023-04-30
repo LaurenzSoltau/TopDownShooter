@@ -21,11 +21,12 @@ var damage_indicator: PackedScene = preload("res://UserInterface/damage_indicato
 @export var level: = 1
 @export var money_worth: = 10
 @export var exp_worth: = 10
+@export var xp_drop: PackedScene
 
 var is_stunned: = false
 var current_target
 var player_stats
-var player_node
+var player_node: Area2D
 var last_bullet_vector
 var is_dying
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -124,3 +125,16 @@ func spawn_money_drop():
 		money_instance.money_value = money_worth
 		get_tree().current_scene.add_child(money_instance)
 		
+func freeze_on_hit(time):
+	if !is_stunned:
+		print("test")
+		is_stunned = true
+		animated_sprite.modulate = Color(1, 0, 0)
+		animated_sprite.stop()
+		var tmp_speed = movement_speed
+		movement_speed = movement_speed / 5.0
+		await get_tree().create_timer(time).timeout
+		movement_speed = tmp_speed
+		animated_sprite.modulate = Color(1, 1, 1)
+		animated_sprite.play()
+		is_stunned = false

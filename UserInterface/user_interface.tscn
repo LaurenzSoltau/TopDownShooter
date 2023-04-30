@@ -182,8 +182,8 @@ layout_mode = 2
 [node name="UpgradeOverlay" parent="." instance=ExtResource("8_lc610")]
 visible = false
 layout_mode = 1
-offset_right = 33280.0
-offset_bottom = 19443.0
+offset_right = 34560.0
+offset_bottom = 20163.0
 
 [node name="InvOverlay" parent="." instance=ExtResource("9_tja23")]
 visible = false
@@ -200,6 +200,6 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_bottom = 2169.0
+offset_bottom = 2892.0
 grow_horizontal = 1
 grow_vertical = 1

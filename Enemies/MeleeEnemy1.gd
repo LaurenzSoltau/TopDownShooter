@@ -1,22 +1,12 @@
 extends CommonEnemy
 
-@export var xp_drop: PackedScene
+
 
 func got_hit(pDamage):
 	health -= pDamage
 	
 	# freeze when hitted
-	if !is_stunned:
-		is_stunned = true
-		animated_sprite.modulate = Color(1, 0, 0)
-		animated_sprite.stop()
-		var tmp_speed = movement_speed
-		movement_speed = movement_speed / 2.0
-		await get_tree().create_timer(0.1).timeout
-		movement_speed = tmp_speed
-		animated_sprite.modulate = Color(1, 1, 1)
-		animated_sprite.play()
-		is_stunned = false
+	freeze_on_hit(0.1)
 	super.got_hit(pDamage)
 
 

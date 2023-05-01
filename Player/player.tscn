@@ -1,23 +1,23 @@
 [gd_scene load_steps=21 format=3 uid="uid://1j8us5vs6fyp"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_yg7la"]
-[ext_resource type="Texture2D" uid="uid://dtk1f0itkc3vx" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_0.png" id="2_4x80c"]
 [ext_resource type="Texture2D" uid="uid://ctfbgbodl2rkb" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/hit_0.png" id="2_f664t"]
 [ext_resource type="Texture2D" uid="uid://cw4vbc1a00ocw" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/hit_1.png" id="3_2q1yh"]
-[ext_resource type="Texture2D" uid="uid://caft23ycpljix" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_1.png" id="3_a5wj6"]
 [ext_resource type="Texture2D" uid="uid://dp1vo8xuafxba" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/hit_2.png" id="4_20ewm"]
-[ext_resource type="Texture2D" uid="uid://bkku55o06yenc" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_2.png" id="4_sgs8r"]
-[ext_resource type="Texture2D" uid="uid://bpvgu1i5be2ad" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_3.png" id="5_ha6sk"]
-[ext_resource type="Texture2D" uid="uid://cywxk7cqggnr3" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_4.png" id="6_u12dw"]
-[ext_resource type="Texture2D" uid="uid://3420wywxk2h3" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_5.png" id="7_r2tpv"]
-[ext_resource type="Texture2D" uid="uid://dblgxiy0unys0" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_0.png" id="8_ka2ic"]
-[ext_resource type="Texture2D" uid="uid://dwtgkyrck6fnu" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_1.png" id="9_x7u2p"]
-[ext_resource type="Texture2D" uid="uid://byo2xukjt81nt" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_2.png" id="10_mjfst"]
-[ext_resource type="Texture2D" uid="uid://cu78gr5b8na02" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_3.png" id="11_3sjd3"]
-[ext_resource type="Texture2D" uid="uid://u0jagst3h70f" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_4.png" id="12_l2sow"]
-[ext_resource type="Texture2D" uid="uid://15re6jliodk7" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_5.png" id="13_k3cgt"]
-[ext_resource type="Texture2D" uid="uid://fdchpvbam6uv" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_6.png" id="14_r4kh1"]
-[ext_resource type="Texture2D" uid="uid://dvutk8uitbkah" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/walk_7.png" id="15_73stq"]
+[ext_resource type="Texture2D" uid="uid://bq6cxdxhaqka2" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-1 2.png" id="5_kfs36"]
+[ext_resource type="Texture2D" uid="uid://b44u22lrm6mow" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-2 2.png" id="6_1a4mw"]
+[ext_resource type="Texture2D" uid="uid://dan8psi6df5c2" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-3 2.png" id="7_q6jpb"]
+[ext_resource type="Texture2D" uid="uid://b2x2stkb2pela" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-4 2.png" id="8_vj77c"]
+[ext_resource type="Texture2D" uid="uid://b4f4ohehpbme4" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-5 2.png" id="9_7umql"]
+[ext_resource type="Texture2D" uid="uid://coqunbwbd8hch" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-6 2.png" id="10_eo612"]
+[ext_resource type="Texture2D" uid="uid://c2a1wnqd6kfnq" path="res://Assets/PlayerCharacters/FrankOcean/Walk/frank_walk_animation-1.png" id="11_btjd2"]
+[ext_resource type="Texture2D" uid="uid://dvadyncdmp2h1" path="res://Assets/PlayerCharacters/FrankOcean/Walk/frank_walk_animation-2.png" id="12_4v0om"]
+[ext_resource type="Texture2D" uid="uid://dnt31gwu6wstb" path="res://Assets/PlayerCharacters/FrankOcean/Walk/frank_walk_animation-3.png" id="13_5fgpc"]
+[ext_resource type="Texture2D" uid="uid://cic0x2cpbhuh1" path="res://Assets/PlayerCharacters/FrankOcean/Walk/frank_walk_animation-4.png" id="14_4tbuy"]
+[ext_resource type="Texture2D" uid="uid://cuio17dcjkdb5" path="res://Assets/PlayerCharacters/FrankOcean/Walk/frank_walk_animation-5.png" id="15_eby6c"]
+[ext_resource type="Texture2D" uid="uid://cxvyanx3oheej" path="res://Assets/PlayerCharacters/FrankOcean/Walk/frank_walk_animation-6.png" id="16_r2vwp"]
+[ext_resource type="Texture2D" uid="uid://cuf8y8en4yc6m" path="res://Assets/PlayerCharacters/FrankOcean/Walk/frank_walk_animation-7.png" id="17_sha1a"]
+[ext_resource type="Texture2D" uid="uid://o12laf4fm2pp" path="res://Assets/PlayerCharacters/FrankOcean/Walk/frank_walk_animation-8.png" id="18_wokus"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e7gas"]
 animations = [{
@@ -37,22 +37,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_4x80c")
+"texture": ExtResource("5_kfs36")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_a5wj6")
+"texture": ExtResource("6_1a4mw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_sgs8r")
+"texture": ExtResource("7_q6jpb")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_ha6sk")
+"texture": ExtResource("8_vj77c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_u12dw")
+"texture": ExtResource("9_7umql")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_r2tpv")
+"texture": ExtResource("10_eo612")
 }],
 "loop": true,
 "name": &"idle",
@@ -60,32 +60,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_ka2ic")
+"texture": ExtResource("11_btjd2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_x7u2p")
+"texture": ExtResource("12_4v0om")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_mjfst")
+"texture": ExtResource("13_5fgpc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_3sjd3")
+"texture": ExtResource("14_4tbuy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_l2sow")
+"texture": ExtResource("15_eby6c")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_k3cgt")
+"texture": ExtResource("16_r2vwp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_r4kh1")
+"texture": ExtResource("17_sha1a")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_73stq")
+"texture": ExtResource("18_wokus")
 }],
 "loop": true,
 "name": &"walk",
-"speed": 12.0
+"speed": 10.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_331yy"]
@@ -102,7 +102,8 @@ script = ExtResource("1_yg7la")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(15, -136)
 sprite_frames = SubResource("SpriteFrames_e7gas")
-animation = &"idle"
+animation = &"walk"
+frame_progress = 0.253384
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 280)

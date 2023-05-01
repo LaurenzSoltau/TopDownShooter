@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8b2cyc6objpj"
-path="res://.godot/imported/frank_idle_animation_-1.png-dbd9f98c257d6ae7a7f7d7a75135570a.ctex"
+uid="uid://cxvyanx3oheej"
+path="res://.godot/imported/frank_walk_animation-6.png-017f7a420c399de856fd58c51ed7c869.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-1.png"
-dest_files=["res://.godot/imported/frank_idle_animation_-1.png-dbd9f98c257d6ae7a7f7d7a75135570a.ctex"]
+source_file="res://Assets/PlayerCharacters/FrankOcean/Walk/frank_walk_animation-6.png"
+dest_files=["res://.godot/imported/frank_walk_animation-6.png-017f7a420c399de856fd58c51ed7c869.ctex"]
 
 [params]
 

@@ -44,7 +44,6 @@ func _unhandled_input(event):
 		get_viewport().set_input_as_handled()
 	if event.is_action_pressed("stats") and not $UpgradeOverlay.visible and not pause_overlay.visible and not $WeaponShop.visible:
 		if inv_overlay.visible:
-			print("test")
 			inv_overlay.deload()
 		else:
 			inv_overlay.load()

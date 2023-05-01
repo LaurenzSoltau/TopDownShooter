@@ -1,8 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://1j8us5vs6fyp"]
+[gd_scene load_steps=21 format=3 uid="uid://1j8us5vs6fyp"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_yg7la"]
 [ext_resource type="Texture2D" uid="uid://dtk1f0itkc3vx" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_0.png" id="2_4x80c"]
+[ext_resource type="Texture2D" uid="uid://ctfbgbodl2rkb" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/hit_0.png" id="2_f664t"]
+[ext_resource type="Texture2D" uid="uid://cw4vbc1a00ocw" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/hit_1.png" id="3_2q1yh"]
 [ext_resource type="Texture2D" uid="uid://caft23ycpljix" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_1.png" id="3_a5wj6"]
+[ext_resource type="Texture2D" uid="uid://dp1vo8xuafxba" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/hit_2.png" id="4_20ewm"]
 [ext_resource type="Texture2D" uid="uid://bkku55o06yenc" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_2.png" id="4_sgs8r"]
 [ext_resource type="Texture2D" uid="uid://bpvgu1i5be2ad" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_3.png" id="5_ha6sk"]
 [ext_resource type="Texture2D" uid="uid://cywxk7cqggnr3" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_4.png" id="6_u12dw"]
@@ -18,6 +21,20 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e7gas"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f664t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2q1yh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_20ewm")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 12.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_4x80c")
@@ -85,7 +102,9 @@ script = ExtResource("1_yg7la")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(15, -136)
 sprite_frames = SubResource("SpriteFrames_e7gas")
-animation = &"idle"
+animation = &"hit"
+frame = 2
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 280)

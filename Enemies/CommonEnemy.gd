@@ -101,6 +101,7 @@ func move_towards_target(_delta):
 
 # handles the freeing, but animation and similar must be implemented for each enemy
 func die():
+	$AttackCooldown.stop()
 	current_target = position + last_bullet_vector.normalized() * 70
 	movement_speed = 750
 	is_dying = true
@@ -127,7 +128,6 @@ func spawn_money_drop():
 		
 func freeze_on_hit(time):
 	if !is_stunned:
-		print("test")
 		is_stunned = true
 		animated_sprite.modulate = Color(1, 0, 0)
 		animated_sprite.stop()

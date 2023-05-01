@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp1loy2brc2h0"]
+[gd_scene load_steps=5 format=3 uid="uid://cp1loy2brc2h0"]
 
 [ext_resource type="Script" path="res://WaveSystem/wave_spawner.gd" id="1_ttcvc"]
 [ext_resource type="Script" path="res://WaveSystem/Wave.gd" id="2_ls0lh"]
 [ext_resource type="PackedScene" uid="uid://boquonxmk4frx" path="res://Enemies/range_enemy_1.tscn" id="2_s15tn"]
+[ext_resource type="PackedScene" uid="uid://dpat4q3pua4rg" path="res://Enemies/melee_enemy_1.tscn" id="2_ve4ei"]
 
 [node name="WaveSpawner" type="Node2D"]
 script = ExtResource("1_ttcvc")
-enemy = ExtResource("2_s15tn")
+enemy1 = ExtResource("2_ve4ei")
+enemy2 = ExtResource("2_s15tn")
 
 [node name="SpawnTimer" type="Timer" parent="."]
 
@@ -15,20 +17,49 @@ script = ExtResource("2_ls0lh")
 
 [node name="Wave" type="Node" parent="Waves"]
 script = ExtResource("2_ls0lh")
+count1 = 2
 second_between_spawns = 2.0
 
 [node name="Wave2" type="Node" parent="Waves"]
 script = ExtResource("2_ls0lh")
-num_enemies = 5
+count1 = 3
+count2 = 2
+second_between_spawns = 1.75
 
 [node name="Wave3" type="Node" parent="Waves"]
 script = ExtResource("2_ls0lh")
-num_enemies = 10
-second_between_spawns = 1.0
+count1 = 4
+count2 = 10
 
 [node name="Wave4" type="Node" parent="Waves"]
 script = ExtResource("2_ls0lh")
-num_enemies = 15
+count1 = 15
+count2 = 10
+second_between_spawns = 1.2
+
+[node name="Wave5" type="Node" parent="Waves"]
+script = ExtResource("2_ls0lh")
+count1 = 20
+count2 = 20
+
+[node name="Wave6" type="Node" parent="Waves"]
+script = ExtResource("2_ls0lh")
+count1 = 35
+second_between_spawns = 1.0
+
+[node name="Wave7" type="Node" parent="Waves"]
+script = ExtResource("2_ls0lh")
+count1 = 15
+second_between_spawns = 0.8
+
+[node name="Wave8" type="Node" parent="Waves"]
+script = ExtResource("2_ls0lh")
+count1 = 15
+second_between_spawns = 0.8
+
+[node name="Wave9" type="Node" parent="Waves"]
+script = ExtResource("2_ls0lh")
+count1 = 15
 second_between_spawns = 0.8
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

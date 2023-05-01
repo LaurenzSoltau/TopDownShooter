@@ -4,7 +4,8 @@ extends CommonEnemy
 
 func got_hit(pDamage):
 	health -= pDamage
-
+	freeze_on_hit(0.1)
+	super.got_hit(pDamage)
 
 func move_towards_target(delta):
 	var velocity = position.direction_to(current_target) * movement_speed

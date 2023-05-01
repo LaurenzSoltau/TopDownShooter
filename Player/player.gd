@@ -6,6 +6,7 @@ var direction
 var velocity = Vector2.ZERO
 var starting_position = Vector2.ZERO
 var weapons = []
+var is_hit = false
 
 var player_stats:Resource
 
@@ -52,7 +53,10 @@ func stat_changed(stats):
 func got_hit(damage):
 	player_stats.add_stat("health", -damage, true)
 	$AnimatedSprite2D.modulate = Color(1, 0, 0)
+	$AnimatedSprite2D.animation = "hit"
+	is_hit = true
 	await get_tree().create_timer(0.2).timeout
+	is_hit = false
 	$AnimatedSprite2D.modulate = Color(1, 1, 1)
 
 
@@ -85,6 +89,8 @@ func handle_movement(delta):
 	position.y = clamp(position.y, -990, 920)
 	
 	# handles animation of the player
+	if is_hit:
+		return
 	if velocity.x != 0 or velocity.y != 0:
 		$AnimatedSprite2D.animation = "walk"
 	else:

@@ -7,6 +7,7 @@ var velocity = Vector2.ZERO
 var starting_position = Vector2.ZERO
 var weapons = []
 var is_hit = false
+var weapon_slots: int
 
 var player_stats:Resource
 
@@ -15,6 +16,7 @@ signal level_up
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	weapon_slots = $weapons.get_child(0).get_children().size()
 	player_stats = null
 	player_stats = load("res://Assets/Resources/player_stats.tres")
 	player_stats.connect("stat_changed", stat_changed)
@@ -104,7 +106,7 @@ func handle_movement(delta):
 # function that adds a weapon to the weapon array if there is space
 # also adds the weapon to the weapons node as a child
 func add_weapon(weapon):
-	if weapons.size() >= 3:
+	if weapons.size() >= weapon_slots:
 		print_debug("Waffen sind Voll")
 		return
 	weapon.position = get_node("weapons/GunPositions").get_child(weapons.size()).position*20

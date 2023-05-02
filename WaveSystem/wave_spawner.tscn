@@ -49,17 +49,19 @@ second_between_spawns = 1.0
 
 [node name="Wave7" type="Node" parent="Waves"]
 script = ExtResource("2_ls0lh")
-count1 = 15
+count1 = 20
+count2 = 20
 second_between_spawns = 0.8
 
 [node name="Wave8" type="Node" parent="Waves"]
 script = ExtResource("2_ls0lh")
-count1 = 15
-second_between_spawns = 0.8
+count1 = 25
+count2 = 25
+second_between_spawns = 0.6
 
 [node name="Wave9" type="Node" parent="Waves"]
 script = ExtResource("2_ls0lh")
-count1 = 15
-second_between_spawns = 0.8
+count1 = 65
+second_between_spawns = 0.4
 
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]

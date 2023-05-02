@@ -122,6 +122,18 @@ position = Vector2(0, -10)
 [node name="2" type="Node2D" parent="weapons/GunPositions"]
 position = Vector2(20, -4)
 
+[node name="3" type="Node2D" parent="weapons/GunPositions"]
+position = Vector2(20, 8)
+
+[node name="4" type="Node2D" parent="weapons/GunPositions"]
+position = Vector2(18, 21)
+
+[node name="5" type="Node2D" parent="weapons/GunPositions"]
+position = Vector2(-20, 8)
+
+[node name="6" type="Node2D" parent="weapons/GunPositions"]
+position = Vector2(-18, 21)
+
 [node name="healthTimer" type="Timer" parent="."]
 autostart = true
 

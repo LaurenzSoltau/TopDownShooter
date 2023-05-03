@@ -1,11 +1,55 @@
-[gd_scene load_steps=5 format=3 uid="uid://dpat4q3pua4rg"]
+[gd_scene load_steps=14 format=3 uid="uid://dpat4q3pua4rg"]
 
 [ext_resource type="PackedScene" uid="uid://clhuoalnfnlni" path="res://Enemies/CommonEnemy.tscn" id="1_6hr5c"]
 [ext_resource type="Script" path="res://Enemies/MeleeEnemy1.gd" id="2_2pffb"]
 [ext_resource type="PackedScene" uid="uid://x17m6j1dtxnr" path="res://Assets/xp5.tscn" id="3_yyex1"]
 [ext_resource type="PackedScene" uid="uid://bqj5lvmbq8mqd" path="res://Enemies/money.tscn" id="4_5gjrn"]
+[ext_resource type="Texture2D" uid="uid://da1c6bjxksh80" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 1/walk_0.png" id="5_ml2vp"]
+[ext_resource type="Texture2D" uid="uid://dg5ok7ykv5uxc" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 1/walk_1.png" id="6_64pkx"]
+[ext_resource type="Texture2D" uid="uid://c3dvyvxo25ylf" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 1/walk_2.png" id="7_aew83"]
+[ext_resource type="Texture2D" uid="uid://bx2adgou0bcub" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 1/walk_3.png" id="8_11q11"]
+[ext_resource type="Texture2D" uid="uid://da6l8863p60bw" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 1/walk_4.png" id="9_crj22"]
+[ext_resource type="Texture2D" uid="uid://b1pb0gufpw3jl" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 1/walk_5.png" id="10_eel1c"]
+[ext_resource type="Texture2D" uid="uid://ct7mk6xb32ev6" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 1/walk_6.png" id="11_csghl"]
+[ext_resource type="Texture2D" uid="uid://ca2vr2kgt32d7" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Enemies/Enemy 1/walk_7.png" id="12_uwanu"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iq6ub"]
+resource_local_to_scene = true
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ml2vp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_64pkx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_aew83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_11q11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_crj22")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_eel1c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_csghl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_uwanu")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
 
 [node name="MeleeEnemy1" instance=ExtResource("1_6hr5c")]
 script = ExtResource("2_2pffb")
 money_drop = ExtResource("4_5gjrn")
 xp_drop = ExtResource("3_yyex1")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = SubResource("SpriteFrames_iq6ub")

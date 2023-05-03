@@ -1,35 +1,35 @@
 [gd_scene load_steps=15 format=3 uid="uid://do6oew8f70ca3"]
 
 [ext_resource type="Script" path="res://UserInterface/inventar.gd" id="1_68ruw"]
-[ext_resource type="Texture2D" uid="uid://dtk1f0itkc3vx" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_0.png" id="1_mpdyi"]
-[ext_resource type="Texture2D" uid="uid://caft23ycpljix" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_1.png" id="2_3gmkj"]
-[ext_resource type="Texture2D" uid="uid://bkku55o06yenc" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_2.png" id="3_4v27p"]
-[ext_resource type="Texture2D" uid="uid://bpvgu1i5be2ad" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_3.png" id="4_jaq7g"]
-[ext_resource type="Texture2D" uid="uid://cywxk7cqggnr3" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_4.png" id="5_u8okh"]
-[ext_resource type="Texture2D" uid="uid://3420wywxk2h3" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/idle_5.png" id="6_ice8g"]
+[ext_resource type="Texture2D" uid="uid://bq6cxdxhaqka2" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-1 2.png" id="2_w31so"]
+[ext_resource type="Texture2D" uid="uid://b44u22lrm6mow" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-2 2.png" id="3_4ejgr"]
+[ext_resource type="Texture2D" uid="uid://dan8psi6df5c2" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-3 2.png" id="4_yyk5o"]
+[ext_resource type="Texture2D" uid="uid://b2x2stkb2pela" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-4 2.png" id="5_egxsc"]
+[ext_resource type="Texture2D" uid="uid://b4f4ohehpbme4" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-5 2.png" id="6_nrcdn"]
 [ext_resource type="Theme" uid="uid://5rw5qeyv36vc" path="res://Assets/ui_theme.tres" id="7_884kb"]
+[ext_resource type="Texture2D" uid="uid://coqunbwbd8hch" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-6 2.png" id="7_atvlx"]
 [ext_resource type="PackedScene" uid="uid://dn07hfh50rqcw" path="res://UserInterface/stat_element.tscn" id="8_m72iv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vdyat"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_mpdyi")
+"texture": ExtResource("2_w31so")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_3gmkj")
+"texture": ExtResource("3_4ejgr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_4v27p")
+"texture": ExtResource("4_yyk5o")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_jaq7g")
+"texture": ExtResource("5_egxsc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_u8okh")
+"texture": ExtResource("6_nrcdn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_ice8g")
+"texture": ExtResource("7_atvlx")
 }],
 "loop": true,
 "name": &"default",
@@ -167,8 +167,8 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 723.0
-offset_right = 1280.0
-offset_bottom = 1443.0
+offset_right = 2560.0
+offset_bottom = 2163.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)

@@ -1,4 +1,4 @@
-extends AnimatedSprite2D
+extends Node2D
 
 @onready var weapons = WeaponScenes.weapons
 var player_in_area: = false

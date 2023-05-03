@@ -1,7 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://1j8us5vs6fyp"]
+[gd_scene load_steps=22 format=3 uid="uid://1j8us5vs6fyp"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_yg7la"]
 [ext_resource type="Texture2D" uid="uid://ctfbgbodl2rkb" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/hit_0.png" id="2_f664t"]
+[ext_resource type="Texture2D" uid="uid://v3foof4n7i4j" path="res://Assets/Sprites/dropShadow.png" id="2_n4icc"]
 [ext_resource type="Texture2D" uid="uid://cw4vbc1a00ocw" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/hit_1.png" id="3_2q1yh"]
 [ext_resource type="Texture2D" uid="uid://dp1vo8xuafxba" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/hit_2.png" id="4_20ewm"]
 [ext_resource type="Texture2D" uid="uid://bq6cxdxhaqka2" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-1 2.png" id="5_kfs36"]
@@ -90,7 +91,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_331yy"]
 radius = 226.0
-height = 664.0
+height = 600.0
 
 [node name="Player" type="Area2D" groups=["player"]]
 position = Vector2(2.08165e-12, 2.08165e-12)
@@ -99,14 +100,19 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_yg7la")
 
+[node name="DropShadow" type="Sprite2D" parent="."]
+position = Vector2(0, 580)
+scale = Vector2(0.397906, 0.586805)
+texture = ExtResource("2_n4icc")
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(15, -136)
 sprite_frames = SubResource("SpriteFrames_e7gas")
-animation = &"walk"
-frame_progress = 0.253384
+animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(8, 280)
+visible = false
+position = Vector2(-4.1633e-11, 320)
 shape = SubResource("CapsuleShape2D_331yy")
 
 [node name="weapons" type="Node2D" parent="."]

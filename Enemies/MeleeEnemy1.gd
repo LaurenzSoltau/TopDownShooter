@@ -13,8 +13,10 @@ func got_hit(pDamage):
 func move_towards_target(delta):
 	var velocity = position.direction_to(current_target) * movement_speed
 	position += velocity * delta
-	position.x = clamp(position.x, -990, 990)
-	position.y = clamp(position.y, -990, 920)
+	position.x = clamp(position.x, -920, 920)
+	position.y = clamp(position.y, -820, 900)
+	if position.x < -915 or position.x > 915 or position.y < -815 or position.y > 885:
+		current_target = get_target()
 	
 	# change the animation in relation to the direction the object ist running
 	if velocity.x != 0 or velocity.y != 0:

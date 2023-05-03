@@ -87,8 +87,8 @@ func handle_movement(delta):
 	direction = direction.normalized()
 	velocity = direction * player_stats.stats["movement_speed"]
 	position += velocity * delta
-	position.x = clamp(position.x, -990, 990)
-	position.y = clamp(position.y, -990, 920)
+	position.x = clamp(position.x, -920, 920)
+	position.y = clamp(position.y, -820, 900)
 	
 	# handles animation of the player
 	if is_hit:

@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlo28434t7djg"]
+[gd_scene load_steps=8 format=3 uid="uid://dlo28434t7djg"]
 
-[ext_resource type="Texture2D" uid="uid://chr2pvds03i7n" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Environment/ground2_white.png" id="1_ertmt"]
+[ext_resource type="Texture2D" uid="uid://bi2ogf2d5nker" path="res://Assets/Sprites/Forest_Background.png" id="2_0fywu"]
 [ext_resource type="Script" path="res://Screens/game.gd" id="2_84ier"]
-[ext_resource type="Texture2D" uid="uid://drjo3xjgm184k" path="res://Assets/stone_background.jpg" id="3_np7mq"]
 [ext_resource type="PackedScene" uid="uid://l2wgi0o3gaua" path="res://UserInterface/user_interface.tscn" id="4_dj5ru"]
 [ext_resource type="PackedScene" uid="uid://1j8us5vs6fyp" path="res://Player/player.tscn" id="5_84qer"]
 [ext_resource type="PackedScene" uid="uid://cp1loy2brc2h0" path="res://WaveSystem/wave_spawner.tscn" id="6_vblev"]
@@ -10,22 +9,22 @@
 
 [sub_resource type="Curve2D" id="Curve2D_tnm5r"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -1022.96, -1015.33, 0, 0, 0, 0, 1017.87, -1012.96, 0, 0, 0, 0, 1021.5, 1024.84, 0, 0, 0, 0, -1017.87, 1022.47, 0, 0, 0, 0, -1020.78, -1010.58, 0, 0, 0, 0, -1022.96, -1015.33)
+"points": PackedVector2Array(0, 0, 0, 0, 1017.87, -1012.96, 0, 0, 0, 0, 1021.5, 1024.84, 0, 0, 0, 0, -1017.87, 1022.47, 0, 0, 0, 0, -1021.18, -1011, 0, 0, 0, 0, -1021.18, -1013)
 }
-point_count = 6
+point_count = 5
 
 [node name="game" type="Sprite2D"]
 position = Vector2(2.08165e-12, 2.08165e-12)
-texture = ExtResource("1_ertmt")
 script = ExtResource("2_84ier")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(2.54113, 5.94457)
-scale = Vector2(0.416487, 0.630154)
-texture = ExtResource("3_np7mq")
+position = Vector2(2.49997, 5.94457)
+scale = Vector2(0.999512, 1)
+texture = ExtResource("2_0fywu")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 100
+visible = false
 
 [node name="UserInterface" parent="HUD" instance=ExtResource("4_dj5ru")]
 offset_top = 0.0
@@ -43,12 +42,13 @@ limit_right = 1020
 limit_bottom = 1020
 
 [node name="MobPath" type="Path2D" parent="."]
-position = Vector2(2.17805, -2.4749e-12)
+position = Vector2(-10, 64)
+scale = Vector2(0.895007, 0.857111)
 curve = SubResource("Curve2D_tnm5r")
 
 [node name="MobSpawnLocation" type="PathFollow2D" parent="MobPath"]
-position = Vector2(-1022.96, -1015.33)
-rotation = 0.00116129
+position = Vector2(1017.87, -1012.96)
+rotation = 1.56902
 
 [node name="WaveSpawner" parent="." instance=ExtResource("6_vblev")]
 

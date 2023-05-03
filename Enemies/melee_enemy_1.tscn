@@ -51,5 +51,5 @@ script = ExtResource("2_2pffb")
 money_drop = ExtResource("4_5gjrn")
 xp_drop = ExtResource("3_yyex1")
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_iq6ub")

@@ -1,29 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://x17m6j1dtxnr"]
+[gd_scene load_steps=7 format=3 uid="uid://x17m6j1dtxnr"]
 
 [ext_resource type="Texture2D" uid="uid://djnxn1dft6h3s" path="res://Assets/Sprites/spr_coin_strip4.png" id="1_um1kt"]
 [ext_resource type="Script" path="res://Assets/xp5.gd" id="2_gtq0m"]
+[ext_resource type="Texture2D" uid="uid://v3foof4n7i4j" path="res://Assets/Sprites/dropShadow.png" id="2_mtfhp"]
 [ext_resource type="AudioStream" uid="uid://dsjxseadkvp63" path="res://Assets/Sound/xpSound.wav" id="3_4ryho"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k5cm8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3306"]
 atlas = ExtResource("1_um1kt")
-region = Rect2(32, 0, 16, 16)
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ivf8x"]
 radius = 5.0
 height = 16.0
 
-[node name="Xp5" type="Sprite2D"]
+[node name="Xp5" type="Area2D"]
 scale = Vector2(2, 2)
-texture = SubResource("AtlasTexture_k5cm8")
+collision_mask = 3
 script = ExtResource("2_gtq0m")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_mask = 3
+[node name="DropShadow" type="Sprite2D" parent="."]
+position = Vector2(0, 8)
+scale = Vector2(0.0100697, 0.0333676)
+texture = ExtResource("2_mtfhp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CapsuleShape2D_ivf8x")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_f3306")
 
 [node name="CollectSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_4ryho")
 
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ivf8x")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

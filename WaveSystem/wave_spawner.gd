@@ -1,44 +1,58 @@
 extends Node2D
 
 
-@export var enemy: PackedScene
-@onready var spawn_timer = $SpawnTimer
+@export var enemy1: PackedScene
+@export var enemy2: PackedScene
+@export var enemy3: PackedScene
+@export var enemy4: PackedScene
+@export var enemy5: PackedScene
 
-var enemies_remaining_to_spawn
+
+@onready var spawn_timer = $SpawnTimer
 
 var waves # array of all the Waves
 var current_wave: Wave
 var current_wave_number = -1
 var isSpawning = false
+var enemy_scenes = []
 
 func _ready():
 	waves = $Waves.get_children()
+	enemy_scenes.append(enemy1)
+	enemy_scenes.append(enemy2)
+	enemy_scenes.append(enemy3)
+	enemy_scenes.append(enemy4)
+	enemy_scenes.append(enemy5)
 
 func start_next_wave():
 	current_wave_number += 1
-	print("current Wave: ", current_wave_number)
+	print_debug("current Wave: ", current_wave_number)
 	current_wave = waves[current_wave_number]
-	enemies_remaining_to_spawn = current_wave.num_enemies
 	spawn_timer.wait_time = current_wave.second_between_spawns
 	spawn_timer.start()
 	
 	
 func spawn_enemy():
-	var mob = enemy.instantiate()
 	# Choose a random location on Path2D.
 	var mob_spawn_location = get_node("../MobPath/MobSpawnLocation")
 	mob_spawn_location.progress_ratio = randf()
 
-	# Set the mob's position to a random location.
-	mob.position = mob_spawn_location.position
+	if current_wave.type_code.is_empty():
+		spawn_timer.stop()
+		return
+	var type_code_index = randi() % current_wave.type_code.size()
+	var enemy_to_spawn = enemy_scenes[current_wave.type_code[type_code_index]].instantiate()
+	current_wave.type_code.remove_at(type_code_index)
+	
+	enemy_to_spawn.global_position = mob_spawn_location.global_position
+
 
 	# Spawn the mob by adding it to the Main scene.
-	get_parent().add_child(mob)
+	get_parent().add_child(enemy_to_spawn)
 
 func _on_spawn_timer_timeout():
-	if enemies_remaining_to_spawn and isSpawning:
+	if isSpawning:
 		spawn_enemy()
-		enemies_remaining_to_spawn -= 1
 		
 
 func check_if_enemies_are_in_root_scene():

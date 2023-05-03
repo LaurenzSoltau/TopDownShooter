@@ -60,7 +60,7 @@ money_worth = 15
 exp_worth = 15
 xp_drop = ExtResource("4_vwxwr")
 
-[node name="AnimatedSprite2D" parent="." index="0"]
+[node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_1e4dj")
 frame = 1
 frame_progress = 0.337301

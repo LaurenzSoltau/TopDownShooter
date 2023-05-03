@@ -70,5 +70,6 @@ func calculate_damage():
 	return total_damage
 
 func enemy_is_in_range():
-	return global_position.distance_to(nearest_enemy.global_position) <= weapon_range + player_stats.stats["attack_range"]
-		
+	if nearest_enemy:
+		return global_position.distance_to(nearest_enemy.global_position) <= weapon_range + player_stats.stats["attack_range"]
+	return false

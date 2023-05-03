@@ -6,6 +6,8 @@ var direction
 var velocity = Vector2.ZERO
 var starting_position = Vector2.ZERO
 var weapons = []
+var is_hit = false
+var weapon_slots: int
 
 var player_stats:Resource
 
@@ -14,6 +16,7 @@ signal level_up
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	weapon_slots = $weapons.get_child(0).get_children().size()
 	player_stats = null
 	player_stats = load("res://Assets/Resources/player_stats.tres")
 	player_stats.connect("stat_changed", stat_changed)
@@ -52,7 +55,10 @@ func stat_changed(stats):
 func got_hit(damage):
 	player_stats.add_stat("health", -damage, true)
 	$AnimatedSprite2D.modulate = Color(1, 0, 0)
+	$AnimatedSprite2D.animation = "hit"
+	is_hit = true
 	await get_tree().create_timer(0.2).timeout
+	is_hit = false
 	$AnimatedSprite2D.modulate = Color(1, 1, 1)
 
 
@@ -81,10 +87,12 @@ func handle_movement(delta):
 	direction = direction.normalized()
 	velocity = direction * player_stats.stats["movement_speed"]
 	position += velocity * delta
-	position.x = clamp(position.x, -990, 990)
-	position.y = clamp(position.y, -990, 920)
+	position.x = clamp(position.x, -920, 920)
+	position.y = clamp(position.y, -820, 900)
 	
 	# handles animation of the player
+	if is_hit:
+		return
 	if velocity.x != 0 or velocity.y != 0:
 		$AnimatedSprite2D.animation = "walk"
 	else:
@@ -98,7 +106,7 @@ func handle_movement(delta):
 # function that adds a weapon to the weapon array if there is space
 # also adds the weapon to the weapons node as a child
 func add_weapon(weapon):
-	if weapons.size() >= 3:
+	if weapons.size() >= weapon_slots:
 		print_debug("Waffen sind Voll")
 		return
 	weapon.position = get_node("weapons/GunPositions").get_child(weapons.size()).position*20

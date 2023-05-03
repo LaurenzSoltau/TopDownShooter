@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dq388ollgkk55"]
+[gd_scene load_steps=12 format=3 uid="uid://dq388ollgkk55"]
 
 [ext_resource type="Texture2D" uid="uid://c2lva4lfombob" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 3/with hands/idle_0.png" id="1_5kqpt"]
 [ext_resource type="Texture2D" uid="uid://bac6c705cmsr4" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 3/with hands/idle_1.png" id="2_ublcu"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b7mkgghemb2b7" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 3/with hands/idle_5.png" id="6_eyvpb"]
 [ext_resource type="Script" path="res://Npc/vendor.gd" id="7_akpnp"]
 [ext_resource type="Theme" uid="uid://5rw5qeyv36vc" path="res://Assets/ui_theme.tres" id="7_kdlvy"]
+[ext_resource type="Texture2D" uid="uid://v3foof4n7i4j" path="res://Assets/Sprites/dropShadow.png" id="8_dr1bh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_e2qyp"]
 animations = [{
@@ -39,12 +40,19 @@ animations = [{
 radius = 424.444
 height = 1053.33
 
-[node name="Vendor" type="AnimatedSprite2D"]
+[node name="Vendor" type="Node2D"]
 scale = Vector2(0.12, 0.12)
+script = ExtResource("7_akpnp")
+
+[node name="DropShadow" type="Sprite2D" parent="."]
+position = Vector2(16.6667, 700)
+scale = Vector2(0.524745, 0.687894)
+texture = ExtResource("8_dr1bh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_e2qyp")
 animation = &"idle"
-frame_progress = 0.556538
-script = ExtResource("7_akpnp")
 
 [node name="Name" type="Label" parent="."]
 anchors_preset = 8
@@ -52,10 +60,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1044.0
-offset_top = -1035.5
-offset_right = -1004.0
-offset_bottom = -1012.5
+offset_left = -258.333
+offset_top = -191.667
+offset_right = 245.667
+offset_bottom = -28.6667
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_kdlvy")
@@ -77,10 +85,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1234.0
-offset_top = -230.667
-offset_right = -814.0
-offset_bottom = -112.667
+offset_left = -241.667
+offset_top = 766.667
+offset_right = 262.333
+offset_bottom = 906.667
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_kdlvy")

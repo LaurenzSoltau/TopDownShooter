@@ -19,4 +19,5 @@ bullet = ExtResource("3_85hyp")
 position = Vector2(613.333, -6.66667)
 
 [node name="MuzzleFlash" parent="." index="1"]
-position = Vector2(626.667, -2.22223)
+visible = false
+position = Vector2(857.778, -4.44444)

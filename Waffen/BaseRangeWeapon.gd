@@ -16,9 +16,9 @@ class_name base_range_weapon
 
 
 @export var bullet: PackedScene
-@onready var shootTimer = $ShootTimer
-@onready var muzzleFlashAnim = $AnimationPlayer
-@onready var gunShotSound = $gunShot
+@onready var shootTimer: Timer = $ShootTimer
+@onready var muzzleFlashAnim: AnimationPlayer = $AnimationPlayer
+@onready var gunShotSound: AudioStreamPlayer2D = $gunShot
 var player_stats
 
 
@@ -35,6 +35,8 @@ func fire():
 	#only shoot wehen enemy is in distance
 	gunShotSound.play()
 
+func stop():
+	shootTimer.stop()
 # this function finds the nearest enemy to the weapon and retuns the enemy as an object
 func find_nearest_enemy():
 	# check if there are enemies instanced, if not return

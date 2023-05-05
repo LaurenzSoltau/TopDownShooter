@@ -31,5 +31,5 @@ func fire():
 		bullet_instance.apply_impulse(Vector2(bullet_speed, 0).rotated($GunPoint.global_rotation + deg_to_rad(spread_degree)))
 		muzzleFlashAnim.play("muzzle_flash")
 		get_tree().get_root().add_child(bullet_instance)
-		super.fire()
 		spread_degree += 2
+	super.fire()

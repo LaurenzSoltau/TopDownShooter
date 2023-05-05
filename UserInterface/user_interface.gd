@@ -9,6 +9,7 @@ extends Control
 @onready var xp_bar: ProgressBar = get_node("xp_bar")
 @onready var level_upgrades = load("res://Assets/Resources/level_upgrades.tres")
 @onready var inv_overlay = get_node("InvOverlay")
+@onready var menu_slide_sound: AudioStreamPlayer2D = get_node("MenuSlide")
 var player_stats: Resource
 var vendor: Node
 
@@ -39,6 +40,15 @@ func update_interface(stats):
 
 
 func _unhandled_input(event):
+	if event.is_action_pressed("close"):
+		if inv_overlay.visible:
+			inv_overlay.deload()
+		elif $WeaponShop.visible:
+			$WeaponShop.close_shop()
+		elif paused:
+			paused = false
+		else:
+			paused = true
 	if event.is_action_pressed("pause") and not $UpgradeOverlay.visible and not $InvOverlay.visible and not $WeaponShop.visible:
 		self.paused = not paused
 		get_viewport().set_input_as_handled()
@@ -64,3 +74,7 @@ func update_progress_bar(progressbar, end, duration):
 func shop_opened():
 	if not $UpgradeOverlay.visible and not get_tree().paused:
 		$WeaponShop.new_shop()
+
+func play_slide_sound():
+	await get_tree().create_timer(0.2).timeout
+	menu_slide_sound.play()

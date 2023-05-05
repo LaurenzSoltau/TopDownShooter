@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://qyv0t4fgd58e"]
+[gd_scene load_steps=6 format=3 uid="uid://qyv0t4fgd58e"]
 
 [ext_resource type="PackedScene" uid="uid://biwluetnyihce" path="res://Waffen/base_range_weapon.tscn" id="1_fr7p8"]
-[ext_resource type="Texture2D" uid="uid://cou65bbn72t8e" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Weapons/weaponR3.png" id="2_6nkbm"]
+[ext_resource type="Texture2D" uid="uid://wu64ia7mynpw" path="res://Assets/Weapons/Shotgun.png" id="2_x5c7n"]
 [ext_resource type="PackedScene" uid="uid://dsty7iw4xtkr" path="res://Waffen/Bullets/bullet.tscn" id="3_85hyp"]
 [ext_resource type="Script" path="res://Waffen/shotgun_1.gd" id="3_i1q00"]
+[ext_resource type="AudioStream" uid="uid://dq0cd121elks0" path="res://Assets/Sound/fireSound/basic_bullet_sound.wav" id="5_6hql0"]
 
 [node name="Shotgun" instance=ExtResource("1_fr7p8")]
-texture = ExtResource("2_6nkbm")
+position = Vector2(1, 0)
+texture = ExtResource("2_x5c7n")
 script = ExtResource("3_i1q00")
 fire_rate = 1.5
 bullet_damage = 1.0
@@ -21,3 +23,6 @@ position = Vector2(613.333, -6.66667)
 [node name="MuzzleFlash" parent="." index="1"]
 visible = false
 position = Vector2(857.778, -4.44444)
+
+[node name="gunShot" parent="." index="4"]
+stream = ExtResource("5_6hql0")

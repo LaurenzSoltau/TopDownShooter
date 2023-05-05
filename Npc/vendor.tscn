@@ -50,7 +50,6 @@ scale = Vector2(0.524745, 0.687894)
 texture = ExtResource("8_dr1bh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1, 1)
 sprite_frames = SubResource("SpriteFrames_e2qyp")
 animation = &"idle"
 

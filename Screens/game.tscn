@@ -24,7 +24,6 @@ texture = ExtResource("2_0fywu")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 layer = 100
-visible = false
 
 [node name="UserInterface" parent="HUD" instance=ExtResource("4_dj5ru")]
 offset_top = 0.0

@@ -132,7 +132,8 @@ func freeze_on_hit(time):
 		animated_sprite.modulate = Color(1, 0, 0)
 		animated_sprite.stop()
 		var tmp_speed = movement_speed
-		movement_speed = movement_speed / 5.0
+		@warning_ignore("integer_division")
+		movement_speed = movement_speed / 5
 		await get_tree().create_timer(time).timeout
 		movement_speed = tmp_speed
 		animated_sprite.modulate = Color(1, 1, 1)

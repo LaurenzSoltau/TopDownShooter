@@ -15,6 +15,7 @@ func _ready():
 func new_shop():
 	if not $shopCooldown.is_stopped():
 		return
+	get_parent().play_slide_sound()
 	$AnimationPlayer.current_animation = "SlideIn"
 	$AnimationPlayer.play()
 	shop_items = get_shop_items(3)
@@ -23,6 +24,7 @@ func new_shop():
 	player = get_node("/root/game/Player")
 
 func close_shop():
+	get_parent().play_slide_sound()
 	$AnimationPlayer.current_animation = "SlideOut"
 	$AnimationPlayer.play()
 	get_tree().paused = false
@@ -69,9 +71,7 @@ func weapon_bought(index):
 		print_debug("zu teuer")
 		return
 	player.add_weapon(weapon_instance)
-	$AnimationPlayer.current_animation = "SlideOut"
-	$AnimationPlayer.play()
-	get_tree().paused = false
 	player_stats.add_stat("money", -weapon_instance.price, true)
 	price_multiplier = price_multiplier * 1.25
+	close_shop()
 	

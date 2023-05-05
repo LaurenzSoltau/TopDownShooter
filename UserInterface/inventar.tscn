@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://do6oew8f70ca3"]
+[gd_scene load_steps=19 format=3 uid="uid://cbk2t2443pr8y"]
 
 [ext_resource type="Script" path="res://UserInterface/inventar.gd" id="1_68ruw"]
+[ext_resource type="StyleBox" uid="uid://cpkdom3pvopqv" path="res://Assets/panel_theme.tres" id="2_kdwt2"]
 [ext_resource type="Texture2D" uid="uid://bq6cxdxhaqka2" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-1 2.png" id="2_w31so"]
 [ext_resource type="Texture2D" uid="uid://b44u22lrm6mow" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-2 2.png" id="3_4ejgr"]
 [ext_resource type="Texture2D" uid="uid://dan8psi6df5c2" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-3 2.png" id="4_yyk5o"]
@@ -9,6 +10,8 @@
 [ext_resource type="Theme" uid="uid://5rw5qeyv36vc" path="res://Assets/ui_theme.tres" id="7_884kb"]
 [ext_resource type="Texture2D" uid="uid://coqunbwbd8hch" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-6 2.png" id="7_atvlx"]
 [ext_resource type="PackedScene" uid="uid://dn07hfh50rqcw" path="res://UserInterface/stat_element.tscn" id="8_m72iv"]
+[ext_resource type="Texture2D" uid="uid://djnxn1dft6h3s" path="res://Assets/Sprites/spr_coin_strip4.png" id="11_gnhsr"]
+[ext_resource type="PackedScene" uid="uid://c5o6dqd4wuj1o" path="res://UserInterface/weapon_panel.tscn" id="11_qifss"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vdyat"]
 animations = [{
@@ -35,6 +38,10 @@ animations = [{
 "name": &"default",
 "speed": 11.0
 }]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joaqy"]
+atlas = ExtResource("11_gnhsr")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="Animation" id="Animation_8k1dj"]
 length = 0.001
@@ -167,58 +174,77 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 723.0
-offset_right = 2560.0
-offset_bottom = 2163.0
+offset_right = 6400.0
+offset_bottom = 4323.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 script = ExtResource("1_68ruw")
 
-[node name="char" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 25.0
-offset_top = 25.0
-offset_right = 369.0
-offset_bottom = 369.0
-scale = Vector2(1, 0.919999)
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="char"]
-position = Vector2(168, 69.5653)
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 360)
+layout_mode = 2
+theme_override_constants/separation = 80
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1280, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 49
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 55
+theme_override_constants/margin_bottom = 25
+
+[node name="char" type="Panel" parent="VBoxContainer/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = ExtResource("2_kdwt2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer/HBoxContainer/MarginContainer/char"]
+position = Vector2(175, 18)
 scale = Vector2(0.314209, 0.341532)
 sprite_frames = SubResource("SpriteFrames_vdyat")
 autoplay = "default"
 frame_progress = 0.0119777
 
-[node name="Label" type="Label" parent="char"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/char"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -130.5
-offset_right = 130.5
-offset_bottom = 58.0
+offset_left = -130.0
+offset_top = 9.0
+offset_right = 131.0
+offset_bottom = 67.0
 grow_horizontal = 2
 theme = ExtResource("7_884kb")
 text = "Oppermann"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="stats" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 423.0
-offset_top = 25.0
-offset_right = 1212.0
-offset_bottom = 342.0
+[node name="stats" type="Panel" parent="VBoxContainer/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(775, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = ExtResource("2_kdwt2")
 
-[node name="StatsHeader" type="Label" parent="stats"]
+[node name="StatsHeader" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/stats"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -130.5
-offset_top = 3.0
-offset_right = 130.5
-offset_bottom = 61.0
+offset_left = -129.5
+offset_top = 6.0
+offset_right = 131.5
+offset_bottom = 64.0
 grow_horizontal = 2
 theme = ExtResource("7_884kb")
 text = "Stats
@@ -226,7 +252,7 @@ text = "Stats
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="stats"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/stats"]
 layout_mode = 2
 offset_left = 17.0
 offset_top = 54.0
@@ -234,37 +260,38 @@ offset_right = 280.0
 offset_bottom = 282.0
 alignment = 1
 
-[node name="StatElement" parent="stats/VBoxContainer" instance=ExtResource("8_m72iv")]
+[node name="StatElement" parent="VBoxContainer/HBoxContainer/MarginContainer/stats/VBoxContainer" instance=ExtResource("8_m72iv")]
 layout_mode = 2
+icon = SubResource("AtlasTexture_joaqy")
 stat_key = "max_health"
 stat_name = "Max Health"
 
-[node name="StatElement2" parent="stats/VBoxContainer" instance=ExtResource("8_m72iv")]
+[node name="StatElement2" parent="VBoxContainer/HBoxContainer/MarginContainer/stats/VBoxContainer" instance=ExtResource("8_m72iv")]
 layout_mode = 2
 stat_key = "health_regen"
 stat_name = "Health Regen"
 
-[node name="StatElement3" parent="stats/VBoxContainer" instance=ExtResource("8_m72iv")]
+[node name="StatElement3" parent="VBoxContainer/HBoxContainer/MarginContainer/stats/VBoxContainer" instance=ExtResource("8_m72iv")]
 layout_mode = 2
 stat_key = "attack_range"
 stat_name = "Range"
 
-[node name="StatElement4" parent="stats/VBoxContainer" instance=ExtResource("8_m72iv")]
+[node name="StatElement4" parent="VBoxContainer/HBoxContainer/MarginContainer/stats/VBoxContainer" instance=ExtResource("8_m72iv")]
 layout_mode = 2
 stat_key = "movement_speed"
 stat_name = "Movementspeed"
 
-[node name="StatElement5" parent="stats/VBoxContainer" instance=ExtResource("8_m72iv")]
+[node name="StatElement5" parent="VBoxContainer/HBoxContainer/MarginContainer/stats/VBoxContainer" instance=ExtResource("8_m72iv")]
 layout_mode = 2
 stat_key = "damage_percent"
 stat_name = "Damage"
 
-[node name="StatElement6" parent="stats/VBoxContainer" instance=ExtResource("8_m72iv")]
+[node name="StatElement6" parent="VBoxContainer/HBoxContainer/MarginContainer/stats/VBoxContainer" instance=ExtResource("8_m72iv")]
 layout_mode = 2
 stat_key = "range_ramage"
 stat_name = "Range Damage"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="stats"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/stats"]
 layout_mode = 2
 offset_left = 475.0
 offset_top = 54.0
@@ -272,29 +299,215 @@ offset_right = 738.0
 offset_bottom = 282.0
 alignment = 1
 
-[node name="StatElement" parent="stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
+[node name="StatElement" parent="VBoxContainer/HBoxContainer/MarginContainer/stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
 layout_mode = 2
 stat_name = "WIP"
 
-[node name="StatElement2" parent="stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
+[node name="StatElement2" parent="VBoxContainer/HBoxContainer/MarginContainer/stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
 layout_mode = 2
 stat_name = "WIP"
 
-[node name="StatElement3" parent="stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
+[node name="StatElement3" parent="VBoxContainer/HBoxContainer/MarginContainer/stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
 layout_mode = 2
 stat_name = "WIP"
 
-[node name="StatElement4" parent="stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
+[node name="StatElement4" parent="VBoxContainer/HBoxContainer/MarginContainer/stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
 layout_mode = 2
 stat_name = "WIP"
 
-[node name="StatElement5" parent="stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
+[node name="StatElement5" parent="VBoxContainer/HBoxContainer/MarginContainer/stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
 layout_mode = 2
 stat_name = "WIP"
 
-[node name="StatElement6" parent="stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
+[node name="StatElement6" parent="VBoxContainer/HBoxContainer/MarginContainer/stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
 layout_mode = 2
 stat_name = "WIP"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(360, 360)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(1280, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 49
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 55
+theme_override_constants/margin_bottom = 25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="Inventory" type="Panel" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(600, 290)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = ExtResource("2_kdwt2")
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/Inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/Inventory/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="WeaponsHeader" type="Label" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/Inventory/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("7_884kb")
+text = "Weapons
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/Inventory/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="WeaponPanel" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/Inventory/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("11_qifss")]
+layout_mode = 2
+
+[node name="WeaponPanel2" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/Inventory/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("11_qifss")]
+layout_mode = 2
+
+[node name="WeaponPanel3" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/Inventory/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("11_qifss")]
+layout_mode = 2
+
+[node name="WeaponPanel4" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/Inventory/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("11_qifss")]
+layout_mode = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/Inventory/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 35
+alignment = 1
+
+[node name="WeaponPanel" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/Inventory/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("11_qifss")]
+layout_mode = 2
+
+[node name="WeaponPanel2" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/Inventory/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("11_qifss")]
+layout_mode = 2
+
+[node name="WeaponPanel3" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/Inventory/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("11_qifss")]
+layout_mode = 2
+
+[node name="WeaponPanel4" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/Inventory/MarginContainer/VBoxContainer/HBoxContainer3" instance=ExtResource("11_qifss")]
+layout_mode = 2
+
+[node name="stats" type="Panel" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(520, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_styles/panel = ExtResource("2_kdwt2")
+
+[node name="StatsHeader" type="Label" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/stats"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -129.5
+offset_top = 6.0
+offset_right = 131.5
+offset_bottom = 64.0
+grow_horizontal = 2
+theme = ExtResource("7_884kb")
+text = "Weapon Stats
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/stats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 54.0
+offset_right = -289.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="StatElement" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/stats/VBoxContainer" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_key = "max_health"
+stat_name = "damage"
+
+[node name="StatElement2" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/stats/VBoxContainer" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_key = "health_regen"
+stat_name = "Health Regen"
+
+[node name="StatElement3" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/stats/VBoxContainer" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_key = "attack_range"
+stat_name = "Range"
+
+[node name="StatElement4" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/stats/VBoxContainer" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_key = "movement_speed"
+stat_name = "Movementspeed"
+
+[node name="StatElement5" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/stats/VBoxContainer" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_key = "damage_percent"
+stat_name = "Damage"
+
+[node name="StatElement6" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/stats/VBoxContainer" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_key = "range_ramage"
+stat_name = "Range Damage"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/stats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = 54.0
+offset_right = -28.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="StatElement" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_key = "max_health"
+stat_name = "Max Health"
+
+[node name="StatElement2" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_key = "health_regen"
+stat_name = "Health Regen"
+
+[node name="StatElement3" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_key = "attack_range"
+stat_name = "Range"
+
+[node name="StatElement4" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_key = "movement_speed"
+stat_name = "Movementspeed"
+
+[node name="StatElement5" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_key = "damage_percent"
+stat_name = "Damage"
+
+[node name="StatElement6" parent="VBoxContainer/HBoxContainer2/MarginContainer/HBoxContainer/stats/VBoxContainer2" instance=ExtResource("8_m72iv")]
+layout_mode = 2
+stat_key = "range_ramage"
+stat_name = "Range Damage"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

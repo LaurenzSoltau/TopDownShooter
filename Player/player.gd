@@ -9,7 +9,8 @@ var weapons = []
 var is_hit = false
 var weapon_slots: int
 
-var player_stats:Resource
+var player_stats: Resource
+var player_inventory: Resource
 
 signal level_up
 
@@ -17,6 +18,9 @@ signal level_up
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	weapon_slots = $weapons.get_child(0).get_children().size()
+	# load resources
+	player_inventory = null
+	player_inventory = load("res://Assets/Resources/player_inventory.tres")
 	player_stats = null
 	player_stats = load("res://Assets/Resources/player_stats.tres")
 	player_stats.connect("stat_changed", stat_changed)
@@ -53,6 +57,8 @@ func stat_changed(stats):
 	
 	
 func got_hit(damage):
+	if !game_running:
+		return
 	player_stats.add_stat("health", -damage, true)
 	$AnimatedSprite2D.modulate = Color(1, 0, 0)
 	$AnimatedSprite2D.animation = "hit"
@@ -65,16 +71,13 @@ func got_hit(damage):
 func stop():
 	position = starting_position
 	velocity = Vector2.ZERO
-	$AnimatedSprite2D.animation = "idle"
 	game_running = false
-	stop_all_weapons(weapons)
 	
 func start():
 	var pistole = WeaponScenes.weapons[0]["scene"].instantiate()
 	add_weapon(pistole)
 	$AnimatedSprite2D.play()
 	game_running = true
-	start_all_weapons(weapons)
 	player_stats.stats["health"] = 10
 	show()
 
@@ -109,8 +112,9 @@ func add_weapon(weapon):
 	if weapons.size() >= weapon_slots:
 		print_debug("Waffen sind Voll")
 		return
-	weapon.position = get_node("weapons/GunPositions").get_child(weapons.size()).position*20
-	weapons.append(weapon)
+	var child_pos = player_inventory.weapons.size()
+	weapon.position = get_node("weapons/GunPositions").get_child(child_pos).position*20
+	player_inventory.add_weapon(weapon)
 	$weapons.add_child(weapon)
 
 
@@ -120,20 +124,15 @@ func remove_weapon(index):
 		print_debug("No Weapons to remove")
 		return
 	$weapons.remove_child(weapons[index])
-	weapons.remove_at(index)
-
-# function that stops the shootingTimer on all weapons
-func stop_all_weapons(_weapons):
-	for weapon in _weapons:
-		weapon.get_child(3).stop()
-
-# function that starts the shootingTimer on all weapons
-func start_all_weapons(_weapons):
-	for weapon in _weapons:
-		weapon.get_child(3).start()
+	player_inventory.remove_weapon(index)
 
 
 func die():
+	game_running = false
+	player_inventory.stop_all_weapons()
+	$AnimatedSprite2D.animation = "die"
+	$AnimatedSprite2D.play()
+	await get_tree().create_timer(2).timeout
 	get_tree().change_scene_to_file("res://Screens/end_screen.tscn")
 	stop()
 	get_parent().game_over()
@@ -142,3 +141,7 @@ func die():
 func _on_health_timer_timeout():
 	if player_stats.stats["health"] < player_stats.stats["max_health"]:
 		player_stats.add_stat("health", player_stats.stats["health_regen"] / 10, true)
+
+
+
+

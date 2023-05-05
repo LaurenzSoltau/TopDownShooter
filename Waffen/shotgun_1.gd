@@ -22,14 +22,14 @@ func fire():
 	
 	var spread_degree = -4
 	
-	for bullet in bullet_instances:
-		bullet.init(calculate_damage())
-		bullet.position = $GunPoint.global_position
-		bullet.rotation = $GunPoint.global_rotation + deg_to_rad(spread_degree)
-		bullet.point_of_origin = bullet.position
-		bullet.add_to_group("bullet")
-		bullet.apply_impulse(Vector2(bullet_speed, 0).rotated($GunPoint.global_rotation + deg_to_rad(spread_degree)))
+	for bullet_instance in bullet_instances:
+		bullet_instance.init(calculate_damage())
+		bullet_instance.position = $GunPoint.global_position
+		bullet_instance.rotation = $GunPoint.global_rotation + deg_to_rad(spread_degree)
+		bullet_instance.point_of_origin = bullet_instance.position
+		bullet_instance.add_to_group("bullet")
+		bullet_instance.apply_impulse(Vector2(bullet_speed, 0).rotated($GunPoint.global_rotation + deg_to_rad(spread_degree)))
 		muzzleFlashAnim.play("muzzle_flash")
-		get_tree().get_root().add_child(bullet)
-		super.fire()
+		get_tree().get_root().add_child(bullet_instance)
 		spread_degree += 2
+	super.fire()

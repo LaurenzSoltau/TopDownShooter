@@ -5,7 +5,6 @@ var screen_size
 var direction
 var velocity = Vector2.ZERO
 var starting_position = Vector2.ZERO
-var weapons = []
 var is_hit = false
 var weapon_slots: int
 
@@ -21,6 +20,8 @@ func _ready():
 	# load resources
 	player_inventory = null
 	player_inventory = load("res://Assets/Resources/player_inventory.tres")
+	player_inventory.connect("weapon_added", added_weapon)
+	player_inventory.connect("weapon_removed", removed_weapon)
 	player_stats = null
 	player_stats = load("res://Assets/Resources/player_stats.tres")
 	player_stats.connect("stat_changed", stat_changed)
@@ -68,18 +69,18 @@ func got_hit(damage):
 	$AnimatedSprite2D.modulate = Color(1, 1, 1)
 
 
-func stop():
-	position = starting_position
-	velocity = Vector2.ZERO
-	game_running = false
-	
 func start():
 	var pistole = WeaponScenes.weapons[0]["scene"].instantiate()
-	add_weapon(pistole)
+	player_inventory.add_weapon(pistole)
 	$AnimatedSprite2D.play()
 	game_running = true
 	player_stats.stats["health"] = 10
 	show()
+
+func stop():
+	position = starting_position
+	velocity = Vector2.ZERO
+	game_running = false
 
 
 func handle_movement(delta):
@@ -108,23 +109,15 @@ func handle_movement(delta):
 
 # function that adds a weapon to the weapon array if there is space
 # also adds the weapon to the weapons node as a child
-func add_weapon(weapon):
-	if weapons.size() >= weapon_slots:
-		print_debug("Waffen sind Voll")
-		return
-	var child_pos = player_inventory.weapons.size()
+func added_weapon(weapon):
+	var child_pos = player_inventory.weapons.size()-1
 	weapon.position = get_node("weapons/GunPositions").get_child(child_pos).position*20
-	player_inventory.add_weapon(weapon)
 	$weapons.add_child(weapon)
 
 
 #function that removes a weapon at a index
-func remove_weapon(index):
-	if weapons.size() <= 0:
-		print_debug("No Weapons to remove")
-		return
-	$weapons.remove_child(weapons[index])
-	player_inventory.remove_weapon(index)
+func removed_weapon(index):
+	$weapons.remove_child(player_inventory.weapons[index])
 
 
 func die():

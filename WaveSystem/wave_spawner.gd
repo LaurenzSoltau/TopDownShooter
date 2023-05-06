@@ -7,6 +7,7 @@ extends Node2D
 @export var enemy4: PackedScene
 @export var enemy5: PackedScene
 
+signal new_wave
 
 @onready var spawn_timer = $SpawnTimer
 
@@ -26,6 +27,7 @@ func _ready():
 
 func start_next_wave():
 	current_wave_number += 1
+	emit_signal("new_wave", current_wave_number)
 	print_debug("current Wave: ", current_wave_number)
 	current_wave = waves[current_wave_number]
 	spawn_timer.wait_time = current_wave.second_between_spawns

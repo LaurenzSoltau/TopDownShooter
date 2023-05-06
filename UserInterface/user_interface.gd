@@ -10,6 +10,7 @@ extends Control
 @onready var level_upgrades = load("res://Assets/Resources/level_upgrades.tres")
 @onready var inv_overlay = get_node("InvOverlay")
 @onready var menu_slide_sound: AudioStreamPlayer2D = get_node("MenuSlide")
+@onready var wave_spawner = get_node("/root/game/WaveSpawner")
 var player_stats: Resource
 var vendor: Node
 
@@ -21,6 +22,7 @@ func _ready():
 	player_stats = null
 	player_stats = load("res://Assets/Resources/player_stats.tres")
 	player_stats.connect("stat_changed", update_interface)
+	wave_spawner.connect("new_wave", wave_changed)
 	update_interface(player_stats.stats)
 	vendor = get_node("/root/game/Vendor")
 	vendor.connect("shop_opened", shop_opened)
@@ -78,3 +80,7 @@ func shop_opened():
 func play_slide_sound():
 	await get_tree().create_timer(0.2).timeout
 	menu_slide_sound.play()
+
+func wave_changed(wave):
+	$Label.text = "Wave: %s" % str(wave + 1)
+

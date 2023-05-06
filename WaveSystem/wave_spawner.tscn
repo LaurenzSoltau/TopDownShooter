@@ -50,9 +50,9 @@ second_between_spawns = 1.0
 
 [node name="Wave7" type="Node" parent="Waves"]
 script = ExtResource("2_ls0lh")
-count1 = 20
-count2 = 20
-second_between_spawns = 0.8
+count1 = 200
+count2 = 100
+second_between_spawns = 0.1
 
 [node name="Wave8" type="Node" parent="Waves"]
 script = ExtResource("2_ls0lh")

@@ -4,6 +4,7 @@ var player: Node
 @onready var item_containers = $HBoxContainer.get_children()
 var player_stats
 var price_multiplier: float
+var player_inventory
 
 var shop_items: Array
 
@@ -11,6 +12,8 @@ func _ready():
 	price_multiplier = 1
 	player_stats = null
 	player_stats = load("res://Assets/Resources/player_stats.tres")
+	player_inventory = null
+	player_inventory = load("res://Assets/Resources/player_inventory.tres")
 
 func new_shop():
 	if not $shopCooldown.is_stopped():
@@ -46,7 +49,6 @@ func get_shop_items(amount):
 	return created_weapons
 
 func assign_shop_items(p_shop_items):
-	print_debug(p_shop_items)
 	var counter = 0
 	for item in p_shop_items:
 		var weapon_instance = item.scene.instantiate()
@@ -69,9 +71,12 @@ func weapon_bought(index):
 	var weapon_instance = shop_items[index]["scene"].instantiate()
 	if weapon_instance.price * price_multiplier > player_stats.stats["money"]:
 		print_debug("zu teuer")
+		GlobalSound.play_ui_error()
 		return
-	player.add_weapon(weapon_instance)
-	player_stats.add_stat("money", -weapon_instance.price, true)
+	GlobalSound.play_ui_sound()
+	weapon_instance.purchase_price = weapon_instance.price * price_multiplier
+	player_inventory.add_weapon(weapon_instance)
+	player_stats.add_stat("money", -weapon_instance.price*price_multiplier, true)
 	price_multiplier = price_multiplier * 1.25
 	close_shop()
 	

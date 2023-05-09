@@ -17,7 +17,7 @@ func _ready():
 
 func new_shop():
 	if not $shopCooldown.is_stopped():
-		return
+		return false
 	get_parent().play_slide_sound()
 	$AnimationPlayer.current_animation = "SlideIn"
 	$AnimationPlayer.play()
@@ -25,6 +25,7 @@ func new_shop():
 	assign_shop_items(shop_items)
 	get_tree().paused = true
 	player = get_node("/root/game/Player")
+	return true
 
 func close_shop():
 	get_parent().play_slide_sound()

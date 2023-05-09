@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3]
 
 [ext_resource type="Theme" uid="uid://5rw5qeyv36vc" path="res://Assets/ui_theme.tres" id="1_6rm1k"]
-[ext_resource type="Script" path="res://UserInterface/Upgrade_Overlay.gd" id="2_jwjwv"]
+[ext_resource type="Script" path="res://UserInterface/upgrade_overlay.gd" id="2_jwjwv"]
 [ext_resource type="PackedScene" uid="uid://c3j6mcry46fx4" path="res://UserInterface/title.tscn" id="2_qugoh"]
 [ext_resource type="PackedScene" uid="uid://b1vbgb43eoyaj" path="res://UserInterface/buy_upgrade_button.tscn" id="4_8o81u"]
 

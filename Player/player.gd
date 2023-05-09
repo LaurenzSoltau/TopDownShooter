@@ -118,6 +118,7 @@ func added_weapon(weapon):
 #function that removes a weapon at a index
 func removed_weapon(index):
 	$weapons.remove_child(player_inventory.weapons[index])
+	player_inventory.weapons[index].queue_free()
 
 
 func die():

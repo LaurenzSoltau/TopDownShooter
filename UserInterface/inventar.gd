@@ -93,6 +93,7 @@ func sell_weapon():
 	if selected_weapon == null:
 		GlobalSound.play_ui_error()
 		return
+	GlobalSound.play_ui_sound()
 	player_stats.add_stat("money", int(selected_weapon.purchase_price / 2), true)
 	player_inventory.remove_weapon_by_name(selected_weapon)
 	selected_weapon = null

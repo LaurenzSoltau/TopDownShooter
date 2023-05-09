@@ -22,4 +22,8 @@ shape = SubResource("RectangleShape2D_wyt7b")
 position = Vector2(0.499999, 2.38419e-07)
 scale = Vector2(1.35, 0.4)
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

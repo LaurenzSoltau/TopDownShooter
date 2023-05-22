@@ -38,6 +38,7 @@ func assign_upgrades(pUpgrades: Array):
 		counter += 1
 
 func upgrade_bought(index):
+	GlobalSound.play_ui_sound()
 	get_parent().play_slide_sound()
 	var stat = upgrades[index]["stat"]
 	var stat_amount = upgrades[index]["tier"] * upgrades[index]["tier_multiplier"]

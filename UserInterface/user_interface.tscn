@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://l2wgi0o3gaua"]
+[gd_scene load_steps=15 format=3 uid="uid://c8m7cbxfeuloh"]
 
 [ext_resource type="Theme" uid="uid://5rw5qeyv36vc" path="res://Assets/ui_theme.tres" id="1_o3knu"]
 [ext_resource type="Script" path="res://UserInterface/user_interface.gd" id="2_7km0m"]
@@ -7,9 +7,10 @@
 [ext_resource type="SystemFont" uid="uid://cvvwox6frpuwc" path="res://Assets/Fonts/ui_font.tres" id="3_7bm77"]
 [ext_resource type="PackedScene" uid="uid://gmv61iu5sxqd" path="res://UserInterface/quit_button.tscn" id="4_ynyl6"]
 [ext_resource type="PackedScene" uid="uid://cnvin7ql1ttw4" path="res://UserInterface/retry_button.tscn" id="5_vai8e"]
-[ext_resource type="PackedScene" uid="uid://7rdij6ssvwph" path="res://UserInterface/upgrade_overlay.tscn" id="8_lc610"]
-[ext_resource type="PackedScene" uid="uid://do6oew8f70ca3" path="res://UserInterface/inventar.tscn" id="9_tja23"]
+[ext_resource type="PackedScene" path="res://UserInterface/upgrade_overlay.tscn" id="8_lc610"]
+[ext_resource type="PackedScene" uid="uid://cbk2t2443pr8y" path="res://UserInterface/inventar.tscn" id="9_tja23"]
 [ext_resource type="PackedScene" uid="uid://dfm3xg5f837pj" path="res://UserInterface/weapon_shop.tscn" id="10_cjgwa"]
+[ext_resource type="AudioStream" uid="uid://cy82yk211l7pf" path="res://Assets/Sound/UI/menuSwoosh.wav" id="11_m5ynk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g6t34"]
 bg_color = Color(0, 0, 0, 0.478431)
@@ -182,8 +183,8 @@ layout_mode = 2
 [node name="UpgradeOverlay" parent="." instance=ExtResource("8_lc610")]
 visible = false
 layout_mode = 1
-offset_right = 37120.0
-offset_bottom = 21603.0
+offset_right = 57600.0
+offset_bottom = 33123.0
 
 [node name="InvOverlay" parent="." instance=ExtResource("9_tja23")]
 visible = false
@@ -191,6 +192,7 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
+offset_bottom = 6501.0
 grow_horizontal = 1
 grow_vertical = 1
 
@@ -200,6 +202,25 @@ layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_bottom = 4338.0
+offset_bottom = 10122.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="MenuSlide" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_m5ynk")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -116.0
+offset_top = 12.0
+offset_right = 116.0
+offset_bottom = 70.0
+grow_horizontal = 2
+theme = ExtResource("1_o3knu")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 19
+text = "Wave: %s"
+vertical_alignment = 1

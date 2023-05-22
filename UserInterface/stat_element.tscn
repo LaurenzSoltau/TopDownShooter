@@ -1,25 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn07hfh50rqcw"]
+[gd_scene load_steps=3 format=3 uid="uid://dn07hfh50rqcw"]
 
 [ext_resource type="Script" path="res://UserInterface/stat_element.gd" id="1_0u6w8"]
-[ext_resource type="Texture2D" uid="uid://djnxn1dft6h3s" path="res://Assets/Sprites/spr_coin_strip4.png" id="1_78elc"]
 [ext_resource type="Theme" uid="uid://5rw5qeyv36vc" path="res://Assets/ui_theme.tres" id="2_yo65x"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sjg4v"]
-atlas = ExtResource("1_78elc")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d4ewa"]
-atlas = ExtResource("1_78elc")
-region = Rect2(0, 0, 16, 16)
 
 [node name="StatElement" type="HBoxContainer"]
 theme_override_constants/separation = 17
 script = ExtResource("1_0u6w8")
-icon = SubResource("AtlasTexture_sjg4v")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 2
-texture = SubResource("AtlasTexture_d4ewa")
 
 [node name="StatName" type="Label" parent="."]
 layout_mode = 2

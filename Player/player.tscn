@@ -1,18 +1,28 @@
-[gd_scene load_steps=22 format=3 uid="uid://1j8us5vs6fyp"]
+[gd_scene load_steps=32 format=3 uid="uid://1j8us5vs6fyp"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_yg7la"]
-[ext_resource type="Texture2D" uid="uid://ctfbgbodl2rkb" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/hit_0.png" id="2_f664t"]
 [ext_resource type="Texture2D" uid="uid://v3foof4n7i4j" path="res://Assets/Sprites/dropShadow.png" id="2_n4icc"]
-[ext_resource type="Texture2D" uid="uid://cw4vbc1a00ocw" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/hit_1.png" id="3_2q1yh"]
-[ext_resource type="Texture2D" uid="uid://dp1vo8xuafxba" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Full body animated characters/Char 1/with hands/hit_2.png" id="4_20ewm"]
+[ext_resource type="Texture2D" uid="uid://ca4c01ohrnljx" path="res://Assets/PlayerCharacters/FrankOcean/Hit/frank_ocean_hit_animation-1.png" id="3_l7ha1"]
+[ext_resource type="Texture2D" uid="uid://bw2smt1705vyw" path="res://Assets/PlayerCharacters/FrankOcean/death/frank_ocean_death_animation-1.png" id="3_vnmed"]
+[ext_resource type="Texture2D" uid="uid://br5utresc5upo" path="res://Assets/PlayerCharacters/FrankOcean/death/frank_ocean_death_animation-2.png" id="4_5y5a5"]
+[ext_resource type="Texture2D" uid="uid://b83sogd6jep73" path="res://Assets/PlayerCharacters/FrankOcean/Hit/frank_ocean_hit_animation-2.png" id="4_omox8"]
+[ext_resource type="Texture2D" uid="uid://cgyssvcyhqfyy" path="res://Assets/PlayerCharacters/FrankOcean/death/frank_ocean_death_animation-3.png" id="5_6txmr"]
 [ext_resource type="Texture2D" uid="uid://bq6cxdxhaqka2" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-1 2.png" id="5_kfs36"]
+[ext_resource type="Texture2D" uid="uid://c5tf74y7gahkf" path="res://Assets/PlayerCharacters/FrankOcean/Hit/frank_ocean_hit_animation-3.png" id="5_q7s51"]
 [ext_resource type="Texture2D" uid="uid://b44u22lrm6mow" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-2 2.png" id="6_1a4mw"]
+[ext_resource type="Texture2D" uid="uid://d0hv58vuv6g6v" path="res://Assets/PlayerCharacters/FrankOcean/death/frank_ocean_death_animation-4.png" id="6_d5eec"]
+[ext_resource type="Texture2D" uid="uid://d4e4ede4iot6r" path="res://Assets/PlayerCharacters/FrankOcean/death/frank_ocean_death_animation-5.png" id="7_edhqe"]
 [ext_resource type="Texture2D" uid="uid://dan8psi6df5c2" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-3 2.png" id="7_q6jpb"]
+[ext_resource type="Texture2D" uid="uid://b3ld1hvrrlw6q" path="res://Assets/PlayerCharacters/FrankOcean/death/frank_ocean_death_animation-6.png" id="8_dnhrx"]
 [ext_resource type="Texture2D" uid="uid://b2x2stkb2pela" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-4 2.png" id="8_vj77c"]
 [ext_resource type="Texture2D" uid="uid://b4f4ohehpbme4" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-5 2.png" id="9_7umql"]
+[ext_resource type="Texture2D" uid="uid://wnh1b38bei75" path="res://Assets/PlayerCharacters/FrankOcean/death/frank_ocean_death_animation-7.png" id="9_hd6lp"]
+[ext_resource type="Texture2D" uid="uid://c6wg4ubgd14pi" path="res://Assets/PlayerCharacters/FrankOcean/death/frank_ocean_death_animation-8.png" id="10_2ayd1"]
 [ext_resource type="Texture2D" uid="uid://coqunbwbd8hch" path="res://Assets/PlayerCharacters/FrankOcean/Idle/frank_idle_animation_-6 2.png" id="10_eo612"]
 [ext_resource type="Texture2D" uid="uid://c2a1wnqd6kfnq" path="res://Assets/PlayerCharacters/FrankOcean/Walk/frank_walk_animation-1.png" id="11_btjd2"]
+[ext_resource type="Texture2D" uid="uid://cpc5x8ncc8ic3" path="res://Assets/PlayerCharacters/FrankOcean/death/frank_ocean_death_animation-9.png" id="11_udaf2"]
 [ext_resource type="Texture2D" uid="uid://dvadyncdmp2h1" path="res://Assets/PlayerCharacters/FrankOcean/Walk/frank_walk_animation-2.png" id="12_4v0om"]
+[ext_resource type="Texture2D" uid="uid://sf0tciy02gjy" path="res://Assets/PlayerCharacters/FrankOcean/death/frank_ocean_death_animation-10.png" id="12_esjgl"]
 [ext_resource type="Texture2D" uid="uid://dnt31gwu6wstb" path="res://Assets/PlayerCharacters/FrankOcean/Walk/frank_walk_animation-3.png" id="13_5fgpc"]
 [ext_resource type="Texture2D" uid="uid://cic0x2cpbhuh1" path="res://Assets/PlayerCharacters/FrankOcean/Walk/frank_walk_animation-4.png" id="14_4tbuy"]
 [ext_resource type="Texture2D" uid="uid://cuio17dcjkdb5" path="res://Assets/PlayerCharacters/FrankOcean/Walk/frank_walk_animation-5.png" id="15_eby6c"]
@@ -24,13 +34,48 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_f664t")
+"texture": ExtResource("3_vnmed")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_2q1yh")
+"texture": ExtResource("4_5y5a5")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_20ewm")
+"texture": ExtResource("5_6txmr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_d5eec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_edhqe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_dnhrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_hd6lp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2ayd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_udaf2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_esjgl")
+}],
+"loop": false,
+"name": &"die",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_l7ha1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_omox8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_q7s51")
 }],
 "loop": false,
 "name": &"hit",
@@ -108,8 +153,7 @@ texture = ExtResource("2_n4icc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(15, -136)
 sprite_frames = SubResource("SpriteFrames_e7gas")
-animation = &"walk"
-frame_progress = 0.658773
+animation = &"hit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -140,6 +184,9 @@ position = Vector2(-20, 8)
 
 [node name="6" type="Node2D" parent="weapons/GunPositions"]
 position = Vector2(-18, 21)
+
+[node name="7" type="Node2D" parent="weapons/GunPositions"]
+position = Vector2(0, 27)
 
 [node name="healthTimer" type="Timer" parent="."]
 autostart = true

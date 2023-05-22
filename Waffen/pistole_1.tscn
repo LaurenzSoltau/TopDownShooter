@@ -1,12 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl0jhndme4hnh"]
+[gd_scene load_steps=7 format=3 uid="uid://dhmq3bd8kjml4"]
 
 [ext_resource type="PackedScene" uid="uid://biwluetnyihce" path="res://Waffen/base_range_weapon.tscn" id="1_dq3l3"]
-[ext_resource type="Texture2D" uid="uid://cacywlf8m2nap" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Weapons/weaponR2.png" id="2_a87sx"]
 [ext_resource type="Script" path="res://Waffen/pistole_1.gd" id="2_ceptb"]
+[ext_resource type="Texture2D" uid="uid://dmp4dgc7vxm2u" path="res://Assets/Weapons/Pistol.png" id="2_fk1g5"]
 [ext_resource type="PackedScene" uid="uid://dsty7iw4xtkr" path="res://Waffen/Bullets/bullet.tscn" id="3_nqnhp"]
+[ext_resource type="AudioStream" uid="uid://dq0cd121elks0" path="res://Assets/Sound/fireSound/basic_bullet_sound.wav" id="5_0m8xv"]
+[ext_resource type="Texture2D" uid="uid://dgqiybd0txcto" path="res://Assets/Free 2D Animated Vector Game Character Sprites/Extras/muzzle.png" id="5_vrima"]
 
 [node name="Pistole1" instance=ExtResource("1_dq3l3")]
-texture = ExtResource("2_a87sx")
+texture = ExtResource("2_fk1g5")
 script = ExtResource("2_ceptb")
 bullet_damage = 3.0
 bullet_speed = 2000
@@ -15,9 +17,13 @@ bullet = ExtResource("3_nqnhp")
 
 [node name="MuzzleFlash" parent="." index="1"]
 visible = false
+position = Vector2(688.889, -75.5556)
+scale = Vector2(0.45, 0.25)
+texture = ExtResource("5_vrima")
 
 [node name="ShootTimer" parent="." index="3"]
 wait_time = 0.75
 
 [node name="gunShot" parent="." index="4"]
+stream = ExtResource("5_0m8xv")
 volume_db = -25.0

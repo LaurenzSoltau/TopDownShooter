@@ -4,6 +4,7 @@ extends Node2D
 var player_in_area: = false
 var user_interface: Node
 signal shop_opened
+var block_input = false
 
 
 func _ready():
@@ -14,6 +15,7 @@ func _ready():
 func _unhandled_key_input(event):
 	if event.is_action_pressed("interact") and player_in_area:
 		open_shop()
+		
 
 
 func _on_area_2d_area_entered(area):

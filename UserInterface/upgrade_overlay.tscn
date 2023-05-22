@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://7rdij6ssvwph"]
+[gd_scene load_steps=9 format=3]
 
 [ext_resource type="Theme" uid="uid://5rw5qeyv36vc" path="res://Assets/ui_theme.tres" id="1_6rm1k"]
 [ext_resource type="Script" path="res://UserInterface/upgrade_overlay.gd" id="2_jwjwv"]

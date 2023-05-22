@@ -9,8 +9,11 @@ extends Control
 @onready var xp_bar: ProgressBar = get_node("xp_bar")
 @onready var level_upgrades = load("res://Assets/Resources/level_upgrades.tres")
 @onready var inv_overlay = get_node("InvOverlay")
+@onready var menu_slide_sound: AudioStreamPlayer2D = get_node("MenuSlide")
+@onready var wave_spawner = get_node("/root/game/WaveSpawner")
 var player_stats: Resource
 var vendor: Node
+var no_input = false
 
 var paused: = false:
 	set(value):
@@ -20,6 +23,7 @@ func _ready():
 	player_stats = null
 	player_stats = load("res://Assets/Resources/player_stats.tres")
 	player_stats.connect("stat_changed", update_interface)
+	wave_spawner.connect("new_wave", wave_changed)
 	update_interface(player_stats.stats)
 	vendor = get_node("/root/game/Vendor")
 	vendor.connect("shop_opened", shop_opened)
@@ -39,6 +43,19 @@ func update_interface(stats):
 
 
 func _unhandled_input(event):
+	if no_input:
+		return
+	if event.is_action_pressed("close"):
+		if inv_overlay.visible:
+			block_input(0.5)
+			inv_overlay.deload()
+		elif $WeaponShop.visible:
+			block_input(0.5)
+			$WeaponShop.close_shop()
+		elif paused:
+			paused = false
+		else:
+			paused = true
 	if event.is_action_pressed("pause") and not $UpgradeOverlay.visible and not $InvOverlay.visible and not $WeaponShop.visible:
 		self.paused = not paused
 		get_viewport().set_input_as_handled()
@@ -47,6 +64,7 @@ func _unhandled_input(event):
 			inv_overlay.deload()
 		else:
 			inv_overlay.load()
+		block_input(0.5)
 	if event.is_action_pressed("interact") and $WeaponShop.visible:
 		$WeaponShop.close_shop()
 
@@ -63,4 +81,21 @@ func update_progress_bar(progressbar, end, duration):
 
 func shop_opened():
 	if not $UpgradeOverlay.visible and not get_tree().paused:
-		$WeaponShop.new_shop()
+		if $WeaponShop.new_shop():
+			block_input(0.5)
+		
+		
+		
+
+func play_slide_sound():
+	await get_tree().create_timer(0.2).timeout
+	menu_slide_sound.play()
+
+func wave_changed(wave):
+	$Label.text = "Wave: %s" % str(wave + 1)
+
+func block_input(time):
+	no_input = true
+	await get_tree().create_timer(time).timeout
+	no_input = false
+	

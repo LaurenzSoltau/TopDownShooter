@@ -1,10 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://4jfhxa44rao2"]
+[gd_scene load_steps=5 format=3 uid="uid://4jfhxa44rao2"]
 
 [ext_resource type="AudioStream" uid="uid://bmacly1mbm7or" path="res://Assets/Sound/soundtrack.mp3" id="1_7gbto"]
+[ext_resource type="Script" path="res://AutoLoad/global_sound.gd" id="1_xysqc"]
+[ext_resource type="AudioStream" uid="uid://b4oww72u55hio" path="res://Assets/Sound/UI/ui_sound.wav" id="3_07ykf"]
+[ext_resource type="AudioStream" uid="uid://hb2hw51kv0g8" path="res://Assets/Sound/UI/ui_error.mp3" id="4_2qdhm"]
 
 [node name="Node" type="Node"]
+script = ExtResource("1_xysqc")
 
 [node name="Soundtrack" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_7gbto")
 volume_db = -30.0
 autoplay = true
+
+[node name="UiClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_07ykf")
+volume_db = -10.0
+
+[node name="UiError" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2qdhm")

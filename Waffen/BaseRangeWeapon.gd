@@ -11,15 +11,17 @@ class_name base_range_weapon
 @export var bullet_speed: int
 @export var weapon_range: int
 @export var price: int
+var purchase_price: int
 
 
 
 
 @export var bullet: PackedScene
-@onready var shootTimer = $ShootTimer
-@onready var muzzleFlashAnim = $AnimationPlayer
-@onready var gunShotSound = $gunShot
+@onready var shootTimer: Timer = $ShootTimer
+@onready var muzzleFlashAnim: AnimationPlayer = $AnimationPlayer
+@onready var gunShotSound: AudioStreamPlayer2D = $gunShot
 var player_stats
+var weapon_stats
 
 
 var nearest_enemy
@@ -30,11 +32,19 @@ func _ready():
 	player_stats = null
 	player_stats = load("res://Assets/Resources/player_stats.tres")
 	shootTimer.wait_time = fire_rate
+	weapon_stats = {
+		"fire_rate": fire_rate,
+		"bullet_damage": bullet_damage,
+		"bullet_speed": bullet_speed,
+		"weapon_range": weapon_range,
+	}
 # This function should shoot the gun and must be implemented in the inhereted classes
 func fire():
 	#only shoot wehen enemy is in distance
 	gunShotSound.play()
 
+func stop():
+	shootTimer.stop()
 # this function finds the nearest enemy to the weapon and retuns the enemy as an object
 func find_nearest_enemy():
 	# check if there are enemies instanced, if not return

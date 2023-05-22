@@ -49,6 +49,7 @@ animations = [{
 [node name="MeleeEnemy1" instance=ExtResource("1_6hr5c")]
 script = ExtResource("2_2pffb")
 money_drop = ExtResource("4_5gjrn")
+money_worth = 500
 xp_drop = ExtResource("3_yyex1")
 
 [node name="AnimatedSprite2D" parent="." index="1"]

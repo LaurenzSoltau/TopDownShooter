@@ -5,7 +5,9 @@ var player_stats
 var upgrades: Array
 @onready var upgrade_containers = $HBoxContainer.get_children()
 
+
 func new_shop():
+	get_parent().play_slide_sound()
 	player_stats = null
 	player_stats = load("res://Assets/Resources/player_stats.tres")
 	$AnimationPlayer.current_animation = "SlideIn"
@@ -36,9 +38,11 @@ func assign_upgrades(pUpgrades: Array):
 		counter += 1
 
 func upgrade_bought(index):
+	GlobalSound.play_ui_sound()
+	get_parent().play_slide_sound()
 	var stat = upgrades[index]["stat"]
 	var stat_amount = upgrades[index]["tier"] * upgrades[index]["tier_multiplier"]
-	player_stats.add_stat(stat, stat_amount, true)
+	player_stats.add_stat(stat, stat_amount, true)	
 	$AnimationPlayer.current_animation = "SlideOut"
 	$AnimationPlayer.play()
 	get_tree().paused = false

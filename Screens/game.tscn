@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bi2ogf2d5nker" path="res://Assets/Sprites/Forest_Background.png" id="2_0fywu"]
 [ext_resource type="Script" path="res://Screens/game.gd" id="2_84ier"]
-[ext_resource type="PackedScene" uid="uid://l2wgi0o3gaua" path="res://UserInterface/user_interface.tscn" id="4_dj5ru"]
+[ext_resource type="PackedScene" uid="uid://c8m7cbxfeuloh" path="res://UserInterface/user_interface.tscn" id="4_dj5ru"]
 [ext_resource type="PackedScene" uid="uid://1j8us5vs6fyp" path="res://Player/player.tscn" id="5_84qer"]
 [ext_resource type="PackedScene" uid="uid://cp1loy2brc2h0" path="res://WaveSystem/wave_spawner.tscn" id="6_vblev"]
 [ext_resource type="PackedScene" uid="uid://dq388ollgkk55" path="res://Npc/vendor.tscn" id="8_unak3"]

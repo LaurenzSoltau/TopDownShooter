@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpn6gndud0nsf"]
+
+[ext_resource type="Theme" uid="uid://5rw5qeyv36vc" path="res://Assets/ui_theme.tres" id="1_4xh4m"]
+[ext_resource type="Script" path="res://UserInterface/weapon_stat_element.gd" id="1_gtn10"]
+
+[node name="WeaponStatElement" type="HBoxContainer"]
+offset_right = 182.0
+offset_bottom = 26.0
+script = ExtResource("1_gtn10")
+
+[node name="StatName" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("1_4xh4m")
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StatValue" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_4xh4m")
+theme_override_font_sizes/font_size = 20
+text = "
+"
+horizontal_alignment = 2
+vertical_alignment = 1

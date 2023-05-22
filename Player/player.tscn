@@ -108,7 +108,8 @@ texture = ExtResource("2_n4icc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(15, -136)
 sprite_frames = SubResource("SpriteFrames_e7gas")
-animation = &"idle"
+animation = &"walk"
+frame_progress = 0.658773
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
